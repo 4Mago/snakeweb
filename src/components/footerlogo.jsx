@@ -41,7 +41,8 @@ const ImageDiv = styled.div`
 `
 
 const HeroImage = styled.img`
-  width: 100%;
+  width: 135px;
+  height: 135px;
 `
 
 const A = styled.a``

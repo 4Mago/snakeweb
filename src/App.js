@@ -54,6 +54,7 @@ function App() {
           )}
         />
       </ProjectContextProvider>
+      <Home />
       <Footer />
     </>
   )

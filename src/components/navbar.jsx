@@ -17,8 +17,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  z-index: 9999;
+  z-index: 99;
   @media screen and (max-width: 968px) {
     font-size: 0;
     width: 50%;
@@ -44,7 +43,7 @@ const NavBox = styled.div`
   display: flex;
   justify-content: center;
   right: 0;
-  padding: 30px 30px;
+  padding: 0 30px;
   gap: 12px;
   align-items: center;
   font-size: 16.4px;
@@ -57,7 +56,6 @@ const NavBox = styled.div`
 
 const MenuLink = styled(Link)`
   text-decoration: none;
-  padding-top: 20px;
   z-index: 99;
 `
 

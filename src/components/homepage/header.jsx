@@ -1,9 +1,8 @@
-import React, { useContext } from "react"
-import { HeaderContext } from "../store/Header.context"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import sanityClient from "../Client"
+import sanityClient from "../../Client"
 import imageUrlBuilder from "@sanity/image-url"
-import CTA from "./cta"
+import CTA from "../cta"
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -14,18 +13,6 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: flex-start;
-  flex-flow: column;
-`
-const HeaderContentContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-
-  @media screen and (min-width: 1000px) {
-    padding-left: 110px;
-  }
 `
 
 const HeaderText = styled.h1`
@@ -81,12 +68,9 @@ const HeaderTagline = styled.p`
 `
 
 const HeroImage = styled.img`
-  position: absolute;
   width: auto;
-  height: 90%;
-  right: 0;
-  top: 0;
-  z-index: -1;
+  height: 100%;
+  z-index: 1;
 
   @media screen and (min-width: 1500px) {
     height: 100%;
@@ -100,10 +84,23 @@ const HeroImage = styled.img`
 `
 
 const Header = () => {
-  const { header } = useContext(HeaderContext)
+  const [header, setHeader] = useState("")
+
+  useEffect(() => {
+    const headerQuery = `*[_type == "header"]{
+			heroImage, title, tagline
+		}`
+    sanityClient.fetch(headerQuery).then((header) => {
+      header.forEach((header) => {
+        setHeader(header)
+      })
+    })
+
+    return
+  }, [])
+
   return (
     <Container>
-      <HeaderContentContainer>
         <HeroImage
           alt="hero image"
           className="heroimage"
@@ -113,7 +110,6 @@ const Header = () => {
         <HeaderText>{header.title}</HeaderText>
         <HeaderTagline>{header.tagline}</HeaderTagline>
         <CTA>Kontakt</CTA>
-      </HeaderContentContainer>
     </Container>
   )
 }

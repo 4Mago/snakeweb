@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { TaglineContext } from "../store/Tagline.context"
+import { TaglineContext } from "../../store/Tagline.context"
 import imageUrlBuilder from "@sanity/image-url"
-import sanityClient from "../Client"
+import sanityClient from "../../Client"
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
