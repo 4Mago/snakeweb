@@ -16,7 +16,7 @@ import ProjectExtended from "./pages/project-extended.component"
 
 function App() {
   return (
-    <>
+    <div className='App'>
       <NavigationDesktop />
       <Example />
       <ProjectContextProvider>
@@ -54,9 +54,8 @@ function App() {
           )}
         />
       </ProjectContextProvider>
-      <Home />
       <Footer />
-    </>
+    </div>
   )
 }
 

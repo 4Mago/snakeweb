@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
-import ClientImage from '../misc/client-image.component'
-import HeaderText from '../misc/header-text.component'
+import ClientImage from './client-image.component'
+import HeaderText from './header-text.component'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import CTA from '../cta'
 
 const OuterContainer = styled.div`
 	margin-top: 5%;
@@ -132,7 +132,7 @@ const Sample = ({ inView }) => {
 					<TextContainer>
 						<HeaderText>{sample.clientName}</HeaderText>
 						<Text>{sample.description}</Text>
-						<SampleCTA>Kontakt</SampleCTA>
+						<CTA>Kontakt</CTA>
 					</TextContainer>
 				</Container>
 			</OuterContainer>

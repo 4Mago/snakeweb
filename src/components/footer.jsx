@@ -30,7 +30,9 @@ const MenuLinkOpenhours = styled(Link)`
 `
 
 const Container = styled.div`
+  padding-top: 25px;
   background-color: black;
+  color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;

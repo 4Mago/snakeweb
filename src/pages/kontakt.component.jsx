@@ -1,22 +1,18 @@
-import React from "react"
+import React, { useState, useEffect} from "react"
+import sanityClient from '../Client'
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import Sample from "../components/projects/sample"
 
 const Background = styled.div`
-  position: absolute;
   width: 100%;
-  height: 200vh;
+  height: auto;
   top: 0;
   left: 0;
   right: 0;
   z-index: -1;
   bottom: 0;
   transition: 1s all ease-in-out;
-  background: radial-gradient(
-    circle at bottom,
-    rgba(234, 109, 145, 0.2) 0%,
-    rgba(32, 27, 61, 0) 100%
-  );
 `
 const Container = styled.div`
   width: 100%;
@@ -49,6 +45,58 @@ const Text = styled.p`
     font-size: 5vw;
   }
 `
+const HeaderText = styled.h1`
+	color: white;
+	font-size: 52px;
+	text-align: left;
+	width: 40vw;
+	margin-bottom: 0;
+
+	@media screen and (min-width: 1550px) {
+		font-size: 4vw;
+	}
+	@media screen and (max-width: 1300px) {
+		width: 48vw;
+
+	}
+	@media screen and (max-width: 1100px) {
+		font-size: 45px;
+		position: relative;
+		top: -10%;
+		padding: 0 5vw;
+	}
+	@media screen and (max-width: 700px) {
+		width: auto;
+	}
+	@media screen and (max-width: 500px) {
+		font-size: 36px;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 36px;
+	}
+`
+const HeaderTagline = styled.p`
+	color: white;
+	font-size: 32px;
+	text-align: left;
+
+	@media screen and (max-width: 1000px) {
+		font-size: 22px;
+		position: relative;
+		top: -10%;
+		padding: 0 5vw;
+	}
+	@media screen and (max-width: 700px) {
+	}
+	@media screen and (max-width: 500px) {
+		font-size: 18px;
+		width: 301px;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 14px;
+		width: 150px;
+	}
+`
 
 const A = styled.a`
   text-decoration: none;
@@ -57,6 +105,23 @@ const A = styled.a`
 const transition = { duration: 1, ease: [0.43, 0.013, 0.23, 0.96] }
 
 const Kontakt = () => {
+
+  const [about, setAbout] = useState("")
+
+  useEffect(() => {
+    const aboutQuery = `*[_type == "about"]{
+			description, title, tagline
+		}`
+    sanityClient.fetch(aboutQuery).then((about) => {
+      about.forEach((about) => {
+        setAbout(about)
+      })
+    })
+
+    return
+  }, [])
+
+
   return (
     <motion.div
       exit={{ opacity: 0 }}
@@ -66,21 +131,10 @@ const Kontakt = () => {
     >
       <Background />
       <Container>
-        <Text>
-          Vi är en liten studio baserad i Stockholm som bygger hemsidor med det
-          senaste inom webbdesign och webbutveckling. Detta innebär mer insyn
-          under arbetets gång, inga löpande kostnader och tillgång till ett
-          lättförståeligt redigeringsprogram. Utöver detta lägger vi stort fokus
-          på användarvänlighet, mobilanpassning, och kundupplevelsen i
-          utformningen av hemsidan
-        </Text>
+        <HeaderText>{about.title}</HeaderText>
+        <HeaderTagline>{about.tagline}</HeaderTagline>
       </Container>
-      <Segment>
-        <Text>
-          Hör av dig till <A href="tel:0707972446">070-797 2446</A>
-        </Text>
-      </Segment>
-      <Segment2>Hej</Segment2>
+        <Text>{about.description}</Text>
     </motion.div>
   )
 }

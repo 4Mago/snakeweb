@@ -1,8 +1,14 @@
 import React from "react"
-import Header from "../components/homepage/header"
+import styled from 'styled-components'
 import { motion } from "framer-motion"
 import Arrow from "../components/homepage/arrows"
+import Homepage from "../components/homepage/homepage"
 const transition = { duration: 0.3, ease: [0.43, 0.013, 0.23, 0.96] }
+
+const Container = styled.div`
+  background-color: #131313;
+`
+
 const Home = () => {
   return (
     <motion.div
@@ -11,8 +17,10 @@ const Home = () => {
       initial={{ opacity: 0 }}
       transition={transition}
     >
-      <Header />
+ <Container>     
+      <Homepage />
       <Arrow />
+    </Container>
     </motion.div>
   )
 }

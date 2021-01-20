@@ -55,8 +55,15 @@ const NavBox = styled.div`
 `
 
 const MenuLink = styled(Link)`
+  font-family: Poppins, cursive;
   text-decoration: none;
+	color: rgba(255, 255, 255, 0.420);
   z-index: 99;
+  padding: 1rem;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.666);
+  }
 `
 
 const NavigationDesktop = () => {

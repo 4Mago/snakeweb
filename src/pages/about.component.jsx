@@ -1,113 +1,146 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
-import { AboutContext } from '../store/about.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../Client'
+import CTA from '../components/cta'
+import Tagline from '../components/homepage/tagline'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
-	return builder.image(source)
+  return builder.image(source)
 }
 const Container = styled.div`
-	height: 100%;
+	height: auto;
 	min-height: 100vh;
-	width: 100%;
 	display: flex;
-	text-align: center;
+	width: 50%;
 	justify-content: center;
-	color: #4a1f1f;
+	align-items: flex-start;
+	flex-flow: column;
+`
+const HeaderContentContainer = styled.div`
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
 
-	font-family: poppins;
-	h1 {
-		padding: 0 35px 0 0;
+	@media screen and (min-width: 1000px) {
+		padding-left: 110px;
 	}
 `
-const Background = styled.div`
+
+const HeaderText = styled.h1`
+	color: white;
+	font-size: 52px;
+	text-align: left;
+	width: 40vw;
+	hover: 
+	margin-bottom: 0;
+	cursor: pointer;
+
+	@media screen and (min-width: 1550px) {
+		font-size: 4vw;
+	}
+	@media screen and (max-width: 1300px) {
+		width: 48vw;
+
+	}
+	@media screen and (max-width: 1100px) {
+		font-size: 45px;
+		position: relative;
+		top: -10%;
+		padding: 0 5vw;
+	}
+	@media screen and (max-width: 700px) {
+		width: auto;
+	}
+	@media screen and (max-width: 500px) {
+		font-size: 36px;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 36px;
+	}
+`
+const HeaderTagline = styled.h1`
+	color: white;
+	font-size: 32px;
+	text-align: left;
+	cursor: pointer;
+
+	@media screen and (max-width: 1000px) {
+		font-size: 22px;
+		position: relative;
+		top: -10%;
+		padding: 0 5vw;
+	}
+	@media screen and (max-width: 700px) {
+	}
+	@media screen and (max-width: 500px) {
+		font-size: 18px;
+		width: 301px;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 14px;
+		width: 150px;
+	}
+`
+
+const HeroImage = styled.img`
 	position: absolute;
-	top: 0;
-	left: 0;
-	background-image: url('/media/about-bg.svg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	z-index: -1;
-	width: 100%;
-	height: 150vh;
-`
-const Motion = styled(motion.div)`
-	height: 100%;
-`
-
-const SegmentContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	gap: 100px;
-	padding: 15px;
-	margin: 15px;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
-`
-
-const Segment = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-`
-
-const Textcontainer = styled.div`
-	display: flex;
-	justify-content: space-evenly;
-	width: 80%;
-	height: 100%;
-`
-
-const Photo = styled.img`
 	width: auto;
-	height: 40vh;
-	margin: 15px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	height: 90%;
+	right: 0;
+	top: 0;
+	z-index: -1;
+
+	@media screen and (min-width: 1500px) {
+		height: 100%;
+	}
+	@media screen and (max-width: 800px) {
+		height: 80%;
+	}
+	@media screen and (max-width: 500px) {
+		height: 73%;
+	}
 `
-const AboutText = styled.div`
-	height: 100%;
-	padding: 0 15px;
-	margin: 0 15px;
-	text-align: center;
+
+const CTAContainer = styled.div`
+	position: absolute;
+	top: 75vh;	
+	left: 55vw;
+	display: flex;
 `
 
 const About = () => {
-	const { about } = useContext(AboutContext)
+	const [client, setClient] = useState("")
+
+	useEffect(() => {
+	  const headerQuery = `*[_type == "client"]{
+			  clientName, description, logo, websiteImage, tagline
+		  }`
+	  sanityClient.fetch(headerQuery).then((header) => {
+		header.forEach((header) => {
+		  setClient(header)
+		})
+	  })
+  
+	  return
+	}, [])
+  
 
 	return (
-		<Motion
-			exit={{ opactiy: 0 }}
-			animate={{ opacity: 1 }}
-			initial={{ opacity: 0 }}
-		>
-			<Background />
-			<Container>
-				<SegmentContainer>
-					<br />
-					<h1>{about.title}</h1>
-					<Segment>
-						<Photo
-							alt='hero image'
-							className='heroimage'
-							id='heroimage'
-							src={urlFor(about.image).url()}
-						/>
-					</Segment>
-					<Textcontainer>
-						<AboutText>{about.description}</AboutText>
-					</Textcontainer>
-				</SegmentContainer>
-			</Container>
-		</Motion>
+		<Container>
+		  <HeaderContentContainer>
+	
+			  <HeroImage
+				alt="hero image"
+				className="heroimage"
+				id="heroimage"
+				src={urlFor(client.websiteImage).url()}
+				/>
+			  <HeaderText>{client.clientName}</HeaderText>
+			  <HeaderTagline>{client.tagline}</HeaderTagline>
+		  </HeaderContentContainer>
+		</Container>
 	)
 }
 export default About

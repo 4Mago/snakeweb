@@ -15,7 +15,7 @@ const MenuLink = styled(Link)`
 
 const Container = styled.div`
   width: 100%;
-  height: 220px;
+  height: 300px;
   padding: 0;
   margin: 0;
   background-color: #686868;
@@ -51,8 +51,8 @@ const FooterLogo = () => {
   const [header, setHeader] = useState("")
 
   useEffect(() => {
-    const headerQuery = `*[_type == "header"]{
-			logo
+    const headerQuery = `*[_type == "tagline"]{
+			image
 		}`
     sanityClient.fetch(headerQuery).then((header) => {
       header.forEach((header) => {
@@ -70,7 +70,7 @@ const FooterLogo = () => {
           <HeroImage
             className="App-logo"
             alt="TEMC Logo"
-            src={urlFor(header.logo).url()}
+            src={urlFor(header.image).url()}
           />
         </ImageDiv>
       </A>
