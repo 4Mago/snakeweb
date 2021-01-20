@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import sanityClient from "../../Client"
 import imageUrlBuilder from "@sanity/image-url"
-import CTA from "../cta"
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -12,15 +11,18 @@ const Container = styled.div`
 	height: auto;
 	min-height: 100vh;
 	display: flex;
-	width: 100%;
+	width: 30%;
 	justify-content: center;
 	align-items: flex-start;
   flex-flow: column;
 `
-const HeaderContentContainer = styled.div`
+const ColumnLeft = styled.div`
 	display: flex;
-	justify-content: flex-end;
+	color: #fff;
 	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 5rem 2rem;
 
 	@media screen and (min-width: 1000px) {
 		padding-left: 110px;
@@ -34,7 +36,7 @@ text-align: left;
 
 
 	@media screen and (min-width: 1550px) {
-		font-size: 4vw;
+		font-size: 2.5vw;
 	}
 	@media screen and (max-width: 1300px) {
 		width: 48vw;
@@ -118,7 +120,7 @@ const Header = () => {
 
   return (
     <Container>
-      <HeaderContentContainer>
+      <ColumnLeft>
           <HeroImage
             alt="hero image"
             className="heroimage"
@@ -128,7 +130,7 @@ const Header = () => {
           <HeaderText>{header.title}</HeaderText>
           <HeaderTagline>{header.tagline}</HeaderTagline>
       
-      </HeaderContentContainer>
+      </ColumnLeft>
     </Container>
   )
 }

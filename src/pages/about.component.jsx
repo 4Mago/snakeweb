@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../Client'
-import CTA from '../components/cta'
-import Tagline from '../components/homepage/tagline'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -101,13 +99,6 @@ const HeroImage = styled.img`
 	@media screen and (max-width: 500px) {
 		height: 73%;
 	}
-`
-
-const CTAContainer = styled.div`
-	position: absolute;
-	top: 75vh;	
-	left: 55vw;
-	display: flex;
 `
 
 const About = () => {

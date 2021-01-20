@@ -2,7 +2,6 @@ import React, { useState, useEffect} from "react"
 import sanityClient from '../Client'
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import Sample from "../components/projects/sample"
 
 const Background = styled.div`
   width: 100%;
@@ -22,14 +21,6 @@ const Container = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
-`
-const Segment = styled.div`
-  height: 15vh;
-  display: flex;
-  justify-content: space-evenly;
-`
-const Segment2 = styled.div`
-  padding-top: 23vh;
 `
 
 const Text = styled.p`
@@ -96,10 +87,6 @@ const HeaderTagline = styled.p`
 		font-size: 14px;
 		width: 150px;
 	}
-`
-
-const A = styled.a`
-  text-decoration: none;
 `
 
 const transition = { duration: 1, ease: [0.43, 0.013, 0.23, 0.96] }
