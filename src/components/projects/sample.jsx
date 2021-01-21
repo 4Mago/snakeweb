@@ -1,28 +1,63 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { ProjectContext } from '../../store/Project.context'
+import sanityClient from '@sanity/client'
 import ClientImage from './client-image.component'
-import HeaderText from './header-text.component'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import CTA from '../cta'
+import CTA2 from '../cta'
 
-const OuterContainer = styled.div`
-	margin-top: 5%;
+const Sample = () => {
+
+	const [project, setProject] = useState('')
+		useEffect(() => {
+			const projectQuery = `*[_type == "client"]{
+				clientName, websiteImage
+			}`
+			sanityClient.fetch(projectQuery).then(project => {
+				const projectArray = []
+				project.forEach(project => {
+					projectArray.push(project)
+				})
+				setProject(projectArray)
+			})
+			return
+		}, [])
+
+	let sample = project[Math.floor(Math.random() * (project.length))]
+
+	return (
+			<OuterContainer>
+				<Container>
+					<ImgContainer>
+							<HeaderText>{sample.clientName}</HeaderText>
+							<Link to={`/${sample.clientName.toLowerCase()}`}>
+								<ClientImage image={sample.websiteImage} />
+							</Link>
+					<TextContainer>
+						<CTA2> Fler projekt </CTA2>
+						<CTA>Nästa</CTA>
+					</TextContainer>
+					</ImgContainer>
+				</Container>
+			</OuterContainer>
+	)
+}
+
+export default Sample
+
+
+const OuterContainer = styled(motion.div)`
+	padding-right: 12vw;
+	color: white;
 `
 
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: auto;
-	height: 400px;
-	margin-top: 10vh;
-	gap: 20px;
+	height: 30px;
 
-	@media screen and (min-width: 1300px) {
-		justify-content: space-around;
-		margin-bottom: 5vh;
-	}
 	@media screen and (max-width: 700px) {
 		flex-direction: column;
 		justify-content: center;
@@ -36,11 +71,15 @@ const Container = styled.div`
 	}
 `
 
-const ImgContainer = styled.div`
+const HeaderText = styled(motion.h2)`
+margin: 0;
+padding: 0;
+	font-size: 1 rem;
+`
+
+const ImgContainer = styled(motion.div)`
 	height: auto;
-	width: 100%;
-	max-width: 600px;
-	padding: 0 50px;
+	max-width: 270px;
 
 	@media screen and (max-width: 1000px) {
 		width: 80%;
@@ -53,33 +92,11 @@ const ImgContainer = styled.div`
 	@media screen and (max-width: 700px) {
 		height: auto;
 	}
-	&::after {
-		position: relative;
-		top: -55%;
-		right: 10%;
-		z-index: -1;
-		content: '';
-		display: block;
-		width: 70%;
-		height: 70%;
-		background: #ff847f;
-
-		@media screen and (max-width: 1000px) {
-			width: 80%;
-			height: 80%;
-			top: -70%;
-			padding: 0;
-		}
-		@media screen and (max-width: 800px) {
-			width: 82%;
-			right: 7%;
-			margin-left: 3%;
-		}
-	}
 `
 const TextContainer = styled(motion.div)`
-	max-width: 600px;
+	max-width: 300px;
 	margin-right: 20px;
+	display: flex;
 	@media screen and (max-width: 1000px) {
 		padding: 0;
 		margin-right: 0;
@@ -92,7 +109,7 @@ const TextContainer = styled(motion.div)`
 
 const Text = styled(motion.p)`
 	text-align: right;
-	max-width: 600px;
+	max-width: 300px;
 	padding-bottom: 25px;
 
 	@media screen and (max-width: 700px) {
@@ -109,35 +126,3 @@ const variants = {
 	visible: { opacity: 1, transition: transition },
 	hidden: { opacity: 0, transition: transition },
 }
-
-const Sample = ({ inView }) => {
-	const { project } = useContext(ProjectContext)
-	let sample = project[Math.floor(Math.random() * (project.length - 1))]
-
-	return (
-		<motion.div
-			variants={variants}
-			initial='hidden'
-			animate={inView ? 'visible' : 'hidden'}
-		>
-			<OuterContainer>
-				<HeaderText>Tidigare Projekt</HeaderText>
-
-				<Container>
-					<ImgContainer>
-						<Link to={`/project/${sample.clientName.toLowerCase()}`}>
-							<ClientImage image={sample.websiteImage} />
-						</Link>
-					</ImgContainer>
-					<TextContainer>
-						<HeaderText>{sample.clientName}</HeaderText>
-						<Text>{sample.description}</Text>
-						<CTA>Kontakt</CTA>
-					</TextContainer>
-				</Container>
-			</OuterContainer>
-		</motion.div>
-	)
-}
-
-export default Sample

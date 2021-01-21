@@ -57,8 +57,6 @@ const Background = styled(motion.div)`
 	opacity: 0.4;
 	transition: opacity 0.4s ease-in-out;
 	@media screen and (min-width: 968px) {
-		opacity: 0;
-		display: none;
 	}
 	@media screen and (max-width: 700px) {
 		opacity: 0.7;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import sanityClient from '../Client'
+import sanityClient from '../../Client'
 
 export const ProjectContext = createContext()
 

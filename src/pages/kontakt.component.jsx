@@ -2,6 +2,55 @@ import React, { useState, useEffect} from "react"
 import sanityClient from '../Client'
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import imageUrlBuilder from '@sanity/image-url'
+
+const Kontakt = () => {
+
+  const [about, setAbout] = useState("")
+
+  useEffect(() => {
+    const aboutQuery = `*[_type == "about"]{
+			description, title, tagline, image
+		}`
+    sanityClient.fetch(aboutQuery).then((about) => {
+      about.forEach((about) => {
+        setAbout(about)
+      })
+    })
+
+    return
+  }, [])
+
+
+  return (
+    <Background>
+      <motion.div
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+      >
+      <Container>
+        <SanityImage 
+        alt="bild på Jakob Engwall"
+        src={urlFor(about.image).url()}
+        />
+      </Container>
+      <ContentContainer>
+        <HeaderText>{about.title}</HeaderText>
+        <HeaderTagline>{about.tagline}</HeaderTagline>
+        <Text>{about.description}</Text>
+      </ContentContainer>
+    </motion.div>
+    </Background>
+  )
+}
+export default Kontakt
+
+
+const builder = imageUrlBuilder(sanityClient)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const Background = styled.div`
   width: 100%;
@@ -12,23 +61,36 @@ const Background = styled.div`
   z-index: -1;
   bottom: 0;
   transition: 1s all ease-in-out;
+  background-color: #C4C4C4;
 `
 const Container = styled.div`
   width: 100%;
-  height: 100%;
-  margin-top: 15vh;
+  min-height: 25vh;
+  margin-top: -60px;
   font-size: 36px;
   display: flex;
-  text-align: center;
-  justify-content: center;
+  text-align: flex-end;
+  justify-content: flex-end;
+`
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 50px;
+`
+
+const SanityImage = styled.img`
+  width: 500px;
+  height: 500px;
 `
 
 const Text = styled.p`
   padding: 25px;
-  margin-top: 25px;
   font-size: 1rem;
   width: 40%;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 
   @media screen and (max-width: 670px) {
@@ -38,7 +100,7 @@ const Text = styled.p`
 `
 const HeaderText = styled.h1`
 	color: white;
-	font-size: 52px;
+	font-size: 2rem;
 	text-align: left;
 	width: 40vw;
 	margin-bottom: 0;
@@ -68,7 +130,7 @@ const HeaderText = styled.h1`
 `
 const HeaderTagline = styled.p`
 	color: white;
-	font-size: 32px;
+	font-size: 14px;
 	text-align: left;
 
 	@media screen and (max-width: 1000px) {
@@ -89,40 +151,3 @@ const HeaderTagline = styled.p`
 	}
 `
 
-const transition = { duration: 1, ease: [0.43, 0.013, 0.23, 0.96] }
-
-const Kontakt = () => {
-
-  const [about, setAbout] = useState("")
-
-  useEffect(() => {
-    const aboutQuery = `*[_type == "about"]{
-			description, title, tagline
-		}`
-    sanityClient.fetch(aboutQuery).then((about) => {
-      about.forEach((about) => {
-        setAbout(about)
-      })
-    })
-
-    return
-  }, [])
-
-
-  return (
-    <motion.div
-      exit={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      initial={{ opacity: 0 }}
-      transition={transition}
-    >
-      <Background />
-      <Container>
-        <HeaderText>{about.title}</HeaderText>
-        <HeaderTagline>{about.tagline}</HeaderTagline>
-      </Container>
-        <Text>{about.description}</Text>
-    </motion.div>
-  )
-}
-export default Kontakt

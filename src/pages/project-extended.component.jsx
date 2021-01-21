@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useParams } from "react-router-dom"
 import { motion } from "framer-motion"
 import Projects from "../components/projects/projects"
-import { ProjectContext } from "../store/Project.context"
+import { ProjectContext } from "../components/projects/Project.context"
 
 const ImgContainer = styled.div`
   width: 100%;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { ProjectContext } from '../../store/Project.context'
+import { ProjectContext } from './Project.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../../Client'
 

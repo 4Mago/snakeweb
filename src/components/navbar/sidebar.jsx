@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import sanityClient from "../Client"
+import sanityClient from "../../Client"
 import imageUrlBuilder from "@sanity/image-url"
 import { Link } from "react-router-dom"
 
@@ -11,13 +11,15 @@ function urlFor(source) {
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-flow: column;
+  justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  height: 90%;
   z-index: 99;
+
   @media screen and (max-width: 968px) {
     font-size: 0;
     width: 50%;
@@ -27,8 +29,9 @@ const Container = styled.div`
 
 const LogoBox = styled.img`
   width: 200px;
-  padding: 25px 50px;
+  padding: 0 50px;
   height: auto;
+
   @media screen and (max-width: 968px) {
     transition: 0.8s all ease;
     padding: 0 15px;
@@ -41,13 +44,18 @@ const LogoBox = styled.img`
 
 const NavBox = styled.div`
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  right: 0;
   padding: 0 30px;
   gap: 12px;
   align-items: center;
   font-size: 16.4px;
   height: 22px;
+  align-self: flex-start;
+
+  &::nth-child(1) {
+      padding: 50px;
+  }
 
   @media screen and (max-width: 968px) {
     display: none;
@@ -66,42 +74,37 @@ const MenuLink = styled(Link)`
   }
 `
 
-const NavigationDesktop = () => {
-  const [header, setHeader] = useState("")
+const Sidebar = () => {
+    const [header, setHeader] = useState("")
 
-  useEffect(() => {
-    const headerQuery = `*[_type == "header"]{
-			menu, logo
-		}`
-    sanityClient.fetch(headerQuery).then((header) => {
-      header.forEach((header) => {
-        setHeader(header)
+    useEffect(() => {
+      const headerQuery = `*[_type == "header"]{
+              menu, logo
+          }`
+      sanityClient.fetch(headerQuery).then((header) => {
+        header.forEach((header) => {
+          setHeader(header)
+        })
       })
-    })
-
-    return
-  }, [])
-
-  return (
-    <Container id="navbar">
-      <Link to="/">
-        <LogoBox
-          className="App-logo2"
-          alt="TEMC Logo"
-          src={urlFor(header.logo).url()}
-        />
-      </Link>
-      <NavBox>
-        {header.menu
-          ? header.menu.map((item, id) => (
-              <MenuLink to={item.link} key={id}>
-                {item.name}
-              </MenuLink>
-            ))
-          : null}
-      </NavBox>
-    </Container>
-  )
-}
-
-export default NavigationDesktop
+  
+      return
+    }, [])
+  
+    return (
+      <Container id="navbar">
+        <Link to="/">
+        </Link>
+        <NavBox>
+          {header.menu
+            ? header.menu.map((item, id) => (
+                <MenuLink to={item.link} key={id}>
+                  {item.name}
+                </MenuLink>
+              ))
+            : null}
+        </NavBox>
+      </Container>
+    )
+  }
+  
+export default Sidebar

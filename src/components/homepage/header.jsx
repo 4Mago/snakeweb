@@ -3,22 +3,57 @@ import styled from "styled-components"
 import sanityClient from "../../Client"
 import imageUrlBuilder from "@sanity/image-url"
 
-const builder = imageUrlBuilder(sanityClient)
-function urlFor(source) {
-  return builder.image(source)
+
+const Header = () => {
+  const [header, setHeader] = useState("")
+
+  useEffect(() => {
+    const headerQuery = `*[_type == "header"]{
+			heroImage, title, tagline
+		}`
+    sanityClient.fetch(headerQuery).then((header) => {
+      header.forEach((header) => {
+        setHeader(header)
+      })
+    })
+
+    return
+  }, [])
+
+  return (
+    <Container>
+      <ColumnLeft>
+          <HeroImage
+            alt="hero image"
+            className="heroimage"
+            id="heroimage"
+            src={urlFor(header.heroImage).url()}
+            />
+          <HeaderText>{header.title}</HeaderText>
+          <HeaderTagline>{header.tagline}</HeaderTagline>
+      </ColumnLeft>
+	  <RightContainer>
+	</RightContainer>
+    </Container>
+  )
 }
+
+export default Header
+
 const Container = styled.div`
+	padding-top: 10rem;
 	height: auto;
 	min-height: 100vh;
 	display: flex;
-	width: 30%;
 	justify-content: center;
 	align-items: flex-start;
-  flex-flow: column;
 `
+
+
 const ColumnLeft = styled.div`
 	display: flex;
 	color: #fff;
+	width: 40%;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
@@ -27,6 +62,15 @@ const ColumnLeft = styled.div`
 	@media screen and (min-width: 1000px) {
 		padding-left: 110px;
 	}
+`
+
+
+const RightContainer = styled.div`
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 5rem 2rem;
 `
 
 const HeaderText = styled.p`
@@ -102,37 +146,7 @@ const HeroImage = styled.img`
 	}
 `
 
-const Header = () => {
-  const [header, setHeader] = useState("")
-
-  useEffect(() => {
-    const headerQuery = `*[_type == "header"]{
-			heroImage, title, tagline
-		}`
-    sanityClient.fetch(headerQuery).then((header) => {
-      header.forEach((header) => {
-        setHeader(header)
-      })
-    })
-
-    return
-  }, [])
-
-  return (
-    <Container>
-      <ColumnLeft>
-          <HeroImage
-            alt="hero image"
-            className="heroimage"
-            id="heroimage"
-            src={urlFor(header.heroImage).url()}
-            />
-          <HeaderText>{header.title}</HeaderText>
-          <HeaderTagline>{header.tagline}</HeaderTagline>
-      
-      </ColumnLeft>
-    </Container>
-  )
+const builder = imageUrlBuilder(sanityClient)
+function urlFor(source) {
+  return builder.image(source)
 }
-
-export default Header
