@@ -78,29 +78,6 @@ color: white;
 font-size: 2rem;
 text-align: left;
 
-
-	@media screen and (min-width: 1550px) {
-		font-size: 2.5vw;
-	}
-	@media screen and (max-width: 1300px) {
-		width: 48vw;
-
-	}
-	@media screen and (max-width: 1100px) {
-		font-size: 45px;
-		position: relative;
-		top: -10%;
-		padding: 0 5vw;
-	}
-	@media screen and (max-width: 700px) {
-		width: auto;
-	}
-	@media screen and (max-width: 500px) {
-		font-size: 36px;
-	}
-	@media screen and (max-width: 400px) {
-		font-size: 36px;
-	}
 `
 const HeaderTagline = styled.h1`
   color: white;
@@ -111,9 +88,7 @@ const HeaderTagline = styled.h1`
 
 	@media screen and (max-width: 1000px) {
 		font-size: 22px;
-		position: relative;
-		top: -10%;
-		padding: 0 5vw;
+
 	}
 	@media screen and (max-width: 700px) {
 	}
@@ -137,12 +112,6 @@ const HeroImage = styled.img`
 
 	@media screen and (min-width: 1500px) {
 		height: 100%;
-	}
-	@media screen and (max-width: 800px) {
-		height: 80%;
-	}
-	@media screen and (max-width: 500px) {
-		height: 73%;
 	}
 `
 

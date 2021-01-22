@@ -23,7 +23,6 @@ const MenuLink = styled(Link)`
 const UL = styled(motion.ul)`
 list-style: none;
 position: absolute;
-display: none;
 top: 100px;
 right: 25px;
 width: 100px;
