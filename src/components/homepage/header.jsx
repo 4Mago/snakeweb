@@ -97,17 +97,17 @@ const HeaderTagline = styled.h1`
   }
 `
 
-const HeroImage = styled.img`
-  width: auto;
-  height: 100%;
-  right: 0;
-  top: 0;
-  z-index: -1;
+// const HeroImage = styled.img`
+//   width: auto;
+//   height: 100%;
+//   right: 0;
+//   top: 0;
+//   z-index: -1;
 
-  @media screen and (min-width: 1500px) {
-    height: 100%;
-  }
-`
+//   @media screen and (min-width: 1500px) {
+//     height: 100%;
+//   }
+// `
 
 const HeroImage2 = styled.img`
   width: 700px;

@@ -94,6 +94,11 @@ const Sidebar = () => {
   return (
     <Container id="navbar">
       <Link to="/"></Link>
+      <LogoBox
+        className="App-logo"
+        alt="TEMC Logo"
+        src={urlFor(header.logo).url()}
+      />
       <NavBox>
         {header.menu
           ? header.menu.map((item, id) => (

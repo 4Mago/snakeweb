@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
-import sanityClient from "../../Client"
-import imageUrlBuilder from "@sanity/image-url"
-import { Link } from "react-router-dom"
 
-const builder = imageUrlBuilder(sanityClient)
-function urlFor(source) {
-  return builder.image(source)
-}
+import { Link } from "react-router-dom"
 
 const Container = styled.div`
   display: flex;
@@ -55,34 +49,33 @@ const NavBox = styled.div`
   }
 `
 
-const MenuLink = styled(Link)`
-  font-family: Poppins, cursive;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.42);
-  z-index: 99;
-  padding: 1rem;
+// const MenuLink = styled(Link)`
+//   font-family: Poppins, cursive;
+//   text-decoration: none;
+//   color: rgba(255, 255, 255, 0.42);
+//   z-index: 99;
+//   padding: 1rem;
 
-  &:hover {
-    color: rgba(255, 255, 255, 0.666);
-  }
-`
+//   &:hover {
+//     color: rgba(255, 255, 255, 0.666);
+//   }
+// `
 
+// const [header, setHeader] = useState("")
+
+// useEffect(() => {
+//   const headerQuery = `*[_type == "header"]{
+// 		menu, logo
+// 	}`
+//   sanityClient.fetch(headerQuery).then((header) => {
+//     header.forEach((header) => {
+//       setHeader(header)
+//     })
+//   })
+
+//   return
+// }, [])
 const NavigationDesktop = () => {
-  const [header, setHeader] = useState("")
-
-  useEffect(() => {
-    const headerQuery = `*[_type == "header"]{
-			menu, logo
-		}`
-    sanityClient.fetch(headerQuery).then((header) => {
-      header.forEach((header) => {
-        setHeader(header)
-      })
-    })
-
-    return
-  }, [])
-
   return (
     <Container id="navbar">
       <Link to="/">
