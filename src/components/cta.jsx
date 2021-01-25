@@ -9,9 +9,10 @@ const Button = styled.button`
 	background: rgba(64, 109, 245, 0.63);
 	border-radius: 12px 7px;
 	border: none;
-	width: 160px;
-	max-height: 60px;
-	margin: 0 30px;
+	min-width: 120px;
+	
+	max-height: 30px;
+	margin: 0 5px;
 	cursor: pointer;
 
 	@media screen and (max-width: 700px) {
@@ -36,7 +37,6 @@ const MenuLink = styled(Link)`
 const Text = styled.p`
 	color: white;
 	font-size: 16px;
-	padding-right: 20px;
 	text-decoration: none;
 
 	@media screen and (max-width: 700px) {
@@ -56,7 +56,7 @@ const CTA = props => {
 				viewBox='0 0 8 18'
 				fill='none'
 				xmlns='http://www.w3.org/2000/svg'
-			>
+			>	
 				<path
 					d='M1 1C8.62672 8.79006 8.90954 8.75176 1 17'
 					stroke='white'
@@ -69,4 +69,16 @@ const CTA = props => {
 	)
 }
 
-export default CTA
+const CTA2 = props => {
+	return (
+		<Button id='button'>
+			<MenuLink to='/kontakt'>
+				<Text>{props.children}</Text>
+			</MenuLink>
+			<Icon src='' />
+		</Button>
+	)
+}
+
+
+export default CTA && CTA2

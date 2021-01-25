@@ -1,31 +1,25 @@
-import React, { useContext } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import { TaglineContext } from "../store/Tagline.context"
 import imageUrlBuilder from "@sanity/image-url"
-import sanityClient from "../Client"
+import sanityClient from "../../Client"
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
   return builder.image(source)
 }
+
 const Container = styled.div`
-  width: 100%;
-  height: 60vh;
+  width: 750px;
+  height: 750px;
   margin: 25vh 0;
   display: flex;
-  flex-flow: column;
   justify-content: center;
   align-items: center;
-
   @media screen and (max-width: 500px) {
     margin: 0 0 25vh 0;
   }
 `
 const InnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 `
 const Title = styled.h2`
   position: absolute;
@@ -45,7 +39,7 @@ const TaglineText = styled.h3`
   }
 `
 const TaglineImage = styled.img`
-  width: 500px;
+  width: 100px;
   height: auto;
   top: 0;
   left: 0;
@@ -56,7 +50,22 @@ const TaglineImage = styled.img`
 `
 
 const Tagline = () => {
-  const { tagline } = useContext(TaglineContext)
+  const [tagline, setTagline] = useState("")
+
+  useEffect(() => {
+    const taglineQuery = `*[_type == "tagline"]{
+			image, title, tagline
+		}`
+    sanityClient.fetch(taglineQuery).then((tagline) => {
+      tagline.forEach((tagline) => {
+        setTagline(tagline)
+      })
+    })
+
+    return
+  }, [])
+
+  
   return (
     <Container>
       <InnerContainer>

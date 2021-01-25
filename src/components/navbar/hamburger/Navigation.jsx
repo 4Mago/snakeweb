@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import sanityClient from "../../Client"
+import sanityClient from "../../../Client"
 
 const variants = {
   open: {
@@ -17,20 +17,23 @@ const MenuLink = styled(Link)`
   padding-top: 20px;
   width: 100%;
   color: black;
+  list-style: none;
 `
 
 const UL = styled(motion.ul)`
-padding: 25px;
+list-style: none;
 position: absolute;
-display: none;
 top: 100px;
+right: 25px;
 width: 100px;
 transition: 5s all ease;
-}
+text-decoration: none;
 `
 const List = styled(motion.li)`
+  text-decoration: none;
   font-size: 18px;
   color: black;
+  height: 50px;
 `
 const linkVariants = {
   open: {
@@ -67,7 +70,7 @@ const Navigation = ({ isOpen, toggle }) => {
   }, [isOpen])
 
   useEffect(() => {
-    const headerQuery = `*[_type == "header"]{
+    const headerQuery = `*[_type == "footer"]{
     menu
   }`
     sanityClient.fetch(headerQuery).then((header) => {
@@ -89,7 +92,6 @@ const Navigation = ({ isOpen, toggle }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              {" "}
               <MenuLink to={item.link} key={id}>
                 {item.name}
               </MenuLink>

@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useParams } from "react-router-dom"
 import { motion } from "framer-motion"
 import Projects from "../components/projects/projects"
-import { ProjectContext } from "../store/Project.context"
+import sanityClient from '../Client'
 
 const ImgContainer = styled.div`
   width: 100%;
@@ -49,7 +49,20 @@ const Text = styled(motion.p)`
 
 const transition = { duration: 0.35, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
-  const { project } = useContext(ProjectContext)
+	const [project, setProjectExtended] = useState('')
+	const [loaded, setLoaded] = useState(false)
+	useEffect(() => {
+		const projectQuery = `*[_type == "client"] | order(date desc)`
+		sanityClient.fetch(projectQuery).then(project => {
+			const projectArray = []
+			project.forEach(project => {
+				projectArray.push(project)
+			})
+			setProject(projectArray)
+			setLoaded(true)
+		})
+		return
+	}, [])
 
   let id = useParams()
 

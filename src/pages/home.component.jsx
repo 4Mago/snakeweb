@@ -1,9 +1,16 @@
 import React from "react"
-import Header from "../components/header"
+import styled from 'styled-components'
 import { motion } from "framer-motion"
-import Arrow from "../components/arrows"
-import Tagline from "../components/tagline"
+import Arrow from "../components/homepage/arrows"
+import Header from '../components/homepage/header'
+import Tagline from "../components/homepage/tagline"
 const transition = { duration: 0.3, ease: [0.43, 0.013, 0.23, 0.96] }
+
+const Container = styled.div`
+background: black;
+z-index: -1;
+`
+
 const Home = () => {
   return (
     <motion.div
@@ -12,9 +19,11 @@ const Home = () => {
       initial={{ opacity: 0 }}
       transition={transition}
     >
+ <Container>
       <Header />
       <Arrow />
       <Tagline />
+    </Container>
     </motion.div>
   )
 }

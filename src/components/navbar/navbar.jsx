@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import sanityClient from "../Client"
+import sanityClient from "../../Client"
 import imageUrlBuilder from "@sanity/image-url"
 import { Link } from "react-router-dom"
 
@@ -17,8 +17,8 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  z-index: 9999;
+  z-index: 99;
+  background: transparent;
   @media screen and (max-width: 968px) {
     font-size: 0;
     width: 50%;
@@ -27,8 +27,8 @@ const Container = styled.div`
 `
 
 const LogoBox = styled.img`
-  width: 200px;
-  padding: 25px 50px;
+  width: 140px;
+  padding: 0 25px;
   height: auto;
   @media screen and (max-width: 968px) {
     transition: 0.8s all ease;
@@ -44,7 +44,7 @@ const NavBox = styled.div`
   display: flex;
   justify-content: center;
   right: 0;
-  padding: 30px 30px;
+  padding: 0 30px;
   gap: 12px;
   align-items: center;
   font-size: 16.4px;
@@ -56,9 +56,15 @@ const NavBox = styled.div`
 `
 
 const MenuLink = styled(Link)`
+  font-family: Poppins, cursive;
   text-decoration: none;
-  padding-top: 20px;
+	color: rgba(255, 255, 255, 0.420);
   z-index: 99;
+  padding: 1rem;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.666);
+  }
 `
 
 const NavigationDesktop = () => {
@@ -83,17 +89,10 @@ const NavigationDesktop = () => {
         <LogoBox
           className="App-logo2"
           alt="TEMC Logo"
-          src={urlFor(header.logo).url()}
+          src='/snakeweb.gif'
         />
       </Link>
       <NavBox>
-        {header.menu
-          ? header.menu.map((item, id) => (
-              <MenuLink to={item.link} key={id}>
-                {item.name}
-              </MenuLink>
-            ))
-          : null}
       </NavBox>
     </Container>
   )

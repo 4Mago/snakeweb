@@ -25,8 +25,6 @@ margin-bottom: 20px;
 display: flex;
 align-items: center;
 cursor: pointer;
-}
-
 `
 
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];

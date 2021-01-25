@@ -1,61 +1,35 @@
 import "./App.css"
-import NavigationDesktop from "./components/navbar"
-import Example from "./components/hamburger/Example"
-import Footer from "./components/footer"
+import styled from 'styled-components'
+import Example from "./components/navbar/hamburger/Example"
 import { Route, Switch } from "react-router-dom"
-import TaglineContextProvider from "./store/Tagline.context"
-import ProjectContextProvider from "./store/Project.context"
-import ProjectsContextProvider from "./store/projects.context"
-import AboutContextProvider from "./store/about.context"
-import HeaderContextProvider from "./store/Header.context"
-import { AnimatePresence } from "framer-motion"
 import About from "./pages/about.component"
 import Kontakt from "./pages/kontakt.component"
 import Home from "./pages/home.component"
 import ProjectExtended from "./pages/project-extended.component"
+import Footer from "./components/footer"
+import Sidebar from "./components/navbar/sidebar"
+import NavigationDesktop from "./components/navbar/navbar"
+
+const Container = styled.div`
+min-width: 100vh;
+`
 
 function App() {
   return (
-    <>
+    <Container className='App'>
       <NavigationDesktop />
+      <Sidebar />
       <Example />
-      <ProjectContextProvider>
-        <Route
-          render={({ location }) => (
-            <AnimatePresence
-              exitBeforeEnter
-              initial={false}
-              onExitComplete={() => window.scrollTo(0, 0)}
-            >
-              <Switch location={location} key={location.pathname}>
-                <Route exact path={"/"}>
-                  <TaglineContextProvider>
-                    <HeaderContextProvider>
-                      <Home key={location.id} />
-                    </HeaderContextProvider>
-                  </TaglineContextProvider>
-                </Route>
-
-                <Route path={"/project/:id"}>
-                  <ProjectsContextProvider>
-                    <ProjectExtended key={location.id} />
-                  </ProjectsContextProvider>
-                </Route>
-                <Route exact path={"/about"}>
-                  <AboutContextProvider>
-                    <About key={location.id} />
-                  </AboutContextProvider>
-                </Route>
-                <Route exact path={"/kontakt"}>
-                  <Kontakt key={location.id} />
-                </Route>
+        <Route>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path={"/project/:id"} component={ProjectExtended} />
+                <Route exact path={"/about"} component={About} />
+                <Route exact path={"/kontakt"} component={Kontakt} />
               </Switch>
-            </AnimatePresence>
-          )}
-        />
-      </ProjectContextProvider>
+        </Route>
       <Footer />
-    </>
+    </Container>
   )
 }
 

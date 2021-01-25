@@ -29,8 +29,7 @@ const Button = styled.button`
 	background: transparent;
 
 	@media screen and (min-width: 968px) {
-		opacity: 0;
-		display: none;
+
 	}
 `
 
