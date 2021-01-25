@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import sanityClient from "../../Client"
-import imageUrlBuilder from "@sanity/image-url"
+// import imageUrlBuilder from "@sanity/image-url"
 import { Link } from "react-router-dom"
 
-const builder = imageUrlBuilder(sanityClient)
-function urlFor(source) {
-  return builder.image(source)
-}
+// const builder = imageUrlBuilder(sanityClient)
+// function urlFor(source) {
+//   return builder.image(source)
+// }
 
 const Container = styled.div`
   display: flex;
@@ -27,20 +27,20 @@ const Container = styled.div`
   }
 `
 
-const LogoBox = styled.img`
-  width: 200px;
-  padding: 0 50px;
-  height: auto;
+// const LogoBox = styled.img`
+//   width: 200px;
+//   padding: 0 50px;
+//   height: auto;
 
-  @media screen and (max-width: 968px) {
-    transition: 0.8s all ease;
-    padding: 0 15px;
-  }
-  @media screen and (max-width: 400px) {
-    padding: 5px 0 10px 25px;
-    width: 150px;
-  }
-`
+//   @media screen and (max-width: 968px) {
+//     transition: 0.8s all ease;
+//     padding: 0 15px;
+//   }
+//   @media screen and (max-width: 400px) {
+//     padding: 5px 0 10px 25px;
+//     width: 150px;
+//   }
+// `
 
 const NavBox = styled.div`
   display: flex;
@@ -94,11 +94,7 @@ const Sidebar = () => {
   return (
     <Container id="navbar">
       <Link to="/"></Link>
-      <LogoBox
-        className="App-logo"
-        alt="TEMC Logo"
-        src={urlFor(header.logo).url()}
-      />
+
       <NavBox>
         {header.menu
           ? header.menu.map((item, id) => (

@@ -40,7 +40,6 @@ const Header = () => {
 export default Header
 
 const Container = styled.div`
-  padding-top: 10rem;
   padding-left: 200px;
   height: auto;
   height: 90vh;
@@ -110,8 +109,8 @@ const HeaderTagline = styled.h1`
 // `
 
 const HeroImage2 = styled.img`
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
 `
 
 const builder = imageUrlBuilder(sanityClient)

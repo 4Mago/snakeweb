@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import Arrow from "../components/homepage/arrows"
 import Header from "../components/homepage/header"
 import Tagline from "../components/homepage/tagline"
 const transition = { duration: 0.3, ease: [0.43, 0.013, 0.23, 0.96] }
@@ -21,7 +20,6 @@ const Home = () => {
     >
       <Container>
         <Header />
-        <Arrow />
         <Tagline />
       </Container>
     </motion.div>

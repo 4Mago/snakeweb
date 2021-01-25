@@ -49,8 +49,8 @@ const Text = styled(motion.p)`
 
 const transition = { duration: 0.35, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
-  const [project, setProjectExtended] = useState("")
-  const [loaded, setLoaded] = useState(false)
+  const [project, setProject] = useState("")
+
   useEffect(() => {
     const projectQuery = `*[_type == "client"] | order(date desc)`
     sanityClient.fetch(projectQuery).then((project) => {
@@ -59,14 +59,13 @@ const ProjectExtended = () => {
         projectArray.push(project)
       })
       setProject(projectArray)
-      setLoaded(true)
     })
     return
   }, [])
 
   let id = useParams()
 
-  const [projectExt, setProject] = useState("")
+  const [projectExt] = useState("")
   useEffect(() => {
     const index = project.findIndex((x) => x.clientName.toLowerCase() === id.id)
     setProject(project[index])
