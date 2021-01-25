@@ -40,6 +40,7 @@ const Header = () => {
 export default Header
 
 const Container = styled.div`
+  padding-top: 10px;
   padding-left: 200px;
   height: auto;
   height: 90vh;
@@ -47,6 +48,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: space-around;
   background: black;
+
+  @media screen and (max-width: 400px) {
+    padding-left: 0;
+  }
 `
 
 const ColumnLeft = styled.div`
@@ -66,6 +71,11 @@ const RightContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 0 80px 0 0;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    padding: 0;
+  }
 `
 
 const HeaderText = styled.p`
@@ -109,8 +119,8 @@ const HeaderTagline = styled.h1`
 // `
 
 const HeroImage2 = styled.img`
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
 `
 
 const builder = imageUrlBuilder(sanityClient)
