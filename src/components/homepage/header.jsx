@@ -9,7 +9,11 @@ const Header = () => {
 
   useEffect(() => {
     const headerQuery = `*[_type == "header"]{
+<<<<<<< HEAD
 			heroImage, title, tagline, logo
+=======
+			heroImage, title, tagline
+>>>>>>> 0b59a012ba0d34b1eb4c92fec9540480a5856002
 		}`
     sanityClient.fetch(headerQuery).then((header) => {
       header.forEach((header) => {
@@ -23,6 +27,7 @@ const Header = () => {
   return (
     <Container>
       <ColumnLeft>
+<<<<<<< HEAD
           <HeaderText>{header.title}</HeaderText>
           <HeaderTagline>{header.tagline}</HeaderTagline>
       </ColumnLeft>
@@ -33,6 +38,18 @@ const Header = () => {
             id="heroimage"
             src={urlFor(header.logo).url()}
             />
+=======
+          <HeroImage
+            alt="hero image"
+            className="heroimage"
+            id="heroimage"
+            src={urlFor(header.heroImage).url()}
+            />
+          <HeaderText>{header.title}</HeaderText>
+          <HeaderTagline>{header.tagline}</HeaderTagline>
+      </ColumnLeft>
+	  <RightContainer>
+>>>>>>> 0b59a012ba0d34b1eb4c92fec9540480a5856002
 	</RightContainer>
     </Container>
   )
@@ -42,6 +59,7 @@ export default Header
 
 const Container = styled.div`
 	padding-top: 10rem;
+<<<<<<< HEAD
 	padding-left: 200px;
 	height: auto;
 	height: 90vh;
@@ -49,10 +67,18 @@ const Container = styled.div`
 	justify-content: center;
 	align-items: space-around;
 	background: black;
+=======
+	height: auto;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+>>>>>>> 0b59a012ba0d34b1eb4c92fec9540480a5856002
 `
 
 
 const ColumnLeft = styled.div`
+<<<<<<< HEAD
 	color: #fff;
 	width: 50%;
 	display: flex;
@@ -86,6 +112,46 @@ const HeaderTagline = styled.h1`
 
 	@media screen and (max-width: 1000px) {
 		font-size: 22px;
+=======
+	display: flex;
+	color: #fff;
+	width: 40%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 5rem 2rem;
+
+	@media screen and (min-width: 1000px) {
+		padding-left: 110px;
+	}
+`
+
+
+const RightContainer = styled.div`
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 5rem 2rem;
+`
+
+const HeaderText = styled.p`
+color: white;
+font-size: 2rem;
+text-align: left;
+
+`
+const HeaderTagline = styled.h1`
+  color: white;
+	font-size: 4rem;
+	text-align: left;
+	margin: 2rem 0;
+  line-height: 1.1;
+
+	@media screen and (max-width: 1000px) {
+		font-size: 22px;
+
+>>>>>>> 0b59a012ba0d34b1eb4c92fec9540480a5856002
 	}
 	@media screen and (max-width: 700px) {
 	}
@@ -100,8 +166,14 @@ const HeaderTagline = styled.h1`
 `
 
 const HeroImage = styled.img`
+<<<<<<< HEAD
 	width: auto;
 	height: 100%;
+=======
+	position: absolute;
+	width: auto;
+	height: 90%;
+>>>>>>> 0b59a012ba0d34b1eb4c92fec9540480a5856002
 	right: 0;
 	top: 0;
 	z-index: -1;
@@ -111,11 +183,14 @@ const HeroImage = styled.img`
 	}
 `
 
+<<<<<<< HEAD
 const HeroImage2 = styled.img`
 	width: 700px;
 	height: 700px;
 `
 
+=======
+>>>>>>> 0b59a012ba0d34b1eb4c92fec9540480a5856002
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
   return builder.image(source)

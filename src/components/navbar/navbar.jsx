@@ -58,7 +58,7 @@ const NavBox = styled.div`
 const MenuLink = styled(Link)`
   font-family: Poppins, cursive;
   text-decoration: none;
-	color: rgba(255, 255, 255, 0.420);
+  color: rgba(255, 255, 255, 0.42);
   z-index: 99;
   padding: 1rem;
 
@@ -86,14 +86,9 @@ const NavigationDesktop = () => {
   return (
     <Container id="navbar">
       <Link to="/">
-        <LogoBox
-          className="App-logo2"
-          alt="TEMC Logo"
-          src='/snakeweb.gif'
-        />
+        <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
-      <NavBox>
-      </NavBox>
+      <NavBox></NavBox>
     </Container>
   )
 }

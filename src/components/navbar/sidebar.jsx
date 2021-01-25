@@ -54,7 +54,7 @@ const NavBox = styled.div`
   align-self: flex-start;
 
   &::nth-child(1) {
-      padding: 50px;
+    padding: 50px;
   }
 
   @media screen and (max-width: 968px) {
@@ -65,7 +65,7 @@ const NavBox = styled.div`
 const MenuLink = styled(Link)`
   font-family: Poppins, cursive;
   text-decoration: none;
-	color: rgba(255, 255, 255, 0.420);
+  color: rgba(255, 255, 255, 0.42);
   z-index: 99;
   padding: 1rem;
 
@@ -76,36 +76,35 @@ const MenuLink = styled(Link)`
 `
 
 const Sidebar = () => {
-    const [header, setHeader] = useState("")
+  const [header, setHeader] = useState("")
 
-    useEffect(() => {
-      const headerQuery = `*[_type == "header"]{
+  useEffect(() => {
+    const headerQuery = `*[_type == "header"]{
               menu, logo
           }`
-      sanityClient.fetch(headerQuery).then((header) => {
-        header.forEach((header) => {
-          setHeader(header)
-        })
+    sanityClient.fetch(headerQuery).then((header) => {
+      header.forEach((header) => {
+        setHeader(header)
       })
-  
-      return
-    }, [])
-  
-    return (
-      <Container id="navbar">
-        <Link to="/">
-        </Link>
-        <NavBox>
-          {header.menu
-            ? header.menu.map((item, id) => (
-                <MenuLink to={item.link} key={id}>
-                  {item.name}
-                </MenuLink>
-              ))
-            : null}
-        </NavBox>
-      </Container>
-    )
-  }
-  
+    })
+
+    return
+  }, [])
+
+  return (
+    <Container id="navbar">
+      <Link to="/"></Link>
+      <NavBox>
+        {header.menu
+          ? header.menu.map((item, id) => (
+              <MenuLink to={item.link} key={id}>
+                {item.name}
+              </MenuLink>
+            ))
+          : null}
+      </NavBox>
+    </Container>
+  )
+}
+
 export default Sidebar
