@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
+import { motion } from 'framer-motion'
 
 const About = () => {
   const [client, setClient] = useState("")
@@ -20,7 +21,11 @@ const About = () => {
   }, [])
 
   return (
-    <>
+    <motion.div
+    exit={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    initial={{ opacity: 0 }}
+  >
       <Container>
         <LeftContainer></LeftContainer>
         <RightContainer>
@@ -35,7 +40,7 @@ const About = () => {
         id="heroimage"
         src={urlFor(client.websiteImage).url()}
       />
-    </>
+    </motion.div>
   )
 }
 
@@ -50,8 +55,10 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   padding-top: 50px;
-  min-height: 100vh;
+  min-height: 94.5vh;
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   z-index: -1;
 
   @media screen and (max-width: 450px) {
@@ -74,7 +81,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
   color: #fff;
   width: 50%;
-  padding: 70px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -86,6 +93,8 @@ const HeaderText = styled.h1`
   color: white;
   font-size: 32px;
   text-align: left;
+  height: 15px;
+  padding-right: 5px;
   cursor: pointer;
 `
 const HeaderTagline = styled.h1`
@@ -107,6 +116,11 @@ const HeaderTagline = styled.h1`
   }
 `
 
+const Text = styled.p`
+  text-align: right;
+  padding-bottom: 50px;
+`
+
 const HeroImage = styled.img`
   position: absolute;
   height: auto;
@@ -118,5 +132,3 @@ const HeroImage = styled.img`
     min-height: 100vh;
   }
 `
-
-const Text = styled.p``

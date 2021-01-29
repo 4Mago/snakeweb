@@ -24,6 +24,7 @@ const LogoBox = styled.img`
   width: 140px;
   padding: 0 25px;
   height: auto;
+  cursor: pointer;
   @media screen and (max-width: 968px) {
     transition: 0.8s all ease;
     padding: 0 15px;

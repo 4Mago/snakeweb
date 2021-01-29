@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
+import { motion } from 'framer-motion'
 
 const Gnistan = () => {
   const [about, setAbout] = useState("")
@@ -20,7 +21,11 @@ const Gnistan = () => {
   }, [])
 
   return (
-    <>
+    <motion.div
+    exit={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    initial={{ opacity: 0 }}
+  >
       <Container>
         <LeftContainer>
           <HeaderText>{about.title}</HeaderText>
@@ -37,7 +42,7 @@ const Gnistan = () => {
           <Text>{about.description}</Text>
         </RightContainer>
       </Container>
-    </>
+    </motion.div>
   )
 }
 

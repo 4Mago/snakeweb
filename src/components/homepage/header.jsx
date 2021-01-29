@@ -40,7 +40,7 @@ const Header = () => {
 export default Header
 
 const Container = styled.div`
-  padding-top: 10px;
+  padding-top: 80px;
   padding-left: 200px;
   height: auto;
   height: 90vh;
@@ -58,7 +58,7 @@ const ColumnLeft = styled.div`
   color: #fff;
   width: 50%;
   display: flex;
-  padding: 10vh 0 0 50px;
+  padding: 10vh 0 0 100px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;

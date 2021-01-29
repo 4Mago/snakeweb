@@ -25,6 +25,24 @@ const Container = styled.div`
   }
 `
 
+const LogoBox = styled.img`
+  width: 140px;
+  padding: 0 25px;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @media screen and (max-width: 968px) {
+    transition: 0.8s all ease;
+    padding: 0 15px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 5px 0 10px 25px;
+    width: 150px;
+  }
+`
+
 // const LogoBox = styled.img`
 //   width: 200px;
 //   padding: 0 50px;
@@ -119,7 +137,9 @@ const Sidebar = () => {
 
   return (
     <Container id="navbar">
-      <Link to="/"></Link>
+      <Link to="/">
+        <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
+      </Link>
 
       <NavBox>
         {header.menu
