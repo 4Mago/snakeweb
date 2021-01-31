@@ -21,24 +21,11 @@ const Container = styled.div`
   z-index: 99;
 
   @media screen and (max-width: 500px) {
-    display: none;
+    top: 95vh;
+    flex-flow: row;
+    justify-content: space-around;
   }
 `
-
-// const LogoBox = styled.img`
-//   width: 200px;
-//   padding: 0 50px;
-//   height: auto;
-
-//   @media screen and (max-width: 968px) {
-//     transition: 0.8s all ease;
-//     padding: 0 15px;
-//   }
-//   @media screen and (max-width: 400px) {
-//     padding: 5px 0 10px 25px;
-//     width: 150px;
-//   }
-// `
 
 const NavBox = styled.div`
   display: flex;
@@ -53,6 +40,11 @@ const NavBox = styled.div`
 
   &::nth-child(1) {
     padding: 50px;
+  }
+
+  @media screen and (max-width: 500px) {
+    top: 95vh;
+    flex-flow: row;
   }
 `
 
