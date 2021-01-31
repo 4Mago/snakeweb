@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion"
 
 const About = () => {
   const [client, setClient] = useState("")
@@ -21,13 +21,15 @@ const About = () => {
   }, [])
 
   return (
+    <>
     <motion.div
-    exit={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    initial={{ opacity: 0 }}
-  >
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+    >
       <Container>
-        <LeftContainer></LeftContainer>
+        <LeftContainer>
+        </LeftContainer>
         <RightContainer>
           <HeaderText>{client.clientName}</HeaderText>
           <HeaderTagline>{client.tagline}</HeaderTagline>
@@ -41,6 +43,7 @@ const About = () => {
         src={urlFor(client.websiteImage).url()}
       />
     </motion.div>
+    </>
   )
 }
 
@@ -54,11 +57,8 @@ function urlFor(source) {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  padding-top: 50px;
-  min-height: 94.5vh;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  flex-flow: column;
   z-index: -1;
 
   @media screen and (max-width: 450px) {
@@ -69,32 +69,41 @@ const Container = styled.div`
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 50%;
-  padding: 70px;
+  width: 100%;
+  height: 100%;
+  padding-top: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
   margin: 0;
+
+  @media screen and (max-width: 750px) {
+    padding-top: 20vh;
+  }
 `
 
 const RightContainer = styled.div`
   color: #fff;
-  width: 50%;
-  padding: 80px;
+  width: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   margin: 0;
+
+  @media screen and (max-width: 750px) {
+    padding: 0;
+  }
 `
 
 const HeaderText = styled.h1`
   color: white;
+  height: 15px;
+  padding-top: 40px;
   font-size: 32px;
   text-align: left;
-  height: 15px;
-  padding-right: 5px;
   cursor: pointer;
 `
 const HeaderTagline = styled.h1`
@@ -116,19 +125,22 @@ const HeaderTagline = styled.h1`
   }
 `
 
-const Text = styled.p`
-  text-align: right;
-  padding-bottom: 50px;
-`
-
 const HeroImage = styled.img`
   position: absolute;
-  height: auto;
+  height: 100%;
   width: 100%;
   right: 0;
   top: 0;
   z-index: -1;
-  @media screen and (min-width: 1000px) {
-    min-height: 100vh;
+  background-size: cover;
+`
+
+const Text = styled.p`
+  max-width: 680px;
+
+  @media screen and (max-width: 900px) {
+    max-width: 70vw;
+  }
+  @media screen and (max-width: 500px) {
   }
 `

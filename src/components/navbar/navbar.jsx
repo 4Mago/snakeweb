@@ -24,14 +24,13 @@ const LogoBox = styled.img`
   width: 140px;
   padding: 0 25px;
   height: auto;
-  cursor: pointer;
   @media screen and (max-width: 968px) {
     transition: 0.8s all ease;
     padding: 0 15px;
   }
   @media screen and (max-width: 400px) {
-    padding: 5px 0 10px 25px;
-    width: 150px;
+    width: 100px;
+    padding: 0;
   }
 `
 

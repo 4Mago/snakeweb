@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion"
 
 const Gnistan = () => {
   const [about, setAbout] = useState("")
@@ -21,18 +21,20 @@ const Gnistan = () => {
   }, [])
 
   return (
-    <motion.div
-    exit={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    initial={{ opacity: 0 }}
-  >
+    <>
+      <motion.div
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            
+    >
       <Container>
         <LeftContainer>
           <HeaderText>{about.title}</HeaderText>
-
           <HeroImage
+            
             alt="hero image"
-            className="heroimage"
+            className="App-logo"
             id="heroimage"
             src={urlFor(about.image).url()}
           />
@@ -42,7 +44,8 @@ const Gnistan = () => {
           <Text>{about.description}</Text>
         </RightContainer>
       </Container>
-    </motion.div>
+      </motion.div>
+    </>
   )
 }
 
@@ -56,31 +59,43 @@ function urlFor(source) {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  padding-top: 50px;
+  padding-top: 150px;
+  padding-left: 150px;
   min-height: 100vh;
   display: flex;
+  gap: 50px;
   background-color: #131313;
   z-index: -1;
 
-  @media screen and (max-width: 450px) {
+
+  @media screen and (max-width: 750px) {
     height: auto;
     flex-flow: column;
+    padding-top: 35px;
+    padding-left: 0;
   }
 `
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 50%;
-  padding: 70px;
+  width: 40%;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  margin: 0;
+  justify-content: flex-start ;
+  align-items: center;
+  margin-right: 0;
+
+  @media screen and (max-width: 750px) {
+    height: auto;
+    padding: 0;
+    justify-content: center;
+    align-self: center;
+  }
 `
 
 const RightContainer = styled.div`
-  height: 100%;
+  height: 70%;
   color: #fff;
   display: flex;
   flex-flow: column;
@@ -88,17 +103,33 @@ const RightContainer = styled.div`
   align-items: flex-end;
   text-align: right;
   width: 40%;
-  padding: 70px;
+  padding: 180px 10px;
+
+  @media screen and (max-width: 1050px) {
+    padding-right: 200px;
+    height: 100%;
+    width: 90%;
+  }
+  @media screen and (max-width: 750px) {
+    padding: 15px;
+  }
+  @media screen and (max-width: 450px) {
+    height: 100%;
+    width: 90%;
+  }
 `
 
 const HeaderText = styled.h1`
   color: white;
   font-size: 32px;
-  text-align: right;
+  text-align: center;
+  width: 55%;
   cursor: pointer;
+  min-width: 255px;
 `
 const HeaderTagline = styled.h1`
   color: white;
+  max-width: 550px;
   font-size: 22px;
   text-align: right;
   cursor: pointer;
@@ -107,6 +138,8 @@ const HeaderTagline = styled.h1`
     font-size: 22px;
   }
   @media screen and (max-width: 700px) {
+    text-align: center;
+
   }
   @media screen and (max-width: 500px) {
     font-size: 18px;
@@ -117,9 +150,16 @@ const HeaderTagline = styled.h1`
 `
 
 const HeroImage = styled.img`
-  height: 250px;
-  width: 250px;
-  @media screen and (min-width: 1000px) {
+  height: auto;
+  width: 22rem;
+  @media screen and (max-width: 1000px) {
+    width: 15rem;
+  }
+  @media screen and (max-width: 750px) {
+    width: 22rem;
+  }
+  @media screen and (max-width: 450px) {
+    width: 12rem;
   }
 `
 

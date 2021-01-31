@@ -20,26 +20,8 @@ const Container = styled.div`
   height: 90%;
   z-index: 99;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     display: none;
-  }
-`
-
-const LogoBox = styled.img`
-  width: 140px;
-  padding: 0 25px;
-  height: auto;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  @media screen and (max-width: 968px) {
-    transition: 0.8s all ease;
-    padding: 0 15px;
-  }
-  @media screen and (max-width: 400px) {
-    padding: 5px 0 10px 25px;
-    width: 150px;
   }
 `
 
@@ -137,9 +119,7 @@ const Sidebar = () => {
 
   return (
     <Container id="navbar">
-      <Link to="/">
-        <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
-      </Link>
+      <Link to="/"></Link>
 
       <NavBox>
         {header.menu

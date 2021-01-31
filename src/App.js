@@ -8,17 +8,19 @@ import Home from "./pages/home.component"
 import ProjectExtended from "./pages/project-extended.component"
 import Footer from "./components/footer"
 import Sidebar from "./components/navbar/sidebar"
+import NavigationDesktop from "./components/navbar/navbar"
 import Gnistan from "./pages/Gnistan"
 import Osignat from "./pages/Osignat"
 
 const Container = styled.div`
-  min-width: 100vh;
+min-height: 80vh;
 `
 
 function App() {
   return (
     <Container className="App">
       <Sidebar />
+      <NavigationDesktop />
       <Example />
       <Route>
         <Switch>

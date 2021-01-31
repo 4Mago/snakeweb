@@ -40,16 +40,21 @@ const Header = () => {
 export default Header
 
 const Container = styled.div`
-  padding-top: 80px;
+  padding-top: 10px;
   padding-left: 200px;
   height: auto;
   height: 90vh;
   display: flex;
   justify-content: center;
-  align-items: space-around;
+  align-items: center;
   background: black;
+  gap: 100px;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 600px) {
+    flex-flow: column;
+    padding-left: 100px;
+  }
+  @media screen and (max-width: 500px) {
     padding-left: 0;
   }
 `
@@ -58,10 +63,10 @@ const ColumnLeft = styled.div`
   color: #fff;
   width: 50%;
   display: flex;
-  padding: 10vh 0 0 100px;
+  padding: 0;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   margin: 0;
 `
 const RightContainer = styled.div`
@@ -70,7 +75,7 @@ const RightContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 80px 0 0;
+  padding: 0 5vw 0 0;
 
   @media screen and (max-width: 400px) {
     width: 100%;
@@ -81,8 +86,13 @@ const RightContainer = styled.div`
 const HeaderText = styled.p`
   color: white;
   font-size: 2rem;
+  min-width: 120px;
   text-align: left;
   justify-self: left;
+
+  @media screen and (max-width: 500px) {
+    min-width: 235px;
+  }
 `
 
 const HeaderTagline = styled.h1`
@@ -101,7 +111,7 @@ const HeaderTagline = styled.h1`
     width: 301px;
   }
   @media screen and (max-width: 400px) {
-    font-size: 14px;
+    font-size: 17px;
     width: 150px;
   }
 `
@@ -121,6 +131,22 @@ const HeaderTagline = styled.h1`
 const HeroImage2 = styled.img`
   width: 550px;
   height: 550px;
+
+  @media screen and (max-width: 1000px) {
+    width: 370px;
+    height: auto;
+  }
+  @media screen and (max-width: 700px) {
+    width: 301px;
+    height: auto;
+  }
+  @media screen and (max-width: 500px) {
+    width: 250px;
+    height: auto;
+  }
+  @media screen and (max-width: 400px) {
+    width: 270px;
+  }
 `
 
 const builder = imageUrlBuilder(sanityClient)
