@@ -35,6 +35,7 @@ const About = () => {
           <HeaderTagline>{client.tagline}</HeaderTagline>
           <Text>{client.description}</Text>
         </RightContainer>
+        <MoreSpace />
       </Container>
       <HeroImage
         alt="hero image"
@@ -65,6 +66,11 @@ const Container = styled.div`
     height: auto;
     flex-flow: column;
   }
+`
+const MoreSpace = styled.div`
+  background-color: #000;
+  height: 10vh;
+  width: auto;
 `
 
 const LeftContainer = styled.div`
