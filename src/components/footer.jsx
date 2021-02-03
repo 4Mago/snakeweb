@@ -165,8 +165,8 @@ const Footer = () => {
         </InfoContainer>
         <InfoContainer>
           <InfoHeader>Kontakta oss!</InfoHeader>
-          Vi har öppet dygnet runt alla dagar. Hör av er till{" "}
-          <a href="tel:0707972446">070-797 2446</a>
+          Vi har öppet dygnet runt alla dagar. Hör av er till
+          <a href="tel:0707102996">070-710 2996</a>
           <InfoText>
             <InfoHeader>Socials</InfoHeader>
             {footer.socialMedia
