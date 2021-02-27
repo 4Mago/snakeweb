@@ -11,6 +11,8 @@ const Button = styled.button`
   padding: 2px;
 `
 
+const Iframe = styled.button``
+
 const Forsbergs = () => {
   const [pdf, setPdf] = useState(false)
 
@@ -19,7 +21,7 @@ const Forsbergs = () => {
       <Button onClick={() => setPdf(true)}>jakobs portfolio</Button>
 
       {pdf ? (
-        <iframe src="/pdf/ta_språnget.pdf" height="100%" width="70%" />
+        <Iframe src="/pdf/ta_språnget.pdf" height="100%" width="70%" />
       ) : undefined}
     </Container>
   )
