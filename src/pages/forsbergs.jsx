@@ -11,7 +11,7 @@ const Button = styled.button`
   padding: 2px;
 `
 
-const Iframe = styled.button``
+const Iframe = styled.iframe``
 
 const Forsbergs = () => {
   const [pdf, setPdf] = useState(false)
