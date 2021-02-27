@@ -60,7 +60,7 @@ const HeroImage = styled.img`
 `
 
 const SocialImage = styled.img`
-  width: 135px;
+  width: 45px;
   height: auto;
   padding: 25px;
   cursor: pointer;
@@ -70,6 +70,10 @@ const SocialImage = styled.img`
     transition: 0.3s;
   }
 `
+
+const ASoundCloud = styled.a``
+
+const AFacebook = styled.a``
 
 const FooterLogo = () => {
   const [header, setHeader] = useState("")
@@ -93,18 +97,12 @@ const FooterLogo = () => {
         <HeroImage alt="TEMC Logo" src={urlFor(header.image).url()} />
       </ImageDiv>
       <SocialContainer>
-        <SocialImage
-          alt="TEMC Logo"
-          src="/soundcloud.svg"
-          href="https://soundcloud.com/osignat"
-          target="_blank"
-        />
-        <SocialImage
-          alt="TEMC Logo"
-          src="/facebook.svg"
-          href="https://facebook.com/osignat"
-          target="_blank"
-        />
+        <ASoundCloud href="https://soundcloud.com/osignat" target="_blank">
+          <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
+        </ASoundCloud>
+        <AFacebook href="https://facebook.com/osignat" target="_blank">
+          <SocialImage alt="TEMC Logo" src="/facebook.svg" />
+        </AFacebook>
       </SocialContainer>
       <MenuLink>© Copyright Jakob Engwall 2021</MenuLink>
       <br />
