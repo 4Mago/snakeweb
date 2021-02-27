@@ -3,6 +3,7 @@ import styled from "styled-components"
 import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
 import { motion } from "framer-motion"
+import FooterLogo from "../components/footerlogo"
 
 const About = () => {
   const [client, setClient] = useState("")
@@ -22,27 +23,28 @@ const About = () => {
 
   return (
     <>
-    <motion.div
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-    >
-      <Container>
-        <LeftContainer>
-        </LeftContainer>
-        <RightContainer>
-          <HeaderText>{client.clientName}</HeaderText>
-          <HeaderTagline>{client.tagline}</HeaderTagline>
-          <Text>{client.description}</Text>
-        </RightContainer>
-      </Container>
-      <HeroImage
-        alt="hero image"
-        className="heroimage"
-        id="heroimage"
-        src={urlFor(client.websiteImage).url()}
-      />
-    </motion.div>
+      <motion.div
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+      >
+        <Container>
+          <LeftContainer></LeftContainer>
+          <RightContainer>
+            <HeaderText>{client.clientName}</HeaderText>
+            <HeaderTagline>{client.tagline}</HeaderTagline>
+            <Text>{client.description}</Text>
+          </RightContainer>
+          <MoreSpace />
+        </Container>
+        <HeroImage
+          alt="hero image"
+          className="heroimage"
+          id="heroimage"
+          src={urlFor(client.websiteImage).url()}
+        />
+      </motion.div>
+      <FooterLogo />
     </>
   )
 }
@@ -66,12 +68,17 @@ const Container = styled.div`
     flex-flow: column;
   }
 `
+const MoreSpace = styled.div`
+  background-color: #000;
+  height: 10vh;
+  width: auto;
+`
 
 const LeftContainer = styled.div`
   color: #fff;
   width: 100%;
   height: 100%;
-  padding-top: 50vh;
+  padding-top: 42vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

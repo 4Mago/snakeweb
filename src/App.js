@@ -6,14 +6,14 @@ import About from "./pages/about.component"
 import Kontakt from "./pages/kontakt.component"
 import Home from "./pages/home.component"
 import ProjectExtended from "./pages/project-extended.component"
-import Footer from "./components/footer"
 import Sidebar from "./components/navbar/sidebar"
 import NavigationDesktop from "./components/navbar/navbar"
 import Gnistan from "./pages/Gnistan"
 import Osignat from "./pages/Osignat"
+import Forsbergs from "./pages/forsbergs"
 
 const Container = styled.div`
-min-height: 80vh;
+  min-height: 80vh;
 `
 
 function App() {
@@ -30,9 +30,9 @@ function App() {
           <Route path={"/project/:id"} component={ProjectExtended} />
           <Route exact path={"/about"} component={About} />
           <Route exact path={"/kontakt"} component={Kontakt} />
+          <Route exact path={"/forsbergs"} component={Forsbergs} />
         </Switch>
       </Route>
-      <Footer />
     </Container>
   )
 }

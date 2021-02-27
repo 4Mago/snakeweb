@@ -54,28 +54,28 @@ const MenuLink = styled(Link)`
   color: rgba(255, 255, 255, 0.42);
   z-index: 99;
   padding: 1rem;
-  animation: animate 2s linear infinite;
+  animation: animate 1.5s ease-in-out infinite;
 
   @keyframes animate {
     0% {
       text-shadow: 0 0 0 0 rgba(255, 255, 255, 0.42);
     }
-    50% {
+    25% {
       text-shadow: 0 0 0 0 #fbfcfd, 0 0 4px 0 #fbfcfd;
     }
-    100% {
+    50% {
       text-shadow: 0 0 0 rgba(255, 255, 255, 0.42);
     }
   }
 
   &:nth-child(1) {
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
   }
   &:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: 1s;
   }
   &:nth-child(3) {
-    animation-delay: 0.1s;
+    animation-delay: 1.5s;
   }
   &:nth-child(4) {
     animation-delay: 0.5s;
