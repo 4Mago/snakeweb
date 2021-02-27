@@ -21,7 +21,7 @@ const Forsbergs = () => {
       <Button onClick={() => setPdf(true)}>jakobs portfolio</Button>
 
       {pdf ? (
-        <Iframe src="/pdf/ta_spranget.pdf" height="100vh" width="70vw" />
+        <Iframe src="/pdf/ta_spranget.pdf" height="100%" width="70%a" />
       ) : undefined}
     </Container>
   )
