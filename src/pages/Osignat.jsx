@@ -70,7 +70,7 @@ const Container = styled.div`
 `
 const MoreSpace = styled.div`
   background-color: #000;
-  height: 10vh;
+  height: 15vh;
   width: auto;
 `
 
