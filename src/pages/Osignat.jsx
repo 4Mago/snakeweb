@@ -93,7 +93,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
   color: #fff;
   width: 100%;
-  padding: 20px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
