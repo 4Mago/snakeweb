@@ -20,20 +20,6 @@ const Container = styled.div`
   }
 `
 
-const LogoBox = styled.img`
-  width: 140px;
-  padding: 0 25px;
-  height: auto;
-  @media screen and (max-width: 968px) {
-    transition: 0.8s all ease;
-    padding: 0 15px;
-  }
-  @media screen and (max-width: 400px) {
-    width: 100px;
-    padding: 0;
-  }
-`
-
 const NavBox = styled.div`
   display: flex;
   justify-content: center;
@@ -78,9 +64,7 @@ const NavBox = styled.div`
 const NavigationDesktop = () => {
   return (
     <Container id="navbar">
-      <Link to="/">
-        <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
-      </Link>
+      <Link to="/"></Link>
       <NavBox></NavBox>
     </Container>
   )

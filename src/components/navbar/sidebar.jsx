@@ -93,6 +93,23 @@ const MenuLink = styled(Link)`
   }
 `
 
+const LogoBox = styled.img`
+  width: 140px;
+  padding: 0 25px;
+  top: 0;
+  left: 0;
+  height: auto;
+  position: absolute;
+  @media screen and (max-width: 968px) {
+    transition: 0.8s all ease;
+    padding: 0 15px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 100px;
+    padding: 0;
+  }
+`
+
 const Sidebar = () => {
   const [header, setHeader] = useState("")
 
@@ -111,7 +128,9 @@ const Sidebar = () => {
 
   return (
     <Container id="navbar">
-      <Link to="/"></Link>
+      <Link to="/">
+        <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
+      </Link>
 
       <NavBox>
         {header.menu
