@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import sanityClient from "../Client"
 
 const Container = styled.div`
   height: auto;
   background-color: black;
+  padding-bottom: 15px;
 `
 
 const ProjectCont = styled.div`
   height: auto;
-  width: 40%;
-  padding: 0 8%;
+  width: 35%;
+  padding: 0 12%;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -126,7 +127,7 @@ const Forsbergs = () => {
                 <Modal>
                   <ModalContent>
                     <ButtonClose onClick={() => setPdf(false)}>
-                      tillbaka
+                      Tillbaka
                     </ButtonClose>
                     <Iframe allowfullscreen src="/pdf/ta_språnget.pdf" />
                   </ModalContent>
