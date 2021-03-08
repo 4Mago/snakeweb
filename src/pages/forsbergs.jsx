@@ -129,8 +129,22 @@ const Forsbergs = () => {
                     <ButtonClose onClick={() => setPdf(false)}>
                       Tillbaka
                     </ButtonClose>
-                    <Iframe allowfullscreen src="/pdf/ta_språnget.pdf" />
-                  </ModalContent>
+                    {() => {
+                      if (pdf === [0]) {
+                        <Iframe allowfullscreen src="/pdf/ta_språnget.pdf" />
+                      } else if (pdf === [1]) {
+                        <Iframe
+                          allowfullscreen
+                          src="/pdf/babyblue_kampanj.pdf"
+                        />
+                      } else {
+                        <Iframe
+                          allowfullscreen
+                          src="/pdf/Creative-task-portfolio.pdf"
+                        />
+                      }
+                    }}
+                </ModalContent>
                 </Modal>
               ) : undefined}
             </ProjectCont>
