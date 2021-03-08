@@ -85,7 +85,7 @@ const RightContainer = styled.div`
 
 const HeaderText = styled.p`
   color: white;
-  font-size: 1.7rem;
+  font-size: 4rem;
   min-width: 120px;
   text-align: left;
   justify-self: left;
@@ -97,7 +97,7 @@ const HeaderText = styled.p`
 
 const HeaderTagline = styled.h1`
   color: white;
-  font-size: 4rem;
+  font-size: 1.7rem;
   text-align: left;
   line-height: 1.1;
 
