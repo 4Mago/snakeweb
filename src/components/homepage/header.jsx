@@ -61,7 +61,7 @@ const Container = styled.div`
 
 const ColumnLeft = styled.div`
   color: #fff;
-  width: 50%;
+  width: 55%;
   display: flex;
   padding: 0;
   flex-direction: column;
@@ -71,7 +71,7 @@ const ColumnLeft = styled.div`
 `
 const RightContainer = styled.div`
   height: auto;
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -83,9 +83,9 @@ const RightContainer = styled.div`
   }
 `
 
-const HeaderText = styled.p`
+const HeaderText = styled.h1`
   color: white;
-  font-size: 1.7rem;
+  font-size: 4rem;
   min-width: 120px;
   text-align: left;
   justify-self: left;
@@ -95,9 +95,9 @@ const HeaderText = styled.p`
   }
 `
 
-const HeaderTagline = styled.h1`
+const HeaderTagline = styled.p`
   color: white;
-  font-size: 4rem;
+  font-size: 1.7rem;
   text-align: left;
   line-height: 1.1;
 
