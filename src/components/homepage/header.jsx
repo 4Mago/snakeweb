@@ -85,7 +85,7 @@ const RightContainer = styled.div`
 
 const HeaderText = styled.p`
   color: white;
-  font-size: 2rem;
+  font-size: 1.7rem;
   min-width: 120px;
   text-align: left;
   justify-self: left;
