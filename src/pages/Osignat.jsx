@@ -106,9 +106,9 @@ const RightContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     width: 100%;
-    height: 100%;
     background-color: black;
-    margin-top: 110px;
+    margin-top: 60px;
+    padding-left: 32px;
   }
 `
 

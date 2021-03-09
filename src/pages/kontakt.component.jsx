@@ -34,9 +34,14 @@ const About = () => {
         </LeftContainer>
         <RightContainer>
           <HeaderTagline>Kom i kontakt med mig!</HeaderTagline>
-          <Text>{priskategori.price}</Text>
           <Text>{priskategori.valuta}</Text>
-          <Iframe width="100%" height="230" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1196997025%3Fsecret_token%3Ds-bwFuifGgd6R&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></Iframe>
+          <Text>{priskategori.price}</Text>
+          <br />
+          <br />
+          <br />
+          <br />
+          <HeaderTagline>Kolla in min soundcloud</HeaderTagline>
+          <Iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1196997025%3Fsecret_token%3Ds-bwFuifGgd6R&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></Iframe>
           <SoundCloudBox>
             <A href="https://soundcloud.com/osignat" title="Osignat" rel="noreferrer" target="_blank">Osignat</A> · 
             <A href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" title="snaek demoes" target="_blank">snaek demoes</A>
@@ -69,7 +74,19 @@ const Container = styled.div`
     padding-left: 0;
   }
 `
-const Iframe = styled.iframe``
+const Iframe = styled.iframe`
+  width: 100%;
+  height: 300px;
+  max-width: 350px;
+
+  @media screen and (max-width: 500px) {
+    height: auto;
+    flex-flow: column;
+    padding-top: 35px;
+    padding-left: 0;
+  }
+`
+
 const A = styled.a`color: #cccccc; text-decoration: none;`
 const SoundCloudBox = styled.div`
 font-size: 10px; 
@@ -109,13 +126,12 @@ const RightContainer = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   text-align: right;
   width: 40%;
-  padding: 30px 10px 0 10px;
+  padding: 30px 50px 0 20px;
 
   @media screen and (max-width: 1050px) {
-    padding-right: 200px;
     height: 100%;
     width: 90%;
   }
@@ -181,4 +197,6 @@ const HeaderTagline = styled.h1`
 // `
 
 const Text = styled.p`
+
+
 `
