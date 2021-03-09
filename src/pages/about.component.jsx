@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import imageUrlBuilder from "@sanity/image-url"
 import styled from "styled-components"
 import sanityClient from "../Client"
 import { motion } from "framer-motion"
@@ -31,9 +32,16 @@ const About = () => {
       <Container>
 
       <LeftContainer>
+        <HeaderTagline>{vemarjag.title}</HeaderTagline>
         <HeaderTagline>{vemarjag.tagline}</HeaderTagline>
       </LeftContainer>
       <RightContainer>
+        <HeroImage     
+                    alt="hero image"
+                    className="App-logo"
+                    id="heroimage"
+                    src={urlFor(vemarjag.image).url()}
+       />
         <HeaderText>{vemarjag.description}</HeaderText>
       </RightContainer>
 
@@ -46,6 +54,10 @@ const About = () => {
 
 export default About
 
+const builder = imageUrlBuilder(sanityClient)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const Container = styled.div`
   width: 100%;
@@ -119,6 +131,8 @@ const HeaderText = styled(PortableText)`
   cursor: pointer;
   min-width: 255px;
 `
+
+
 const HeaderTagline = styled(PortableText)`
   color: white;
   max-width: 550px;
