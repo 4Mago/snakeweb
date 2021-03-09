@@ -90,6 +90,10 @@ const RightContainer = styled.div`
 const HeaderText = styled.h1`
   color: white;
   font-size: 4rem;
+<<<<<<< HEAD
+=======
+  min-width: 120px;
+>>>>>>> 5ce5be24953bb97cbd397fcc266b6fec991f539b
   text-align: left;
   justify-self: left;
 
