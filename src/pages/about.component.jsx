@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
 import { motion } from "framer-motion"
 
 const About = () => {
-  const [tagline, setTagline] = useState("")
+  const [vemarjag, setVemarjag] = useState("")
 
   useEffect(() => {
-    const taglineQuery = `*[_type == "tagline"]{
-			title, tagline, image
-		  }`
-    sanityClient.fetch(taglineQuery).then((tagline) => {
-      tagline.forEach((tagline) => {
-        setTagline(tagline)
+    const vemarjagQuery = `*[_type == "vemarjag"]`
+    sanityClient.fetch(vemarjagQuery).then((vemarjag) => {
+      const vemarjagArray = []
+      vemarjag.forEach((vemarjag) => {
+        vemarjagArray.push(vemarjag)
       })
+      setVemarjag(vemarjagArray)
     })
-
     return
   }, [])
 
@@ -29,20 +27,15 @@ const About = () => {
             
     >
       <Container>
-        <LeftContainer>
-          <HeaderText>{tagline.title}</HeaderText>
-          <HeroImage
-            
-            alt="hero image"
-            className="heroimage"
-            id="heroimage"
-            src={urlFor(tagline.image).url()}
-          />
-        </LeftContainer>
-        <RightContainer>
-          <HeaderTagline>{tagline.tagline}</HeaderTagline>
-          <Text>här får det stå något som jag klistrar in manuellt</Text>
-        </RightContainer>
+
+      <LeftContainer>
+        <HeaderTagline>{vemarjag.tagline}</HeaderTagline>
+      </LeftContainer>
+      <RightContainer>
+        <HeaderText>{vemarjag.description}</HeaderText>
+      </RightContainer>
+
+        <Text />
       </Container>
       </motion.div>
     </>
@@ -51,10 +44,6 @@ const About = () => {
 
 export default About
 
-const builder = imageUrlBuilder(sanityClient)
-function urlFor(source) {
-  return builder.image(source)
-}
 
 const Container = styled.div`
   width: 100%;
@@ -63,6 +52,7 @@ const Container = styled.div`
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
+  flex-flow: row;
   gap: 50px;
   background-color: #131313;
   z-index: -1;
