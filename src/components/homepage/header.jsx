@@ -65,9 +65,13 @@ const ColumnLeft = styled.div`
   display: flex;
   padding: 0;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   margin: 0;
+
+  @media screen and (max-width: 500px) {
+    padding-left: 50px;
+  }
 `
 const RightContainer = styled.div`
   height: auto;
@@ -86,12 +90,12 @@ const RightContainer = styled.div`
 const HeaderText = styled.h1`
   color: white;
   font-size: 4rem;
-  min-width: 120px;
   text-align: left;
   justify-self: left;
 
   @media screen and (max-width: 500px) {
     min-width: 235px;
+    font-size: 2rem;
   }
 `
 

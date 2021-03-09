@@ -143,6 +143,8 @@ const HeaderTagline = styled.h1`
   }
   @media screen and (max-width: 500px) {
     font-size: 18px;
+    padding-left: 10px;
+    width: 70%;
   }
   @media screen and (max-width: 400px) {
     font-size: 14px;
@@ -164,5 +166,7 @@ const HeroImage = styled.img`
 `
 
 const Text = styled.p`
-  text-align: center;
+  text-align: justify;
+  padding-left: 10px;
+  width: 70%;
 `

@@ -63,7 +63,7 @@ const Container = styled.div`
   flex-flow: column;
   z-index: -1;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 500px) {
     height: auto;
     flex-flow: column;
   }
@@ -103,6 +103,13 @@ const RightContainer = styled.div`
   @media screen and (max-width: 750px) {
     padding: 0;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    margin-top: 110px;
+  }
 `
 
 const HeaderText = styled.h1`
@@ -140,6 +147,10 @@ const HeroImage = styled.img`
   top: 0;
   z-index: -1;
   background-size: cover;
+
+  @media screen and (max-width: 500px) {
+    height: auto;
+  }
 `
 
 const Text = styled.p`
@@ -149,5 +160,6 @@ const Text = styled.p`
     max-width: 70vw;
   }
   @media screen and (max-width: 500px) {
+
   }
 `

@@ -25,7 +25,7 @@ const Container = styled.div`
   text-align: center;
   gap: 50px;
   @media screen and (max-width: 500px) {
-    height: 320px;
+    height: 490px;
   }
 `
 

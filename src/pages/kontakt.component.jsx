@@ -29,12 +29,14 @@ const About = () => {
     >
       <Container>
         <LeftContainer>
-      <HeaderTagline>{priskategori.price}</HeaderTagline>
-      <Text>{priskategori.valuta}</Text>
+        <HeaderText2>Hallå där!</HeaderText2>
+        <HeaderText>{priskategori.title}</HeaderText>
         </LeftContainer>
         <RightContainer>
-          <HeaderText>{priskategori.title}</HeaderText>
-          <Iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1196997025%3Fsecret_token%3Ds-bwFuifGgd6R&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></Iframe>
+          <HeaderTagline>Kom i kontakt med mig!</HeaderTagline>
+          <Text>{priskategori.price}</Text>
+          <Text>{priskategori.valuta}</Text>
+          <Iframe width="100%" height="230" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1196997025%3Fsecret_token%3Ds-bwFuifGgd6R&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></Iframe>
           <SoundCloudBox>
             <A href="https://soundcloud.com/osignat" title="Osignat" rel="noreferrer" target="_blank">Osignat</A> · 
             <A href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" title="snaek demoes" target="_blank">snaek demoes</A>
@@ -51,7 +53,7 @@ export default About
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  padding-top: 150px;
+  padding-top: 100px;
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
@@ -84,7 +86,7 @@ font-weight: 100;
 const LeftContainer = styled.div`
   color: #fff;
   width: 40%;
-  padding: 50px 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start ;
@@ -94,8 +96,10 @@ const LeftContainer = styled.div`
   @media screen and (max-width: 750px) {
     height: auto;
     padding: 0;
+    padding-left: 30px;
     justify-content: center;
     align-self: center;
+    width: 70%;
   }
 `
 
@@ -108,7 +112,7 @@ const RightContainer = styled.div`
   align-items: flex-end;
   text-align: right;
   width: 40%;
-  padding: 180px 10px;
+  padding: 30px 10px 0 10px;
 
   @media screen and (max-width: 1050px) {
     padding-right: 200px;
@@ -124,13 +128,21 @@ const RightContainer = styled.div`
   }
 `
 
-const HeaderText = styled.h1`
+const HeaderText = styled.p`
   color: white;
-  font-size: 32px;
-  text-align: center;
-  width: 55%;
-  cursor: pointer;
+  font-size: 18px;
+  text-align: justify;
+  width: 90%;
   min-width: 255px;
+  padding: 0;
+`
+const HeaderText2 = styled.p`
+  color: white;
+  font-size: 35px;
+  text-align: left;
+  width: 90%;
+  min-width: 255px;
+  padding-left: 15px;
 `
 const HeaderTagline = styled.h1`
   color: white;
@@ -169,5 +181,4 @@ const HeaderTagline = styled.h1`
 // `
 
 const Text = styled.p`
-  text-align: center;
 `

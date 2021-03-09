@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import sanityClient from "../Client"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import sanityClient from '../Client'
 
 const Container = styled.div`
-  height: auto;
+  height: 125vh;
   background-color: black;
   padding-bottom: 15px;
 `
@@ -16,22 +16,16 @@ const ProjectCont = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  text-align: left;
 
-  :nth-child(3) {
-    padding: 0 55%;
-    text-align: right;
-  }
-  :nth-child(5) {
-    padding: 0 55%;
-    text-align: right;
+  @media screen and (max-width: 500px) {
+    padding: 0;
+    width: 70%;
   }
 `
 
-const TitleTitle = styled.h1`
-  color: white;
-  text-align: center;
-  padding: 50px;
+const TitleTitle = styled.div`
+  height: 150px;
+  width: 150px;
 `
 
 const Title = styled.h2`
@@ -98,10 +92,19 @@ const Desc = styled.p`
   justify-content: center;
 `
 
+const TitleImage = styled.img`
+  width: 150px;
+  height: auto;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+
 const Forsbergs = () => {
   const [pdf, setPdf] = useState(false)
 
-  const [forsbergs, setForsbergs] = useState("")
+  const [forsbergs, setForsbergs] = useState('')
 
   const forsbergsQuery = `*[_type == "forsbergs"]`
 
@@ -116,7 +119,8 @@ const Forsbergs = () => {
   return (
     <Container>
       <br />
-      <TitleTitle>Forsbergs</TitleTitle>
+      <TitleTitle></TitleTitle>
+      <TitleImage src="/forsbergs.jpg"></TitleImage>
       {forsbergs.length
         ? forsbergs.map((forsbergsItem, id) => (
             <ProjectCont key={id}>
@@ -130,21 +134,21 @@ const Forsbergs = () => {
                       Tillbaka
                     </ButtonClose>
                     {() => {
-                      if (pdf === [0]) {
-                        <Iframe allowfullscreen src="/pdf/ta_språnget.pdf" />
-                      } else if (pdf === [1]) {
+                      if (pdf === forsbergs.length[0]) {
+                        <Iframe allowfullscreen src='/pdf/ta_språnget.pdf' />
+                      } else if (pdf === forsbergs.length[1]) {
                         <Iframe
                           allowfullscreen
-                          src="/pdf/babyblue_kampanj.pdf"
+                          src='/pdf/babyblue_kampanj.pdf'
                         />
                       } else {
                         <Iframe
                           allowfullscreen
-                          src="/pdf/Creative-task-portfolio.pdf"
+                          src='/pdf/Creative-task-portfolio.pdf'
                         />
                       }
                     }}
-                </ModalContent>
+                  </ModalContent>
                 </Modal>
               ) : undefined}
             </ProjectCont>

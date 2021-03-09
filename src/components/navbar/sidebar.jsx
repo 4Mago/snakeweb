@@ -14,17 +14,12 @@ const Container = styled.div`
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 90%;
   z-index: 99;
 
-  @media screen and (max-width: 500px) {
-    top: 95vh;
-    flex-flow: row;
-    justify-content: space-around;
-  }
 `
 
 const NavBox = styled.div`
@@ -38,13 +33,8 @@ const NavBox = styled.div`
   height: 22px;
   align-self: flex-start;
 
-  &::nth-child(1) {
-    padding: 50px;
-  }
-
-  @media screen and (max-width: 500px) {
-    top: 95vh;
-    flex-flow: row;
+  @media screen and (max-width: 600px) {
+    padding: 20px 0;
   }
 `
 
@@ -104,9 +94,9 @@ const LogoBox = styled.img`
     transition: 0.8s all ease;
     padding: 0 15px;
   }
-  @media screen and (max-width: 400px) {
-    width: 100px;
-    padding: 0;
+  @media screen and (max-width: 500px) {
+    width: 115px;
+    padding: 20px 0;
   }
 `
 

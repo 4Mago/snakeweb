@@ -1,6 +1,5 @@
 import "./App.css"
 import styled from "styled-components"
-import Example from "./components/navbar/hamburger/Example"
 import { Route, Switch } from "react-router-dom"
 import About from "./pages/about.component"
 import Kontakt from "./pages/kontakt.component"
@@ -21,7 +20,6 @@ function App() {
     <Container className="App">
       <Sidebar />
       <NavigationDesktop />
-      <Example />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/gnistan" component={Gnistan} />
