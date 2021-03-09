@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import sanityClient from "../Client"
 import { motion } from "framer-motion"
+import PortableText from "@sanity/block-content-to-react"
+
 
 const About = () => {
   const [vemarjag, setVemarjag] = useState("")
@@ -109,7 +111,7 @@ const RightContainer = styled.div`
   }
 `
 
-const HeaderText = styled.h1`
+const HeaderText = styled(PortableText)`
   color: white;
   font-size: 32px;
   text-align: center;
@@ -117,7 +119,7 @@ const HeaderText = styled.h1`
   cursor: pointer;
   min-width: 255px;
 `
-const HeaderTagline = styled.h1`
+const HeaderTagline = styled(PortableText)`
   color: white;
   max-width: 550px;
   font-size: 22px;
