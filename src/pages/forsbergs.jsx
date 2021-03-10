@@ -34,12 +34,6 @@ const ProjectCont = styled.div`
   }
 `
 
-const TitleTitle = styled.div`
-  height: 150px;
-  width: 150px;
-  padding: 0;
-`
-
 const Title = styled.h2`
   color: white;
   text-align: left;
