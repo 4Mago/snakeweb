@@ -57,9 +57,9 @@ function urlFor(source) {
 }
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw - 150px;
   height: 100%;
-  padding-top: 150px;
+  padding-top: 80px;
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
@@ -103,7 +103,7 @@ const RightContainer = styled.div`
   align-items: flex-end;
   text-align: right;
   width: 40%;
-  padding: 180px 10px;
+  padding: 60px 10px;
 
   @media screen and (max-width: 1050px) {
     padding-right: 200px;
@@ -129,10 +129,10 @@ const HeaderText = styled.h1`
 `
 const HeaderTagline = styled.h1`
   color: white;
-  max-width: 550px;
+  max-width: 350px;
   font-size: 22px;
+  line-height: 24px;
   text-align: right;
-  cursor: pointer;
 
   @media screen and (max-width: 1000px) {
     font-size: 22px;
@@ -143,8 +143,8 @@ const HeaderTagline = styled.h1`
   }
   @media screen and (max-width: 500px) {
     font-size: 18px;
-    padding-left: 10px;
-    width: 70%;
+    max-width: 360px;
+
   }
   @media screen and (max-width: 400px) {
     font-size: 14px;

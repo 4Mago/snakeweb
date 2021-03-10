@@ -37,9 +37,6 @@ const About = () => {
           <Text>{priskategori.valuta}</Text>
           <Text>{priskategori.price}</Text>
           <br />
-          <br />
-          <br />
-          <br />
           <HeaderTagline>Kolla in min soundcloud</HeaderTagline>
           <Iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1196997025%3Fsecret_token%3Ds-bwFuifGgd6R&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></Iframe>
           <SoundCloudBox>
@@ -56,9 +53,9 @@ const About = () => {
 export default About
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw - 150px;
   height: 100%;
-  padding-top: 100px;
+  padding-top: 80px;
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
@@ -71,7 +68,6 @@ const Container = styled.div`
     height: auto;
     flex-flow: column;
     padding-top: 35px;
-    padding-left: 0;
   }
 `
 const Iframe = styled.iframe`
@@ -102,26 +98,23 @@ font-weight: 100;
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 40%;
-  padding: 0;
+  width: 60%;
   display: flex;
+  padding: 0;
   flex-direction: column;
-  justify-content: flex-start ;
-  align-items: center;
-  margin-right: 0;
+  justify-content: left;
+  align-items: left;
+  margin: 0;
 
-  @media screen and (max-width: 750px) {
-    height: auto;
-    padding: 0;
-    padding-left: 30px;
-    justify-content: center;
-    align-self: center;
-    width: 70%;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 500px) {
   }
 `
 
 const RightContainer = styled.div`
-  height: 70%;
+  height: 60%;
   color: #fff;
   display: flex;
   flex-flow: column;

@@ -4,6 +4,7 @@ import sanityClient from '../Client'
 
 const Container = styled.div`
   height: 125vh;
+  width: 100vw - 150px;
   background-color: black;
   padding-bottom: 15px;
 `

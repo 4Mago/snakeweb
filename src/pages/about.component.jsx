@@ -5,12 +5,13 @@ import sanityClient from "../Client"
 import { motion } from "framer-motion"
 import PortableText from "@sanity/block-content-to-react"
 
-
 const About = () => {
   const [vemarjag, setVemarjag] = useState("")
 
   useEffect(() => {
-    const vemarjagQuery = `*[_type == "vemarjag"]`
+    const vemarjagQuery = `*[_type == "vemarjag"]{
+			title, tagline, description, image
+		  }`
     sanityClient.fetch(vemarjagQuery).then((vemarjag) => {
       const vemarjagArray = []
       vemarjag.forEach((vemarjag) => {
@@ -21,31 +22,34 @@ const About = () => {
     return
   }, [])
 
+
   return (
     <>
       <motion.div
             exit={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
-            
     >
       <Container>
-
+      {vemarjag.length > 0
+          ? vemarjag.map((vemarjagItem, idx) => (
+            <>
       <LeftContainer>
-        <HeaderTagline>{vemarjag.title}</HeaderTagline>
-        <HeaderTagline>{vemarjag.tagline}</HeaderTagline>
+      <HeroImage     
+          alt="hero image"
+          id="heroimage"
+          src={urlFor(vemarjagItem.image).url()}
+       />
+        <HeaderText blocks={vemarjagItem.description} />
+        <Text />        
       </LeftContainer>
       <RightContainer>
-        <HeroImage     
-                    alt="hero image"
-                    className="App-logo"
-                    id="heroimage"
-                    src={urlFor(vemarjag.image).url()}
-       />
-        <HeaderText>{vemarjag.description}</HeaderText>
+      <HeaderTagline>{vemarjagItem.title}</HeaderTagline>
+        <HeaderTagline blocks={vemarjagItem.tagline} />
       </RightContainer>
-
-        <Text />
+      </>
+          ))
+          : null }
       </Container>
       </motion.div>
     </>
@@ -60,14 +64,14 @@ function urlFor(source) {
 }
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw - 150px;
   height: 100%;
-  padding-top: 150px;
+  padding-top: 40px;
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
-  flex-flow: row;
-  gap: 50px;
+  justify-content: center;
+  align-items: center;
   background-color: #131313;
   z-index: -1;
 
@@ -75,77 +79,67 @@ const Container = styled.div`
   @media screen and (max-width: 750px) {
     height: auto;
     flex-flow: column;
-    padding-top: 35px;
-    padding-left: 0;
+    
   }
 `
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 40%;
-  padding: 50px 0;
+  width: 55%;
   display: flex;
+  padding: 0;
   flex-direction: column;
-  justify-content: flex-start ;
+  justify-content: center;
   align-items: center;
-  margin-right: 0;
+  margin: 0;
 
-  @media screen and (max-width: 750px) {
-    height: auto;
-    padding: 0;
-    justify-content: center;
-    align-self: center;
+  @media screen and (max-width: 500px) {
+    width: 100%;
   }
 `
 
 const RightContainer = styled.div`
-  height: 70%;
-  color: #fff;
+  height: auto;
+  width: 45%;
   display: flex;
-  flex-flow: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  text-align: right;
-  width: 40%;
-  padding: 180px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 5vw 10vh 0;
 
-  @media screen and (max-width: 1050px) {
-    padding-right: 200px;
-    height: 100%;
+  @media screen and (max-width: 700px) {
     width: 90%;
-  }
-  @media screen and (max-width: 750px) {
-    padding: 15px;
-  }
-  @media screen and (max-width: 450px) {
-    height: 100%;
-    width: 90%;
+    padding: 0;
   }
 `
 
+
 const HeaderText = styled(PortableText)`
   color: white;
-  font-size: 32px;
+  font-size: 22px;
   text-align: center;
   width: 55%;
-  cursor: pointer;
   min-width: 255px;
+  margin-top: 15px;
+  border: 1.8px solid white;
+  border-radius: 10px;
+  line-height: 24px;
 `
 
 
 const HeaderTagline = styled(PortableText)`
   color: white;
-  max-width: 550px;
-  font-size: 22px;
+  max-width: 450px;
+  font-size: 18px;
   text-align: right;
+  line-height: 24px;
   cursor: pointer;
 
   @media screen and (max-width: 1000px) {
     font-size: 22px;
   }
   @media screen and (max-width: 700px) {
-    text-align: center;
-
+    text-align: justify;
+    
   }
   @media screen and (max-width: 500px) {
     font-size: 18px;
@@ -158,6 +152,7 @@ const HeaderTagline = styled(PortableText)`
 const HeroImage = styled.img`
   height: auto;
   width: 22rem;
+  border-radius: 10rem;
   @media screen and (max-width: 1000px) {
     width: 15rem;
   }
