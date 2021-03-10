@@ -22,13 +22,12 @@ const About = () => {
   }, [])
 
   return (
-    <>
-      <motion.div
+    <ContCont>
+        <Container
         exit={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-        <Container>
           <LeftContainer></LeftContainer>
           <RightContainer>
             <HeaderText>{client.clientName}</HeaderText>
@@ -43,9 +42,8 @@ const About = () => {
           id="heroimage"
           src={urlFor(client.websiteImage).url()}
         />
-      </motion.div>
       <FooterLogo />
-    </>
+    </ContCont>
   )
 }
 
@@ -56,7 +54,12 @@ function urlFor(source) {
   return builder.image(source)
 }
 
-const Container = styled.div`
+const ContCont = styled.div`
+  width: 100%;
+  height: 100%;
+`
+
+const Container = styled(motion.div)`
   width: 100%;
   height: 100%;
   display: flex;

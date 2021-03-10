@@ -24,13 +24,12 @@ const About = () => {
 
 
   return (
-    <>
-      <motion.div
+    <ContCont>
+      <Container
             exit={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
     >
-      <Container>
       {vemarjag.length > 0
           ? vemarjag.map((vemarjagItem, idx) => (
             <>
@@ -51,8 +50,7 @@ const About = () => {
           ))
           : null }
       </Container>
-      </motion.div>
-    </>
+    </ContCont>
   )
 }
 
@@ -63,16 +61,22 @@ function urlFor(source) {
   return builder.image(source)
 }
 
-const Container = styled.div`
+const ContCont = styled.div`
   width: 100vw - 150px;
   height: 100%;
-  padding-top: 40px;
+  background-color: #000000;
+
+`
+
+const Container = styled(motion.div)`
+  width: 100vw - 150px;
+  height: 100%;
+  padding-top: 60px;
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #131313;
   z-index: -1;
 
 
@@ -85,7 +89,7 @@ const Container = styled.div`
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 55%;
+  width: 25%;
   display: flex;
   padding: 0;
   flex-direction: column;
@@ -100,7 +104,7 @@ const LeftContainer = styled.div`
 
 const RightContainer = styled.div`
   height: auto;
-  width: 45%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -130,9 +134,9 @@ const HeaderTagline = styled(PortableText)`
   color: white;
   max-width: 450px;
   font-size: 18px;
-  text-align: right;
+  text-align: left;
   line-height: 24px;
-  cursor: pointer;
+  z-index: 1;
 
   @media screen and (max-width: 1000px) {
     font-size: 22px;
@@ -151,16 +155,21 @@ const HeaderTagline = styled(PortableText)`
 
 const HeroImage = styled.img`
   height: auto;
-  width: 22rem;
-  border-radius: 10rem;
+  width: 32rem;
+  border-radius: 28rem;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
   @media screen and (max-width: 1000px) {
-    width: 15rem;
+    width: 32rem;
   }
   @media screen and (max-width: 750px) {
     width: 22rem;
   }
   @media screen and (max-width: 450px) {
-    width: 12rem;
+    width: 15rem;
   }
 `
 

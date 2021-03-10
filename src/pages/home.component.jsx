@@ -12,16 +12,16 @@ const Container = styled.div`
 
 const Home = () => {
   return (
-    <motion.div
-      exit={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      initial={{ opacity: 0 }}
-      transition={transition}
-    >
-      <Container>
+    <Container>
+        <motion.div
+          exit={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={transition}
+        >
         <Header />
-      </Container>
     </motion.div>
+      </Container>
   )
 }
 

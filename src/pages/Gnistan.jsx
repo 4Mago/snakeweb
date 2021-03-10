@@ -21,14 +21,12 @@ const Gnistan = () => {
   }, [])
 
   return (
-    <>
-      <motion.div
-            exit={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            
-    >
-      <Container>
+    <ContCont>
+      <Container
+                  exit={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0 }}
+      >
         <LeftContainer>
           <HeaderText>{about.title}</HeaderText>
           <HeroImage
@@ -44,8 +42,7 @@ const Gnistan = () => {
           <Text>{about.description}</Text>
         </RightContainer>
       </Container>
-      </motion.div>
-    </>
+    </ContCont>
   )
 }
 
@@ -56,7 +53,13 @@ function urlFor(source) {
   return builder.image(source)
 }
 
-const Container = styled.div`
+const ContCont = styled.div`
+  width: 100vw - 150px;
+  height: 100%;
+  background-color: #000000;
+`
+
+const Container = styled(motion.div)`
   width: 100vw - 150px;
   height: 100%;
   padding-top: 80px;
@@ -64,7 +67,6 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   gap: 50px;
-  background-color: #131313;
   z-index: -1;
 
 
