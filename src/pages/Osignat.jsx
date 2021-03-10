@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
 import { motion } from "framer-motion"
 import FooterLogo from "../components/footerlogo"
+import Gnistan from './Gnistan'
 
 const About = () => {
   const [client, setClient] = useState("")
@@ -22,6 +23,7 @@ const About = () => {
   }, [])
 
   return (
+    <>
     <ContCont>
         <Container
         exit={{ opacity: 0 }}
@@ -44,6 +46,8 @@ const About = () => {
         />
       <FooterLogo />
     </ContCont>
+    <Gnistan />
+</>
   )
 }
 
