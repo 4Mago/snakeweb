@@ -108,16 +108,18 @@ const RightContainer = styled.div`
   padding: 60px 10px;
 
   @media screen and (max-width: 1050px) {
-    padding-right: 200px;
+    padding-right: 100px;
     height: 100%;
     width: 90%;
   }
   @media screen and (max-width: 750px) {
     padding: 15px;
+    padding-right: 15px;
   }
   @media screen and (max-width: 450px) {
     height: 100%;
     width: 90%;
+    padding-right: 0px;
   }
 `
 
@@ -145,7 +147,7 @@ const HeaderTagline = styled.h1`
   }
   @media screen and (max-width: 500px) {
     font-size: 18px;
-    max-width: 360px;
+    max-width: 320px;
 
   }
   @media screen and (max-width: 400px) {
@@ -156,6 +158,7 @@ const HeaderTagline = styled.h1`
 const HeroImage = styled.img`
   height: auto;
   width: 22rem;
+  border-radius: 22rem;
   @media screen and (max-width: 1000px) {
     width: 15rem;
   }
@@ -168,7 +171,11 @@ const HeroImage = styled.img`
 `
 
 const Text = styled.p`
-  text-align: justify;
+  text-align: center;
   padding-left: 10px;
   width: 70%;
+
+  @media screen and (max-width: 1050px) {
+    width: 100%;
+  }
 `

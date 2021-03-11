@@ -44,9 +44,9 @@ const About = () => {
           id="heroimage"
           src={urlFor(client.websiteImage).url()}
         />
-      <FooterLogo />
     </ContCont>
     <Gnistan />
+    <FooterLogo />
 </>
   )
 }
@@ -114,8 +114,6 @@ const RightContainer = styled.div`
   @media screen and (max-width: 500px) {
     width: 100%;
     background-color: black;
-    margin-top: 60px;
-    padding-left: 32px;
   }
 `
 

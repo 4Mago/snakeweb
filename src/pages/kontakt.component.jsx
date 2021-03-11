@@ -32,15 +32,11 @@ const About = () => {
         <HeaderText>{priskategori.title}</HeaderText>
         </LeftContainer>
         <RightContainer>
-          <br />
-          <br />
-          <br />
-          <br />
           <HeaderTagline>Kom i kontakt med mig!</HeaderTagline>
-          <Text>{priskategori.valuta}</Text>
-          <Text>{priskategori.price}</Text>
+          <Text><SocialImage src="/mail.png"/>{priskategori.valuta}</Text>
+          <Text><SocialImage src="/phone.png"/>{priskategori.price}</Text>
           <br />
-          <HeaderTagline>Kolla in min Soundcloud</HeaderTagline>
+          <HeaderTagline>Mer musik!</HeaderTagline>
           <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
           <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
           
@@ -60,13 +56,12 @@ const ContCont = styled.div`
 `
 
 const Container = styled(motion.div)`
-  width: 100vw - 150px;
   height: 100%;
   padding-top: 80px;
   padding-left: 180px;
   min-height: 100vh;
   display: flex;
-  gap: 50px;
+  gap: 20px;
   z-index: -1;
 
 
@@ -74,6 +69,10 @@ const Container = styled(motion.div)`
     height: auto;
     flex-flow: column;
     padding-top: 35px;
+    padding-left: 120px;
+  }
+  @media screen and (max-width: 500px) {
+    padding-left: 0;
   }
 `
 
@@ -97,7 +96,6 @@ const LeftContainer = styled.div`
   color: #fff;
   width: 60%;
   display: flex;
-  padding: 0;
   flex-direction: column;
   justify-content: left;
   align-items: left;
@@ -107,6 +105,8 @@ const LeftContainer = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 500px) {
+    padding-left: 120px;
+    width: 270px;
   }
 `
 
@@ -130,7 +130,8 @@ const RightContainer = styled.div`
   }
   @media screen and (max-width: 450px) {
     height: 100%;
-    width: 90%;
+    width: 100%;
+    padding: 0;
   }
 `
 
@@ -141,14 +142,22 @@ const HeaderText = styled.p`
   width: 90%;
   min-width: 255px;
   padding: 0;
+
+  @media screen and (max-width: 500px) {
+    min-width: 205px;
+  }
 `
 const HeaderText2 = styled.p`
   color: white;
   font-size: 35px;
   text-align: left;
-  width: 90%;
+  width: 80%;
   min-width: 255px;
   padding-left: 15px;
+
+  @media screen and (max-width: 500px) {
+    min-width: 205px;
+  }
 `
 const HeaderTagline = styled.h1`
   color: white;
@@ -187,6 +196,8 @@ const HeaderTagline = styled.h1`
 // `
 
 const Text = styled.p`
-
-
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0;
 `

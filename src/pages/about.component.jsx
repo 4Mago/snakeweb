@@ -72,7 +72,7 @@ const Container = styled(motion.div)`
   width: 100vw - 150px;
   height: 100%;
   padding-top: 60px;
-  padding-left: 150px;
+  padding-left: 120px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -83,13 +83,13 @@ const Container = styled(motion.div)`
   @media screen and (max-width: 750px) {
     height: auto;
     flex-flow: column;
-    
+    padding-left: 100px;
   }
 `
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 25%;
+  width: 5%;
   display: flex;
   padding: 0;
   flex-direction: column;
@@ -142,7 +142,7 @@ const HeaderTagline = styled(PortableText)`
     font-size: 22px;
   }
   @media screen and (max-width: 700px) {
-    text-align: justify;
+    text-align: center;
     
   }
   @media screen and (max-width: 500px) {
@@ -175,4 +175,5 @@ const HeroImage = styled.img`
 
 const Text = styled.p`
   text-align: center;
+  line-height: 24px;
 `
