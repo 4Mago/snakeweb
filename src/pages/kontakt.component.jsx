@@ -34,7 +34,7 @@ const About = () => {
         <RightContainer>
           <HeaderTagline>Kom i kontakt med mig!</HeaderTagline>
           <Text><SocialImage src="/mail.png"/>{priskategori.valuta}</Text>
-          <Text><SocialImage src="/phone.png"/>{priskategori.price}</Text>
+          <Text><SocialImage2 src="/phone.png"/>{priskategori.price}</Text>
           <br />
           <HeaderTagline>Mer musik!</HeaderTagline>
           <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
@@ -81,6 +81,18 @@ const ASoundCloud = styled.a``
 
 const SocialImage = styled.img`
   width: 65px;
+  height: auto;
+  padding: 15px;
+  padding-top: 0;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+`
+const SocialImage2 = styled.img`
+  width: 45px;
   height: auto;
   padding: 15px;
   padding-top: 0;
