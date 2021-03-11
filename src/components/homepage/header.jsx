@@ -55,7 +55,8 @@ const Container = styled.div`
     padding-left: 100px;
   }
   @media screen and (max-width: 500px) {
-    padding-left: 0;
+    padding-left: 100px;
+    gap: 10px;
   }
 `
 
@@ -70,7 +71,7 @@ const ColumnLeft = styled.div`
   margin: 0;
 
   @media screen and (max-width: 500px) {
-    padding-left: 50px;
+    width: 90%;
   }
 `
 const RightContainer = styled.div`
@@ -117,7 +118,8 @@ const HeaderTagline = styled.p`
   }
   @media screen and (max-width: 400px) {
     font-size: 17px;
-    width: 150px;
+    min-width: 150px;
+    max-widtH: 250px;
   }
 `
 

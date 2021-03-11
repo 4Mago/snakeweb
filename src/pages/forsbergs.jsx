@@ -16,14 +16,14 @@ const Container = styled(motion.div)`
 `
 
 const ProjectCont = styled.div`
-  height: 300px;
+  height: 92%;
   width: 100%;
   margin-top: 10vh;
   background-color: #131313;
   padding: 0;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border: 1px solid white;
 
@@ -31,15 +31,18 @@ const ProjectCont = styled.div`
     padding: 0;
     width: 70%;
     border: none;
+    margin-top: 1vh;
   }
 `
 
 const Title = styled.h2`
+  height: 25px;
   color: white;
   text-align: left;
   padding: 0 5px;
 `
 const Title2 = styled.h2`
+  height: 25px; 
   color: white;
   text-align: right;
   padding: 0 5px;
@@ -86,19 +89,27 @@ const ModalContent = styled.div`
   border-radius: 0.5rem;
 `
 
+const Line = styled.div`
+  height: 1px;
+  width: 60%;
+  padding: 0;
+  margin: 5px;
+  background-color: white;
+`
+
 const Iframe = styled.iframe`
   height: 95%;
   width: 100%;
 `
 
 const Desc = styled.p`
-  width: 350px;
+  width: 90%;
   color: white;
   justify-content: center;
 `
 
 const Desc2 = styled.p`
-  width: 350px;
+  width: 90%;
   color: white;
   justify-content: center;
 `
@@ -141,6 +152,7 @@ const Forsbergs = () => {
       >
             <ProjectCont>
               <Title>{forsbergs[0].title}</Title>
+              <Line />
               <Desc>{forsbergs[0].tagline}</Desc>
               <Button onClick={() => setPdf(true)}>Öppna projekt</Button>
               {pdf ? (
@@ -156,6 +168,7 @@ const Forsbergs = () => {
             </ProjectCont>
             <ProjectCont>
               <Title2>{forsbergs[1].title}</Title2>
+              <Line />
               <Desc2>{forsbergs[1].tagline}</Desc2>
               <Button onClick={() => setPdf1(true)}>Öppna projekt</Button>
               {pdf1 ? (
@@ -170,6 +183,7 @@ const Forsbergs = () => {
             </ProjectCont>
             <ProjectCont>
               <Title>{forsbergs[2].title}</Title>
+              <Line />
               <Desc>{forsbergs[2].tagline}</Desc>
               <Button onClick={() => setPdf2(true)}>Öppna projekt</Button>
               {pdf2 ? (
