@@ -132,12 +132,7 @@ const Navbar = () => {
 
   return (
     <>
-    {side ?
-    <Container id="sidebar">
-      <Link onClick={() => handleButtonClick(button)} to="/">
-      <LogoBox alt="logoLogo" src="/snakeweb.gif" />
-      </Link>
-
+    <Container id="navbar">
       <NavBox>
         {header.menu
           ? header.menu.map((item, id) => (
@@ -148,9 +143,6 @@ const Navbar = () => {
           : null}
       </NavBox>
     </Container>
-    :
-    <Sidebar /> 
-  }
     </>
   )
 }

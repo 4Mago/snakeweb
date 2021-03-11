@@ -130,12 +130,11 @@ const Sidebar = () => {
 
   return (
     <>
-    {side ?
     <Container id="navbar">
       <Link onClick={() => handleButtonClick(button)} to="/">
         <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
-
+      {side ?
       <NavBox>
         {header.menu
           ? header.menu.map((item, id) => (
@@ -145,10 +144,10 @@ const Sidebar = () => {
             ))
           : null}
       </NavBox>
-    </Container>
     : 
-  <Navbar />
-}
+    <Navbar />
+          }  
+</Container>
 </>
   )
 }
