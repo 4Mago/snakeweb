@@ -6,7 +6,6 @@ import Kontakt from "./pages/kontakt.component"
 import Home from "./pages/home.component"
 import ProjectExtended from "./pages/project-extended.component"
 import Sidebar from "./components/navbar/sidebar"
-import NavigationDesktop from "./components/navbar/navbar"
 import Gnistan from "./pages/Gnistan"
 import Osignat from "./pages/Osignat"
 import Forsbergs from "./pages/forsbergs"
@@ -15,11 +14,12 @@ const Container = styled.div`
   min-height: 80vh;
 `
 
+
+
 function App() {
   return (
     <Container className="App">
       <Sidebar />
-      <NavigationDesktop />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/gnistan" component={Gnistan} />

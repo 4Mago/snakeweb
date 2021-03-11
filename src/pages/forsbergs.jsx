@@ -36,6 +36,7 @@ const ProjectCont = styled.div`
   @media screen and (max-width: 500px) {
     height: 100%;
     max-height: 280px;
+    min-height: 90%;
     padding: 2px;
     width: 70%;
     margin-top: 1vh;
@@ -92,7 +93,7 @@ const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   background-color: transparent;
   padding: 0.5rem 1rem;
-  width: 65%;
+  width: 95%;
   height: 100%;
   border-radius: 0.5rem;
 `

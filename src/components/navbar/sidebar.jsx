@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import sanityClient from "../../Client"
+import Navbar from './navbar'
 // import imageUrlBuilder from "@sanity/image-url"
 import { Link } from "react-router-dom"
 
@@ -102,6 +103,8 @@ const LogoBox = styled.img`
 
 const Sidebar = () => {
   const [header, setHeader] = useState("")
+  const [side, setSide] = useState(true)
+
 
   useEffect(() => {
     const headerQuery = `*[_type == "header"]{
@@ -117,8 +120,10 @@ const Sidebar = () => {
   }, [])
 
   return (
+    <>
+    {side ?
     <Container id="navbar">
-      <Link to="/">
+      <Link onClick={() => setSide(false)} to="/">
         <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
 
@@ -132,6 +137,10 @@ const Sidebar = () => {
           : null}
       </NavBox>
     </Container>
+    : 
+  <Navbar />
+}
+</>
   )
 }
 
