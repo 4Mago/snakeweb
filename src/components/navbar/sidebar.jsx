@@ -103,8 +103,17 @@ const LogoBox = styled.img`
 
 const Sidebar = () => {
   const [header, setHeader] = useState("")
-  const [side, setSide] = useState(true)
+  const [side, setSide] = useState(initialState)
 
+  function handleButtonClick(buttonId) {
+    const nextState = buttons.map(button => {
+      if (button.id !== buttonId) {
+        return button;
+      }
+      return { ...button, clicked: !button.clicked };
+    });
+    setButtons(nextState);
+  }
 
   useEffect(() => {
     const headerQuery = `*[_type == "header"]{
@@ -123,7 +132,7 @@ const Sidebar = () => {
     <>
     {side ?
     <Container id="navbar">
-      <Link onClick={() => setSide(false)} to="/">
+      <Link onClick={() => handleButtonClick(button)} to="/">
         <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
 

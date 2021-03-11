@@ -112,9 +112,10 @@ const MenuLink = styled(Link)`
 
 
 
+
 const Navbar = () => {
   const [header, setHeader] = useState("")
-  const [side, setSide] = useState(false)
+
 
   useEffect(() => {
     const headerQuery = `*[_type == "header"]{
@@ -133,7 +134,7 @@ const Navbar = () => {
     <>
     {side ?
     <Container id="sidebar">
-      <Link onClick={() => setSide(true)} to="/">
+      <Link onClick={() => handleButtonClick(button)} to="/">
       <LogoBox alt="logoLogo" src="/snakeweb.gif" />
       </Link>
 
