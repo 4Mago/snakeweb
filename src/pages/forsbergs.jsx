@@ -10,14 +10,20 @@ const ContCont = styled.div`
 const Container = styled(motion.div)`
   height: 125vh;
   padding-left: 140px;
+  padding-right: 15px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
+
+  @media screen and (max-width: 500px) {
+  height: 140vh;
+  }
 `
 
 const ProjectCont = styled.div`
-  height: 92%;
+  height: 300px;
   width: 100%;
+  min-width: 280px;
   margin-top: 10vh;
   background-color: #131313;
   padding: 0;
@@ -28,10 +34,12 @@ const ProjectCont = styled.div`
   border: 1px solid white;
 
   @media screen and (max-width: 500px) {
-    padding: 0;
+    height: 100%;
+    max-height: 280px;
+    padding: 2px;
     width: 70%;
-    border: none;
     margin-top: 1vh;
+    min-width: auto;
   }
 `
 
