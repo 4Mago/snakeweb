@@ -15,6 +15,7 @@ const LogoBox = styled.div`
   padding: 0 25px;
   top: 0;
   left: 0;
+  rotate: 90deg;
   height: auto;
   position: absolute;
 `
@@ -131,9 +132,9 @@ const Navbar = () => {
   return (
     <>
     {side ?
-    <Container id="navbar">
+    <Container id="sidebar">
       <Link onClick={() => setSide(true)} to="/">
-      <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
+      <LogoBox alt="logoLogo" src="/snakeweb.gif" />
       </Link>
 
       <NavBox>
@@ -147,7 +148,8 @@ const Navbar = () => {
       </NavBox>
     </Container>
     :
-    <Sidebar /> }
+    <Sidebar /> 
+  }
     </>
   )
 }
