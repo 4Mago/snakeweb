@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import sanityClient from "../../Client"
-import Navbar from './navbar'
 // import imageUrlBuilder from "@sanity/image-url"
 import { Link } from "react-router-dom"
+import Navbar from './navbar'
 
 // const builder = imageUrlBuilder(sanityClient)
 // function urlFor(source) {
@@ -101,19 +101,11 @@ const LogoBox = styled.img`
   }
 `
 
+ 
+
 const Sidebar = () => {
   const [header, setHeader] = useState("")
-  const [side, setSide] = useState(initialState)
-
-  function handleButtonClick(buttonId) {
-    const nextState = buttons.map(button => {
-      if (button.id !== buttonId) {
-        return button;
-      }
-      return { ...button, clicked: !button.clicked };
-    });
-    setButtons(nextState);
-  }
+  const [side, setSide] = useState(true)
 
   useEffect(() => {
     const headerQuery = `*[_type == "header"]{
@@ -130,11 +122,11 @@ const Sidebar = () => {
 
   return (
     <>
+      {side ?
     <Container id="navbar">
-      <Link onClick={() => handleButtonClick(button)} to="/">
+      <Link onClick={() => setSide(false)} to="/">
         <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
-      {side ?
       <NavBox>
         {header.menu
           ? header.menu.map((item, id) => (
@@ -144,10 +136,10 @@ const Sidebar = () => {
             ))
           : null}
       </NavBox>
+</Container>
     : 
     <Navbar />
           }  
-</Container>
 </>
   )
 }

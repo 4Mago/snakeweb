@@ -10,15 +10,6 @@ import Sidebar from "./sidebar"
 //   return builder.image(source)
 // }
 
-const LogoBox = styled.div`
-  width: 140px;
-  padding: 0 25px;
-  top: 0;
-  left: 0;
-  rotate: 90deg;
-  height: auto;
-  position: absolute;
-`
 
 const Container = styled.div`
   display: flex;
@@ -27,7 +18,7 @@ const Container = styled.div`
   align-items: center;
   position: absolute;
   top: 0;
-  left: 150px;
+  left: 0;
   width: 90%;
   z-index: 99;
 `
@@ -93,28 +84,28 @@ const MenuLink = styled(Link)`
   }
 `
 
-// const LogoBox = styled.img`
-//   width: 140px;
-//   padding: 0 25px;
-//   top: 0;
-//   left: 0;
-//   height: auto;
-//   position: absolute;
-//   @media screen and (max-width: 968px) {
-//     transition: 0.8s all ease;
-//     padding: 0 15px;
-//   }
-//   @media screen and (max-width: 500px) {
-//     width: 115px;
-//     padding: 20px 0;
-//   }
-// `
+const LogoBox = styled.img`
+   width: 140px;
+   padding: 0 25px;
+   top: 0;
+   left: 0;
+   height: auto;
+   @media screen and (max-width: 968px) {
+     transition: 0.8s all ease;
+     padding: 0 15px;
+   }
+   @media screen and (max-width: 500px) {
+     width: 115px;
+     padding: 20px 0;
+   }
+`
 
 
 
 
 const Navbar = () => {
   const [header, setHeader] = useState("")
+  const [side, setSide] = useState(true)
 
 
   useEffect(() => {
@@ -132,7 +123,12 @@ const Navbar = () => {
 
   return (
     <>
+    {side ?
+    
     <Container id="navbar">
+    <Link onClick={() => setSide(false)} to="/">
+        <LogoBox alt="TEMC Logo" src="/snakeweb.gif" />
+      </Link>
       <NavBox>
         {header.menu
           ? header.menu.map((item, id) => (
@@ -143,6 +139,9 @@ const Navbar = () => {
           : null}
       </NavBox>
     </Container>
+    : 
+    <Sidebar />
+    }
     </>
   )
 }
