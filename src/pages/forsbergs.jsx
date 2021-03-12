@@ -18,7 +18,7 @@ const Container = styled(motion.div)`
 
   @media screen and (min-width: 1400px) {
   height: 140vh;
-  grid-gap: 70px;
+  grid-gap: 140px;
   }
   @media screen and (max-width: 500px) {
   height: 140vh;
