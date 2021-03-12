@@ -124,7 +124,7 @@ const Sidebar = () => {
     <>
       {side ?
     <Container id="navbar">
-      <Link onClick={() => setSide(false)} to="/">
+      <Link onClick={() => setSide(false)}>
         <LogoBox className="App-logo2" alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
       <NavBox>
