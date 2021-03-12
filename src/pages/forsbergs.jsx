@@ -70,23 +70,6 @@ const Title2 = styled.h2`
 
 `
 
-const Button = styled.button`
-  padding: 2px;
-`
-
-const ButtonClose = styled.button`
-  float: right;
-  width: 4.5rem;
-  line-height: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  background-color: lightgray;
-
-  &:hover {
-    background-color: darkgray;
-  }
-`
 
 const Modal = styled.div`
   position: fixed;
@@ -180,7 +163,6 @@ const Forsbergs = () => {
               <Title>{forsbergs[0].title}</Title>
               <Line />
               <Desc>{forsbergs[0].tagline}</Desc>
-              <Button >Öppna projekt</Button>
               {pdf ? (
                 <Modal>
                   <ModalContent>
@@ -193,7 +175,6 @@ const Forsbergs = () => {
               <Title2>{forsbergs[1].title}</Title2>
               <Line />
               <Desc2>{forsbergs[1].tagline}</Desc2>
-              <Button >Öppna projekt</Button>
               {pdf1 ? (
                 <Modal>
                   <ModalContent>
@@ -205,7 +186,6 @@ const Forsbergs = () => {
               <Title>{forsbergs[2].title}</Title>
               <Line />
               <Desc>{forsbergs[2].tagline}</Desc>
-              <Button >Öppna projekt</Button>
               {pdf2 ? (
                 <Modal>
                   <ModalContent>
