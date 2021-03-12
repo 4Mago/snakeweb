@@ -40,6 +40,7 @@ const ProjectCont = styled.div`
   border: 1px solid white;
   transition: 1s;
   color: white;
+  cursor: pointer;
 
   &:hover {
     background-color: #8e8e8e;
@@ -96,6 +97,7 @@ const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  z-index: 999;
 `
 const ModalContent = styled.div`
   position: absolute;
@@ -104,7 +106,7 @@ const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   background-color: transparent;
   padding: 0.5rem 1rem;
-  width: 95%;
+  width: 75%;
   height: 100%;
   border-radius: 0.5rem;
 `
@@ -147,18 +149,24 @@ const Forsbergs = () => {
 
   useEffect(() => {
     const forsbergsQuery = `*[_type == "forsbergs"]{
-			title, tagline, description, image
-		  }`
-    sanityClient.fetch(forsbergsQuery).then((forsbergs) => {
-      const forsbergsArray = []
-      forsbergs.forEach((forsbergs) => {
-        forsbergsArray.push(forsbergs)
-      })
-      setForsbergs(forsbergsArray)
-    })
+      title, tagline, description, image
+      }`
+      if(!forsbergs.length) {
+        console.log('fetching')
+        sanityClient.fetch(forsbergsQuery).then((forsbergs) => {
+          const forsbergsArray = []
+          forsbergs.forEach((forsbergs) => {
+            forsbergsArray.push(forsbergs)
+          })
+          setForsbergs(forsbergsArray)
+        })
+      
+      }
+   
+    
     return
   }, [])
-
+ 
   return (
     <ContCont>
     <TitleImage src="/forsbergs.jpg"></TitleImage>
@@ -168,48 +176,39 @@ const Forsbergs = () => {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-            <ProjectCont>
+            <ProjectCont onClick={() => setPdf(prevState => !prevState)}>
               <Title>{forsbergs[0].title}</Title>
               <Line />
               <Desc>{forsbergs[0].tagline}</Desc>
-              <Button onClick={() => setPdf(true)}>Öppna projekt</Button>
+              <Button >Öppna projekt</Button>
               {pdf ? (
                 <Modal>
                   <ModalContent>
-                    <ButtonClose onClick={() => setPdf(false)}>
-                      Tillbaka
-                    </ButtonClose>
                         <Iframe allowfullscreen src='/pdf/ta_språnget.pdf' />
                   </ModalContent>
                 </Modal>
               ) : undefined}
             </ProjectCont>
-            <ProjectCont>
+            <ProjectCont  onClick={() => setPdf1(prevState => (!prevState))}>
               <Title2>{forsbergs[1].title}</Title2>
               <Line />
               <Desc2>{forsbergs[1].tagline}</Desc2>
-              <Button onClick={() => setPdf1(true)}>Öppna projekt</Button>
+              <Button >Öppna projekt</Button>
               {pdf1 ? (
                 <Modal>
                   <ModalContent>
-                    <ButtonClose onClick={() => setPdf1(false)}>
-                      Tillbaka
-                    </ButtonClose>
                     <Iframe allowfullscreen src='/pdf/Creative-task-portfolio.pdf' />                  </ModalContent>
                 </Modal>
               ) : undefined}
             </ProjectCont>
-            <ProjectCont>
+            <ProjectCont  onClick={() => setPdf2(prevState => (!prevState))}>
               <Title>{forsbergs[2].title}</Title>
               <Line />
               <Desc>{forsbergs[2].tagline}</Desc>
-              <Button onClick={() => setPdf2(true)}>Öppna projekt</Button>
+              <Button >Öppna projekt</Button>
               {pdf2 ? (
                 <Modal>
                   <ModalContent>
-                    <ButtonClose onClick={() => setPdf2(false)}>
-                      Tillbaka
-                    </ButtonClose>
                         <Iframe allowfullscreen src='/pdf/babyblue_kampanj.pdf' />
                   </ModalContent>
                 </Modal>
