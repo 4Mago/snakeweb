@@ -9,14 +9,16 @@ const ContCont = styled.div`
 
 const Container = styled(motion.div)`
   height: 125vh;
-  padding-left: 140px;
-  padding-right: 15px;
+  padding-left: 200px;
+  padding-right: 140px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
 
+
   @media screen and (max-width: 500px) {
   height: 140vh;
+  padding-right: 15px;
   }
 `
 
@@ -32,6 +34,13 @@ const ProjectCont = styled.div`
   justify-content: flex-start;
   align-items: center;
   border: 1px solid white;
+  transition: 1s;
+  color: white;
+
+  &:hover {
+    background-color: #8e8e8e;
+    color: black;
+  }
 
   @media screen and (max-width: 500px) {
     height: 100%;
@@ -46,13 +55,11 @@ const ProjectCont = styled.div`
 
 const Title = styled.h2`
   height: 25px;
-  color: white;
   text-align: left;
   padding: 0 5px;
 `
 const Title2 = styled.h2`
   height: 25px; 
-  color: white;
   text-align: right;
   padding: 0 5px;
 
@@ -71,7 +78,7 @@ const ButtonClose = styled.button`
   border-radius: 0.25rem;
   background-color: lightgray;
 
-  :hover {
+  &:hover {
     background-color: darkgray;
   }
 `
@@ -113,13 +120,11 @@ const Iframe = styled.iframe`
 
 const Desc = styled.p`
   width: 90%;
-  color: white;
   justify-content: center;
 `
 
 const Desc2 = styled.p`
   width: 90%;
-  color: white;
   justify-content: center;
 `
 

@@ -4,6 +4,7 @@ import sanityClient from "../../Client"
 // import imageUrlBuilder from "@sanity/image-url"
 import { Link } from "react-router-dom"
 import Sidebar from "./sidebar"
+import { motion } from 'framer-motion'
 
 // const builder = imageUrlBuilder(sanityClient)
 // function urlFor(source) {
@@ -19,11 +20,11 @@ const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 90%;
+  width: 90vw;
   z-index: 99;
 `
 
-const NavBox = styled.div`
+const NavBox = styled(motion.div)`
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -34,8 +35,10 @@ const NavBox = styled.div`
   font-size: 16.4px;
   height: 22px;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     padding: 20px 0;
+    gap: 1px;
+    width: 70px;
   }
 `
 
@@ -129,7 +132,11 @@ const Navbar = () => {
     <Link onClick={() => setSide(false)}>
         <LogoBox alt="TEMC Logo" src="/snakeweb.gif" />
       </Link>
-      <NavBox>
+      <NavBox
+              exit={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+      >
         {header.menu
           ? header.menu.map((item, id) => (
               <MenuLink to={item.link} key={id}>

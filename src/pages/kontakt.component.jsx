@@ -112,6 +112,7 @@ const LeftContainer = styled.div`
   justify-content: left;
   align-items: left;
   margin: 0;
+  
 
   @media screen and (max-width: 800px) {
     width: 100%;
@@ -127,7 +128,6 @@ const RightContainer = styled.div`
   color: #fff;
   display: flex;
   flex-flow: column;
-  justify-content: flex-end;
   align-items: center;
   text-align: right;
   width: 40%;
@@ -155,6 +155,10 @@ const HeaderText = styled.p`
   min-width: 255px;
   padding: 0;
 
+  @media screen and (min-width: 1400px) {
+    font-size: 24px;
+  }
+
   @media screen and (max-width: 500px) {
     min-width: 205px;
   }
@@ -167,6 +171,10 @@ const HeaderText2 = styled.p`
   min-width: 255px;
   padding-left: 15px;
 
+  @media screen and (min-width: 1400px) {
+    font-size: 44px;
+  }
+
   @media screen and (max-width: 500px) {
     min-width: 205px;
   }
@@ -177,6 +185,10 @@ const HeaderTagline = styled.h1`
   font-size: 22px;
   text-align: right;
   cursor: pointer;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 44px;
+  }
 
   @media screen and (max-width: 1000px) {
     font-size: 22px;
@@ -212,4 +224,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin: 0;
+
+@media screen and (min-width: 1400px) {
+    font-size: 24px;
+  }
 `

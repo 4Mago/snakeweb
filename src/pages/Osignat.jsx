@@ -107,6 +107,10 @@ const RightContainer = styled.div`
   align-items: center;
   margin: 0;
 
+  @media screen and (min-width: 1400px) {
+    font-size: 18px;
+  }
+
   @media screen and (max-width: 750px) {
     padding: 0;
   }

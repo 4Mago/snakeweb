@@ -130,6 +130,10 @@ const HeaderText = styled.h1`
   width: 55%;
   cursor: pointer;
   min-width: 255px;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 44px;
+  }
 `
 const HeaderTagline = styled.h1`
   color: white;
@@ -137,6 +141,10 @@ const HeaderTagline = styled.h1`
   font-size: 22px;
   line-height: 24px;
   text-align: right;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 30px;
+  }
 
   @media screen and (max-width: 1000px) {
     font-size: 22px;
@@ -159,6 +167,11 @@ const HeroImage = styled.img`
   height: auto;
   width: 22rem;
   border-radius: 22rem;
+
+  @media screen and (min-width: 1400px) {
+    width: 80%;
+    border-radius: 80%;
+  }
   @media screen and (max-width: 1000px) {
     width: 15rem;
   }
@@ -174,6 +187,10 @@ const Text = styled.p`
   text-align: center;
   padding-left: 10px;
   width: 70%;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 24px;
+  }
 
   @media screen and (max-width: 1050px) {
     width: 100%;

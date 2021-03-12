@@ -138,6 +138,10 @@ const HeaderTagline = styled(PortableText)`
   line-height: 24px;
   z-index: 1;
 
+  @media screen and (min-width: 1400px) {
+    font-size: 24px;
+  }
+
   @media screen and (max-width: 1000px) {
     font-size: 22px;
   }
