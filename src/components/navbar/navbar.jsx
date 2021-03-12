@@ -17,7 +17,7 @@ const Container = styled.div`
   flex-flow: row;
   justify-content: flex-start;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 90vw;
