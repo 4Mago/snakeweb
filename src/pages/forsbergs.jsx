@@ -148,7 +148,7 @@ const Forsbergs = () => {
    
     
     return
-  }, [])
+  }, [forsbergs.length])
  
   return (
     <ContCont>
