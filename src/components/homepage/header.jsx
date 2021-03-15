@@ -53,10 +53,10 @@ const Container = styled.div`
   @media screen and (max-width: 600px) {
     flex-flow: column;
     padding-left: 100px;
+    gap: 10px;
   }
   @media screen and (max-width: 500px) {
     padding-left: 100px;
-    gap: 10px;
   }
 `
 
@@ -82,7 +82,7 @@ const RightContainer = styled.div`
   align-items: flex-start;
   padding: 0 5vw 0 0;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 420px) {
     width: 100%;
     padding: 0;
   }
@@ -116,7 +116,7 @@ const HeaderTagline = styled.p`
     font-size: 18px;
     width: 301px;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 420px) {
     font-size: 17px;
     min-width: 150px;
     max-widtH: 250px;
@@ -139,7 +139,7 @@ const HeroImage2 = styled.img`
     width: 250px;
     height: auto;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 420px) {
     width: 270px;
   }
 `
