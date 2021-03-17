@@ -128,6 +128,7 @@ const Forsbergs = () => {
   const [pdf, setPdf] = useState(false)
   const [pdf1, setPdf1] = useState(false)
   const [pdf2, setPdf2] = useState(false)
+  const [pdf3, setPdf3] = useState(false)
   const [forsbergs, setForsbergs] = useState('')
 
   useEffect(() => {
@@ -190,6 +191,18 @@ const Forsbergs = () => {
                 <Modal>
                   <ModalContent>
                         <Iframe allowfullscreen src='/pdf/babyblue_kampanj.pdf' />
+                  </ModalContent>
+                </Modal>
+              ) : undefined}
+            </ProjectCont>
+            <ProjectCont  onClick={() => setPdf3(prevState => (!prevState))}>
+              <Title>{forsbergs[3].title}</Title>
+              <Line />
+              <Desc>{forsbergs[3].tagline}</Desc>
+              {pdf3 ? (
+                <Modal>
+                  <ModalContent>
+                        <Iframe allowfullscreen src='/pdf/Ett-steg-i-taget.pdf' />
                   </ModalContent>
                 </Modal>
               ) : undefined}
