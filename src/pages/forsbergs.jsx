@@ -14,6 +14,7 @@ const Container = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
+  margin-top: 10vh;
 
 
   @media screen and (min-width: 1400px) {
@@ -27,10 +28,9 @@ const Container = styled(motion.div)`
 `
 
 const ProjectCont = styled.div`
-  height: 300px;
+  height: 350px;
   width: 100%;
   min-width: 280px;
-  margin-top: 10vh;
   background-color: #131313;
   padding: 0;
   display: flex;
