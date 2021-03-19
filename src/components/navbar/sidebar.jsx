@@ -34,7 +34,7 @@ const NavBox = styled(motion.div)`
   align-items: center;
   font-size: 16.4px;
   align-self: flex-start;
-  margin-top: 8em;
+  margin-top: 8.5em;
 
   @media screen and (max-width: 950px) {
     padding: 0 30px;
