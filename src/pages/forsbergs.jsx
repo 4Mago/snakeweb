@@ -5,10 +5,11 @@ import sanityClient from '../Client'
 
 const ContCont = styled.div`
   background-color: black;
+  height: auto;
 `
 
 const Container = styled(motion.div)`
-  height: 125vh;
+  height: 100%;
   padding-left: 200px;
   padding-right: 140px;
   display: grid;
@@ -54,7 +55,6 @@ const ProjectCont = styled.div`
     padding: 2px;
     width: 70%;
     margin-top: 1vh;
-    min-width: auto;
   }
 `
 
