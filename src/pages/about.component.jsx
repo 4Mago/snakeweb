@@ -24,6 +24,7 @@ const About = () => {
 
 
   return (
+    vemarjag ?
     <ContCont>
       <Container
             exit={{ opacity: 0 }}
@@ -51,6 +52,7 @@ const About = () => {
           : null }
       </Container>
     </ContCont>
+    : null
   )
 }
 

@@ -20,6 +20,7 @@ const Header = () => {
   }, [])
 
   return (
+    header ?
     <Container>
       <ColumnLeft>
         <HeaderText>{header.title}</HeaderText>
@@ -34,6 +35,7 @@ const Header = () => {
         />
       </RightContainer>
     </Container>
+    : null
   )
 }
 

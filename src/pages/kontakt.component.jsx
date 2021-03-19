@@ -20,12 +20,12 @@ const About = () => {
   }, [])
 
   return (
+    priskategori ?
     <ContCont>
       <Container
             exit={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
-            
     >
         <LeftContainer>
         <HeaderText2>Hallå där!</HeaderText2>
@@ -39,11 +39,11 @@ const About = () => {
           <HeaderTagline>Mer musik!</HeaderTagline>
           <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
           <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
-          
         </ASoundCloud>
       </RightContainer>
       </Container>
     </ContCont>
+    : null
   )
 }
 

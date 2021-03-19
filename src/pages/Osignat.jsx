@@ -23,6 +23,7 @@ const About = () => {
   }, [])
 
   return (
+    client ?
     <>
     <ContCont>
         <Container
@@ -48,6 +49,7 @@ const About = () => {
     <Gnistan />
     <FooterLogo />
 </>
+: null
   )
 }
 

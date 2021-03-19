@@ -152,6 +152,7 @@ const Forsbergs = () => {
   }, [forsbergs.length])
  
   return (
+    forsbergs ?
     <ContCont>
     <TitleImage src="/forsbergs.jpg"></TitleImage>
       {forsbergs ? (
@@ -210,6 +211,7 @@ const Forsbergs = () => {
   </Container>
     ): null}
   </ContCont>
+  : null
   )
 }
 

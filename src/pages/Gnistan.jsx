@@ -21,6 +21,7 @@ const Gnistan = () => {
   }, [])
 
   return (
+    about ?
     <ContCont>
       <Container
                   exit={{ opacity: 0 }}
@@ -43,6 +44,7 @@ const Gnistan = () => {
         </RightContainer>
       </Container>
     </ContCont>
+    : null
   )
 }
 
