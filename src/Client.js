@@ -1,7 +1,7 @@
 import sanityClient from "@sanity/client"
 
 export default sanityClient({
-  projectId: "zskr7175",
+  projectId: "kpvsh5rt",
   dataset: "production",
   token: "",
   useCdn: true,
