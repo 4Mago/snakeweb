@@ -150,17 +150,14 @@ const HeaderText = styled.h1`
 const HeaderTagline = styled.h1`
   color: white;
   max-width: 350px;
-  font-size: 22px;
   line-height: 24px;
   text-align: right;
 
   @media screen and (min-width: 1500px) {
-    font-size: 24px;
     max-width: 450px;
   }
 
   @media screen and (max-width: 1000px) {
-    font-size: 22px;
   }
   @media screen and (max-width: 700px) {
     text-align: center;
