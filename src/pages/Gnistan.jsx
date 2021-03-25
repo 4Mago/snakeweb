@@ -28,8 +28,9 @@ const Gnistan = () => {
                   animate={{ opacity: 1 }}
                   initial={{ opacity: 0 }}
       >
-        <LeftContainer>
           <HeaderText>{about.title}</HeaderText>
+        <LeftContainer>
+          <HeaderText2 />
           <HeroImage
             
             alt="hero image"
@@ -59,12 +60,14 @@ const ContCont = styled.div`
   width: 100vw - 150px;
   height: 100%;
   background-color: #000000;
+  position: relative;
 `
 
 const Container = styled(motion.div)`
+
   width: 100vw - 150px;
   height: 100%;
-  padding-top: 80px;
+  padding-top: 5em;
   padding-left: 150px;
   min-height: 100vh;
   display: flex;
@@ -125,7 +128,14 @@ const RightContainer = styled.div`
   }
 `
 
+const HeaderText2 = styled.h1`
+
+`
 const HeaderText = styled.h1`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
   font-size: 32px;
   text-align: center;
@@ -133,7 +143,7 @@ const HeaderText = styled.h1`
   cursor: pointer;
   min-width: 255px;
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1500px) {
     font-size: 44px;
   }
 `
@@ -144,8 +154,9 @@ const HeaderTagline = styled.h1`
   line-height: 24px;
   text-align: right;
 
-  @media screen and (min-width: 1400px) {
-    font-size: 30px;
+  @media screen and (min-width: 1500px) {
+    font-size: 24px;
+    max-width: 450px;
   }
 
   @media screen and (max-width: 1000px) {
@@ -196,5 +207,8 @@ const Text = styled.p`
 
   @media screen and (max-width: 1050px) {
     width: 100%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 75%;
   }
 `

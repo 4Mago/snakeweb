@@ -75,25 +75,26 @@ const ASoundCloud = styled.a``
 const AFacebook = styled.a``
 
 const FooterLogo = () => {
-  const [header, setHeader] = useState("")
+  const [client, setClient] = useState("")
 
   useEffect(() => {
-    const headerQuery = `*[_type == "tagline"]{
-			image
-		}`
+    const headerQuery = `*[_type == "client"]{
+			  logo,
+		  }`
     sanityClient.fetch(headerQuery).then((header) => {
       header.forEach((header) => {
-        setHeader(header)
+        setClient(header)
       })
     })
 
     return
   }, [])
-
+  
   return (
+    client ?
     <Container>
       <ImageDiv>
-        <HeroImage alt="TEMC Logo" src={urlFor(header.image).url()} />
+        <HeroImage alt="TEMC Logo" src={urlFor(client.logo).url()} />
       </ImageDiv>
       <SocialContainer>
         <ASoundCloud href="https://soundcloud.com/osignat" target="_blank">
@@ -106,6 +107,7 @@ const FooterLogo = () => {
       <MenuLink>© Copyright Jakob Engwall 2021</MenuLink>
       <br />
     </Container>
+    : null
   )
 }
 

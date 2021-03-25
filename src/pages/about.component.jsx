@@ -35,11 +35,13 @@ const About = () => {
           ? vemarjag.map((vemarjagItem, idx) => (
             <>
       <LeftContainer>
+        <ImageDiv>
       <HeroImage     
           alt="hero image"
           id="heroimage"
           src={urlFor(vemarjagItem.image).url()}
        />
+       </ImageDiv>
         <HeaderText blocks={vemarjagItem.description} />
         <Text />        
       </LeftContainer>
@@ -159,10 +161,9 @@ const HeaderTagline = styled(PortableText)`
   }
 `
 
-const HeroImage = styled.img`
-  height: auto;
+const ImageDiv = styled.div`
+  height: 32rem;
   width: 32rem;
-  border-radius: 28rem;
   position: fixed;
   top: 55%;
   left: 50%;
@@ -177,6 +178,13 @@ const HeroImage = styled.img`
   @media screen and (max-width: 450px) {
     width: 15rem;
   }
+`
+
+const HeroImage = styled.img`
+  height: 100%;
+  width: 100%;
+  border-radius: 32rem;
+
 `
 
 const Text = styled.p`
