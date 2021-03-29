@@ -85,10 +85,12 @@ const Title2 = styled.h2`
   text-align: right;
   padding: 0 5px;
 
-  @media screen and (max-width: 500px) {
-  font-size: 40px;
+  @media screen and (max-width: 950px) {
   -webkit-text-stroke: 0.1px black;
+  }
 
+  @media screen and (max-width: 500px) {
+    font-size: 40px;
   }
 `
 
