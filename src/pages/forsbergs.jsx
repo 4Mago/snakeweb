@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion'
 import React, { useState, useEffect } from 'react'
+import imageUrlBuilder from "@sanity/image-url"
 import styled from 'styled-components'
 import sanityClient from '../Client'
+
+const builder = imageUrlBuilder(sanityClient)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const ContCont = styled.div`
   background-color: black;
@@ -29,11 +35,11 @@ const Container = styled(motion.div)`
 `
 
 const ProjectCont = styled.div`
-  height: 350px;
+  height: auto;
   width: 100%;
   min-width: 280px;
-  background-color: #131313;
-  padding: 0;
+  box-sizing: border-box;
+  padding-top: 50%;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -42,19 +48,26 @@ const ProjectCont = styled.div`
   transition: 1s;
   color: white;
   cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   &:hover {
-    background-color: #8e8e8e;
-    color: black;
-  }
+    box-shadow: 0 0 0 0 #fbfcfd, 0 0 12px 0 #fbfcfd;
+    }
 
+  @media screen and (max-width: 950px) {
+      padding-top: 0;
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+  }
   @media screen and (max-width: 500px) {
     height: 100%;
     max-height: 280px;
     min-height: 90%;
     padding: 2px;
     width: 70%;
-    margin-top: 1vh;
+    margin-top: 1vh;  
   }
 `
 
@@ -62,12 +75,21 @@ const Title = styled.h2`
   height: 25px;
   text-align: left;
   padding: 0 5px;
+
+  @media screen and (max-width: 500px) {
+  font-size: 40px;
+  }
 `
 const Title2 = styled.h2`
   height: 25px; 
   text-align: right;
   padding: 0 5px;
 
+  @media screen and (max-width: 500px) {
+  font-size: 40px;
+  -webkit-text-stroke: 0.1px black;
+
+  }
 `
 
 
@@ -115,6 +137,7 @@ const Desc = styled.p`
 const Desc2 = styled.p`
   width: 90%;
   justify-content: center;
+  -webkit-text-stroke: 0.42px black;
 `
 
 const TitleImage = styled.img`
@@ -133,7 +156,7 @@ const Forsbergs = () => {
 
   useEffect(() => {
     const forsbergsQuery = `*[_type == "forsbergs"]{
-      title, tagline, description, image
+      title, tagline, description, logo
       }`
       if(!forsbergs.length) {
         console.log('fetching')
@@ -161,7 +184,9 @@ const Forsbergs = () => {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-            <ProjectCont onClick={() => setPdf(prevState => !prevState)}>
+            <ProjectCont onClick={() => setPdf(prevState => !prevState)}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[0].logo).quality(80).auto('format').url()})` }}
+            >
               <Title>{forsbergs[0].title}</Title>
               <Line />
               <Desc>{forsbergs[0].tagline}</Desc>
@@ -173,10 +198,12 @@ const Forsbergs = () => {
                 </Modal>
               ) : undefined}
             </ProjectCont>
-            <ProjectCont  onClick={() => setPdf1(prevState => (!prevState))}>
-              <Title2>{forsbergs[1].title}</Title2>
+            <ProjectCont  onClick={() => setPdf1(prevState => (!prevState))}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[1].logo).quality(80).auto('format').url()})` }}
+            >
+              <Title>{forsbergs[1].title}</Title>
               <Line />
-              <Desc2>{forsbergs[1].tagline}</Desc2>
+              <Desc>{forsbergs[1].tagline}</Desc>
               {pdf1 ? (
                 <Modal>
                   <ModalContent>
@@ -184,10 +211,12 @@ const Forsbergs = () => {
                 </Modal>
               ) : undefined}
             </ProjectCont>
-            <ProjectCont  onClick={() => setPdf2(prevState => (!prevState))}>
-              <Title>{forsbergs[2].title}</Title>
+            <ProjectCont  onClick={() => setPdf2(prevState => (!prevState))}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[2].logo).quality(80).auto('format').url()})` }}
+            >
+              <Title2>{forsbergs[2].title}</Title2>
               <Line />
-              <Desc>{forsbergs[2].tagline}</Desc>
+              <Desc2>{forsbergs[2].tagline}</Desc2>
               {pdf2 ? (
                 <Modal>
                   <ModalContent>
@@ -196,7 +225,9 @@ const Forsbergs = () => {
                 </Modal>
               ) : undefined}
             </ProjectCont>
-            <ProjectCont  onClick={() => setPdf3(prevState => (!prevState))}>
+            <ProjectCont  onClick={() => setPdf3(prevState => (!prevState))}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[3].logo).quality(80).auto('format').url()})` }}
+            >
               <Title>{forsbergs[3].title}</Title>
               <Line />
               <Desc>{forsbergs[3].tagline}</Desc>
