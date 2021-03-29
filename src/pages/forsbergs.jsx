@@ -52,7 +52,7 @@ const ProjectCont = styled.div`
   background-repeat: no-repeat;
 
   &:hover {
-    box-shadow: 0 0 0 0 #fbfcfd, 0 0 12px 0 #fbfcfd;
+    box-shadow: 0 0 0 0 #fbfcfd, 0 0 1rem 0 #fbfcfd;
     }
 
   @media screen and (max-width: 950px) {
@@ -60,6 +60,10 @@ const ProjectCont = styled.div`
       background-size: cover;
       background-position: center;
       height: 350px;
+
+      &:hover {
+    box-shadow: 0 0 0 0 #fbfcfd, 0 0 12px 0 #fbfcfd;
+    }
   }
   @media screen and (max-width: 500px) {
     height: 100%;

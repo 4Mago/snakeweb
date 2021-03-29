@@ -162,8 +162,6 @@ const HeaderTagline = styled(PortableText)`
 `
 
 const ImageDiv = styled.div`
-  height: 32rem;
-  width: 32rem;
   position: fixed;
   top: 55%;
   left: 50%;
@@ -183,8 +181,6 @@ const ImageDiv = styled.div`
 const HeroImage = styled.img`
   height: 100%;
   width: 100%;
-  border-radius: 32rem;
-
 `
 
 const Text = styled.p`
