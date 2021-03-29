@@ -30,8 +30,8 @@ const HomeCarousel = styled(Carousel)`
 
 `
 
-const Title = styled.h2`
-  font-size: 40px;
+const Title = styled.p`
+  font-size: 32px;
   color: white;
   position: absolute;
   top: 50%;
