@@ -23,7 +23,6 @@ const Container = styled(motion.div)`
   grid-gap: 15px;
   margin-top: 10vh;
 
-
   @media screen and (min-width: 1400px) {
   height: 140vh;
   grid-gap: 140px;
@@ -52,7 +51,7 @@ const ProjectCont = styled.div`
   background-repeat: no-repeat;
 
   &:hover {
-    box-shadow: 0 0 0 0 #fbfcfd, 0 0 1rem 0 #fbfcfd;
+    box-shadow: 0 0 0 0 #fbfcfd, 0 0 1.5rem 0 #fbfcfd;
     }
 
   @media screen and (max-width: 950px) {

@@ -31,18 +31,11 @@ const About = () => {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-          <LeftContainer></LeftContainer>
-          <RightContainer>
-            <HeaderText>{client.clientName}</HeaderText>
-            <HeaderTagline>{client.tagline}</HeaderTagline>
-            <Text>{client.description}</Text>
-          </RightContainer>
           <Sliderboy />
           <MoreSpace />
         </Container>
     </ContCont>
         <MoreSpace />
-    <Gnistan />
     <FooterLogo />
 </>
 : null
@@ -99,7 +92,7 @@ const RightContainer = styled.div`
 box-sizing: border-box;
   z-index: 999;
   color: #fff;
-  width: 90%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,6 +101,7 @@ box-sizing: border-box;
 
   @media screen and (min-width: 1400px) {
     font-size: 18px;
+    width: 90%;
   }
 
   @media screen and (max-width: 750px) {

@@ -15,6 +15,7 @@ const HomeCarousel = styled(Carousel)`
   height: 100vh;
   width: 100%;
   font-size: 40px;
+  overflow: hidden;
 
 .slide iframe {
     margin: 0 !important;
@@ -29,10 +30,19 @@ const HomeCarousel = styled(Carousel)`
 
 `
 
+const Title = styled.h2`
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+
 const HomeContainer = styled.div`
 position: relative;
   width: 100%;
-  height: auto;
+  height: 100vh;
 
   @media screen and (max-width: 700px) {
     padding-bottom: 0;
@@ -75,7 +85,7 @@ left: 0;
 bottom: 0;
 height: 100%;
 width: 100%;
-  overflow-x: hidden;
+overflow-x: hidden;
 `
 
 const Sliderboy = () => {
@@ -115,8 +125,9 @@ const Sliderboy = () => {
                   <Thumbnail 
                     style={{ backgroundImage: `url(${urlFor(taglineItem.image).quality(80).auto('format').url()})` }}
                     key={idx}
-                    blocks={taglineItem.title}
+                    slider={taglineItem}
                   />
+                  <Title>{taglineItem.title}</Title>
                 </HeaderImage>
                 </>
               )})}
