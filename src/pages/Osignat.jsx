@@ -5,6 +5,7 @@ import sanityClient from "../Client"
 import { motion } from "framer-motion"
 import FooterLogo from "../components/footerlogo"
 import Gnistan from './Gnistan'
+import Sliderboy from "./sliderboy"
 
 const About = () => {
   const [client, setClient] = useState("")
@@ -37,15 +38,11 @@ const About = () => {
             <HeaderTagline>{client.tagline}</HeaderTagline>
             <Text>{client.description}</Text>
           </RightContainer>
+          <Sliderboy />
           <MoreSpace />
         </Container>
-        <HeroImage
-          alt="hero image"
-          className="heroimage"
-          id="heroimage"
-          src={urlFor(client.websiteImage).url()}
-        />
     </ContCont>
+        <MoreSpace />
     <Gnistan />
     <FooterLogo />
 </>
@@ -70,6 +67,8 @@ const Container = styled(motion.div)`
   height: 100%;
   display: flex;
   flex-flow: column;
+  justify-content: center;
+  align-items: center;
   z-index: -1;
 
   @media screen and (max-width: 500px) {
@@ -79,8 +78,11 @@ const Container = styled(motion.div)`
 `
 const MoreSpace = styled.div`
   background-color: #000;
-  height: 15vh;
+  height: 13vh;
   width: auto;
+  @media screen and (max-width: 800px) {
+    height: 10vh;
+  }
 `
 
 const LeftContainer = styled.div`
@@ -100,9 +102,10 @@ const LeftContainer = styled.div`
 `
 
 const RightContainer = styled.div`
+box-sizing: border-box;
+  z-index: 999;
   color: #fff;
-  width: 100%;
-  padding: 0;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
