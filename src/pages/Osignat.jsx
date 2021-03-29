@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-import imageUrlBuilder from "@sanity/image-url"
 import sanityClient from "../Client"
 import { motion } from "framer-motion"
 import FooterLogo from "../components/footerlogo"
@@ -51,11 +50,6 @@ const About = () => {
 }
 
 export default About
-
-const builder = imageUrlBuilder(sanityClient)
-function urlFor(source) {
-  return builder.image(source)
-}
 
 const ContCont = styled.div`
   width: 100%;
