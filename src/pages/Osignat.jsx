@@ -153,19 +153,19 @@ const HeaderTagline = styled.h1`
   }
 `
 
-const HeroImage = styled.img`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  background-size: cover;
+// const HeroImage = styled.img`
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+//   right: 0;
+//   top: 0;
+//   z-index: -1;
+//   background-size: cover;
 
-  @media screen and (max-width: 500px) {
-    height: auto;
-  }
-`
+//   @media screen and (max-width: 500px) {
+//     height: auto;
+//   }
+// `
 
 const Text = styled.p`
   max-width: 680px;

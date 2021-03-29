@@ -98,7 +98,6 @@ const Sliderboy = () => {
         showArrows: true,
         showThumbs: true,
         interval: 6000,
-        showThumbs: false,
         infiniteLoop: true,
         showStatus: false,
         transitionTime: 1000,
