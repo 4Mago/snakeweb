@@ -69,7 +69,7 @@ const Container = styled(motion.div)`
   @media screen and (max-width: 750px) {
     height: auto;
     flex-flow: column;
-    padding-top: 35px;
+    padding-top: 75px;
     padding-left: 120px;
   }
   @media screen and (max-width: 500px) {
@@ -82,14 +82,8 @@ height: 400px;
 width: 400px;
 top: 0;
 left: 0;
-opacity: 0;
 transition-duration: 1s;
 position: absolute;
-
-
-&:hover {
-   opacity: 1;
-  }
 `
 
 const CatButton = styled.div`

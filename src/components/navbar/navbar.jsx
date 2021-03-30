@@ -27,13 +27,13 @@ const Container = styled.div`
 const NavBox = styled(motion.div)`
   display: flex;
   flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: center;
   padding: 30px 0;
   gap: 24px;
   font-size: 16.4px;
-  height: 22px;
+  height: 45px;
 
   @media screen and (max-width: 800px) {
     padding: 20px 0;

@@ -22,7 +22,7 @@ const Container = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
-  padding-top: 10vh;
+  padding-top: 16vh;
 
   @media screen and (min-width: 1400px) {
   grid-gap: 70px;

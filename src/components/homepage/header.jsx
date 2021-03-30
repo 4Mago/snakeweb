@@ -58,7 +58,7 @@ const Container = styled.div`
     gap: 10px;
   }
   @media screen and (max-width: 500px) {
-    padding-left: 100px;
+    padding-left: 20px;
   }
 `
 

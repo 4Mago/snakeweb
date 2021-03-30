@@ -61,6 +61,7 @@ const Container = styled(motion.div)`
     flex-flow: column;
   }
 `
+
 const MoreSpace = styled.div`
   background-color: #000;
   height: 13vh;
