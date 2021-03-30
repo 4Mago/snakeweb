@@ -69,6 +69,7 @@ const MenuLink = styled(Link)`
   }
   &:nth-child(2) {
     animation-delay: 1s;
+    font-size: 15px;
   }
   &:nth-child(3) {
     animation-delay: 1.5s;

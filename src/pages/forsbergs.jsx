@@ -12,6 +12,7 @@ function urlFor(source) {
 const ContCont = styled.div`
   background-color: black;
   height: auto;
+  padding-bottom: 15px;
 `
 
 const Container = styled(motion.div)`
@@ -21,15 +22,15 @@ const Container = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
-  margin-top: 10vh;
+  padding-top: 10vh;
 
   @media screen and (min-width: 1400px) {
   height: 140vh;
-  grid-gap: 140px;
+  grid-gap: 70px;
   }
   @media screen and (max-width: 500px) {
-  height: 140vh;
   padding-right: 15px;
+  padding-left: 105px;
   }
 `
 
@@ -67,7 +68,7 @@ const ProjectCont = styled.div`
   @media screen and (max-width: 500px) {
     height: 100%;
     max-height: 280px;
-    min-height: 90%;
+    min-height: 250px;
     padding: 2px;
     width: 70%;
     margin-top: 1vh;  
@@ -83,14 +84,19 @@ const Title = styled.h2`
   font-size: 40px;
   }
 `
+const Title3 = styled.h2`
+  height: 25px;
+  text-align: left;
+  padding: 0 5px;
+
+  @media screen and (max-width: 500px) {
+  font-size: 35px;
+  }
+`
 const Title2 = styled.h2`
   height: 25px; 
   text-align: right;
   padding: 0 5px;
-
-  @media screen and (max-width: 950px) {
-  -webkit-text-stroke: 0.1px black;
-  }
 
   @media screen and (max-width: 500px) {
     font-size: 40px;
@@ -142,16 +148,6 @@ const Desc = styled.p`
 const Desc2 = styled.p`
   width: 90%;
   justify-content: center;
-
-@media screen and (max-width: 900px) {
-  -webkit-text-stroke: 0.42px black;
-
-}
-`
-
-const TitleImage = styled.img`
-  width: 150px;
-  height: auto;
 `
 
 
@@ -186,7 +182,6 @@ const Forsbergs = () => {
   return (
     forsbergs ?
     <ContCont>
-    <TitleImage src="/forsbergs.jpg"></TitleImage>
       {forsbergs ? (
     <Container
         exit={{ opacity: 0 }}
@@ -237,7 +232,7 @@ const Forsbergs = () => {
             <ProjectCont  onClick={() => setPdf3(prevState => (!prevState))}
               style={{ backgroundImage: `url(${urlFor(forsbergs[3].logo).quality(80).auto('format').url()})` }}
             >
-              <Title>{forsbergs[3].title}</Title>
+              <Title3>{forsbergs[3].title}</Title3>
               <Line />
               <Desc>{forsbergs[3].tagline}</Desc>
               {pdf3 ? (

@@ -23,7 +23,7 @@ const Header = () => {
     header ?
     <Container>
       <ColumnLeft>
-        <HeaderText>{header.title}</HeaderText>
+        <HeaderText>Jakob Engwall <br /> Creative Copywriter</HeaderText>
         <HeaderTagline>{header.tagline}</HeaderTagline>
       </ColumnLeft>
       <RightContainer>
@@ -92,8 +92,8 @@ const RightContainer = styled.div`
 
 const HeaderText = styled.h1`
   color: white;
-  font-size: 4rem;
-  min-width: 120px;
+  font-size: 50px;
+  min-width: 300px;
   text-align: left;
   justify-self: left;
 
