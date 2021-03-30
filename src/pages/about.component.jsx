@@ -48,6 +48,9 @@ const About = () => {
       <RightContainer>
       <HeaderTagline>{vemarjagItem.title}</HeaderTagline>
         <HeaderTagline blocks={vemarjagItem.tagline} />
+          <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
+          <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
+        </ASoundCloud>
       </RightContainer>
       </>
           ))
@@ -71,6 +74,25 @@ const ContCont = styled.div`
   background-color: #000000;
 
 `
+const ASoundCloud = styled.a`
+  z-index: 9999;
+  position: fixed;
+  right: 15%;
+`
+
+const SocialImage = styled.img`
+  width: 65px;
+  height: auto;
+  padding: 15px;
+  padding-top: 0;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+`
+
 
 const Container = styled(motion.div)`
   width: 100vw - 150px;

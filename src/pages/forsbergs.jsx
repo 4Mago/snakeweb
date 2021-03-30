@@ -142,7 +142,11 @@ const Desc = styled.p`
 const Desc2 = styled.p`
   width: 90%;
   justify-content: center;
+
+@media screen and (max-width: 900px) {
   -webkit-text-stroke: 0.42px black;
+
+}
 `
 
 const TitleImage = styled.img`

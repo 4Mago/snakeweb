@@ -32,14 +32,15 @@ const About = () => {
         <HeaderText>{priskategori.title}</HeaderText>
         </LeftContainer>
         <RightContainer>
+          <CatButton><P>Vägen till mitt hjärta</P>
+          <PhotoDiv src="/cat.png" />
+          </CatButton>
+          <div>
           <HeaderTagline>Kom i kontakt med mig!</HeaderTagline>
           <Text><SocialImage src="/mail.png"/>{priskategori.valuta}</Text>
           <Text><SocialImage2 src="/phone.png"/>{priskategori.price}</Text>
           <br />
-          <HeaderTagline>Mer musik!</HeaderTagline>
-          <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
-          <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
-        </ASoundCloud>
+          </div>
       </RightContainer>
       </Container>
     </ContCont>
@@ -76,8 +77,37 @@ const Container = styled(motion.div)`
   }
 `
 
+const PhotoDiv = styled.img`
+height: 400px;
+width: 400px;
+top: 0;
+left: 0;
+opacity: 0;
+transition-duration: 1s;
+position: absolute;
 
-const ASoundCloud = styled.a``
+
+&:hover {
+   opacity: 1;
+  }
+`
+
+const CatButton = styled.div`
+  height: 400px;
+  width: 400px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  position: relative;
+  cursor: default;
+`
+
+const P = styled.p`
+font-family: 'Lora', serif;
+  font-size: 18px;
+`
 
 const SocialImage = styled.img`
   width: 65px;
@@ -91,6 +121,7 @@ const SocialImage = styled.img`
     transition: 0.3s;
   }
 `
+
 const SocialImage2 = styled.img`
   width: 45px;
   height: auto;
@@ -172,7 +203,7 @@ const HeaderText2 = styled.p`
   padding-left: 15px;
 
   @media screen and (min-width: 1400px) {
-    font-size: 44px;
+    font-size: 38px;
   }
 
   @media screen and (max-width: 500px) {
@@ -187,7 +218,7 @@ const HeaderTagline = styled.h1`
   cursor: pointer;
 
   @media screen and (min-width: 1400px) {
-    font-size: 44px;
+    font-size: 36px;
   }
 
   @media screen and (max-width: 1000px) {
@@ -219,13 +250,13 @@ const HeaderTagline = styled.h1`
 //   }
 // `
 
-const Text = styled.p`
+const Text = styled.a`
 display: flex;
 justify-content: center;
 align-items: center;
 margin: 0;
 
 @media screen and (min-width: 1400px) {
-    font-size: 24px;
+    font-size: 22px;
   }
 `

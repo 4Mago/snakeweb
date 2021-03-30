@@ -34,7 +34,6 @@ const About = () => {
           <MoreSpace />
         </Container>
     </ContCont>
-        <MoreSpace />
     <FooterLogo />
 </>
 : null
