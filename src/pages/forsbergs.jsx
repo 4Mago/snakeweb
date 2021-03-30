@@ -25,7 +25,6 @@ const Container = styled(motion.div)`
   padding-top: 10vh;
 
   @media screen and (min-width: 1400px) {
-  height: 140vh;
   grid-gap: 70px;
   }
   @media screen and (max-width: 500px) {
