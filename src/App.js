@@ -9,6 +9,7 @@ import Sidebar from "./components/navbar/sidebar"
 import Gnistan from "./pages/Gnistan"
 import Osignat from "./pages/Osignat"
 import Forsbergs from "./pages/forsbergs"
+import Navbar from './components/navbar/navbar'
 
 const Container = styled.div`
   min-height: 80vh;
@@ -19,7 +20,9 @@ const Container = styled.div`
 function App() {
   return (
     <Container className="App">
+      {window.innerWidth > 600 ? 
       <Sidebar />
+      : <Navbar />}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/gnistan" component={Gnistan} />

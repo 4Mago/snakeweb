@@ -101,6 +101,11 @@ const HeaderText = styled.h1`
     min-width: 235px;
     font-size: 2rem;
   }
+
+  @media screen and (max-width: 330px) {
+    font-size: 24px;
+    min-width: 200px;
+  }
 `
 
 const HeaderTagline = styled.p`
@@ -121,7 +126,12 @@ const HeaderTagline = styled.p`
   @media screen and (max-width: 420px) {
     font-size: 17px;
     min-width: 150px;
-    max-widtH: 250px;
+    max-width: 250px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 17px;
+    min-width: 150px;
+    max-width: 200px;
   }
 `
 
@@ -143,6 +153,9 @@ const HeroImage2 = styled.img`
   }
   @media screen and (max-width: 420px) {
     width: 270px;
+  }
+  @media screen and (max-width: 350px) {
+    width: 220px;
   }
 `
 

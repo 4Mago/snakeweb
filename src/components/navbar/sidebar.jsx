@@ -41,6 +41,12 @@ const NavBox = styled(motion.div)`
   }
   @media screen and (max-width: 500px) {
     padding: 20px 0;
+    gap: 11px;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 20px 0;
+    gap: 7px;
+    padding-top: 40px;
   }
 `
 
