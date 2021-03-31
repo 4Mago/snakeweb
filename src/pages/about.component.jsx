@@ -10,7 +10,7 @@ const About = () => {
 
   useEffect(() => {
     const vemarjagQuery = `*[_type == "vemarjag"]{
-			title, tagline, description, image
+			title, tagline, description, image, heroImage
 		  }`
     sanityClient.fetch(vemarjagQuery).then((vemarjag) => {
       const vemarjagArray = []
@@ -35,19 +35,12 @@ const About = () => {
           ? vemarjag.map((vemarjagItem, idx) => (
             <>
       <LeftContainer>
-        <ImageDiv>
-      <HeroImage     
-          alt="hero image"
-          id="heroimage"
-          src={urlFor(vemarjagItem.image).url()}
-       />
-       </ImageDiv>
-        <HeaderText blocks={vemarjagItem.description} />
-        <Text />        
-      </LeftContainer>
-      <RightContainer>
       <HeaderTagline>{vemarjagItem.title}</HeaderTagline>
         <HeaderTagline blocks={vemarjagItem.tagline} />
+      </LeftContainer>
+      <RightContainer
+      style={{ backgroundImage: `url(${urlFor(vemarjagItem.heroImage).quality(80).auto('format').url()})` }}
+      >
           <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
           <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
         </ASoundCloud>
@@ -78,9 +71,11 @@ const ContCont = styled.div`
 const ASoundCloud = styled.a`
   z-index: 9999;
   position: fixed;
-  right: 15%;
+  right: 10%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 700px) {
     position: static;
   }
 `
@@ -101,9 +96,6 @@ const SocialImage = styled.img`
 
 const Container = styled(motion.div)`
   width: 100vw - 150px;
-  height: 100%;
-  padding-top: 60px;
-  padding-left: 120px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -121,32 +113,45 @@ const Container = styled(motion.div)`
 
 const LeftContainer = styled.div`
   color: #fff;
-  width: 5%;
+  background-color: black;
+  width: 50%;
+  height: 100vh;
   display: flex;
   padding: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
+  background-position: center;
+
+  @media screen and (max-width: 1000px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 800px) {
+    width: 70%;
+  }
 
   @media screen and (max-width: 500px) {
-    width: 100%;
+    width: 80%;
   }
 `
 
 const RightContainer = styled.div`
-  height: auto;
-  width: 100%;
+  height: 100vh;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 5vw 10vh 0;
+  background-position: center;
+  padding: 0;
 
   @media screen and (max-width: 700px) {
-    width: 85%;
+    width: 100%;
     padding: 0;
+    margin: 0;
     flex-flow: column;
     align-items: center;
+    z-index: 999;
   }
 `
 
@@ -166,25 +171,39 @@ const HeaderText = styled(PortableText)`
 
 const HeaderTagline = styled(PortableText)`
   color: white;
-  max-width: 450px;
-  font-size: 18px;
+  max-width: 470px;
+  font-size: 24px;
   text-align: left;
+  padding-left: 50px;
   line-height: 24px;
   z-index: 1;
 
-  @media screen and (min-width: 1400px) {
-    font-size: 24px;
+
+  @media screen and (max-width: 1400px) {
+    font-size: 18px;
+    position: relative;
+    left: 50px;
   }
 
+  @media screen and (max-width: 1200px) {
+    left: 90px;
+  }
   @media screen and (max-width: 1000px) {
-    font-size: 22px;
+    left: 120px;
   }
   @media screen and (max-width: 700px) {
     text-align: center;
-    
+    padding-left: 0;
+    left: 0;
   }
   @media screen and (max-width: 500px) {
     font-size: 18px;
+    line-height: 16px;
+    position: fixed;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
   }
   @media screen and (max-width: 400px) {
     font-size: 14px;
@@ -193,24 +212,38 @@ const HeaderTagline = styled(PortableText)`
 
 const ImageDiv = styled.div`
   position: fixed;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+
   opacity: 0.4;
   @media screen and (max-width: 1000px) {
-    width: 32rem;
+    left: 0;
   }
-  @media screen and (max-width: 750px) {
-    width: 22rem;
+  @media screen and (max-width: 750px) {    
   }
   @media screen and (max-width: 450px) {
-    width: 15rem;
+  }
+`
+
+const ImageDiv2 = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  :nth-child(2){
   }
 `
 
 const HeroImage = styled.img`
-  height: 100%;
-  width: 100%;
+  contain: fill;
+`
+const HeroImage2 = styled.img`
+  contain: fill;
 `
 
 const Text = styled.p`

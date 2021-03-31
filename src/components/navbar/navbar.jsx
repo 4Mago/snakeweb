@@ -38,7 +38,6 @@ const NavBox = styled(motion.div)`
   @media screen and (max-width: 800px) {
     padding: 0;
     gap: 0;
-    width: 50px;
   }
 `
 
@@ -76,6 +75,7 @@ const MenuLink = styled(Link)`
   }
   &:nth-child(4) {
     animation-delay: 0.5s;
+    width: 60px !important;
   }
   &:nth-child(5) {
     animation-delay: 0.3s;
@@ -88,6 +88,15 @@ const MenuLink = styled(Link)`
     color: rgba(255, 255, 255, 0.666);
     // vore kul om man kan visa en bild också vid hover
   }
+
+  @media screen and (max-width: 500px) {
+     gap: 2px;
+   }
+  @media screen and (max-width: 400px) {
+    padding: 1.2px;
+    font-size: 13px; 
+   }
+  
 `
 
 const LogoBox = styled.img`

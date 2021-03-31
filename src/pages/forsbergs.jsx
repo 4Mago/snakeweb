@@ -161,6 +161,10 @@ const Desc2 = styled.p`
   }
 `
 
+const Img = styled.img`
+  height: 95%;
+  width: auto;
+`
 
 
 const Forsbergs = () => {
@@ -168,6 +172,7 @@ const Forsbergs = () => {
   const [pdf1, setPdf1] = useState(false)
   const [pdf2, setPdf2] = useState(false)
   const [pdf3, setPdf3] = useState(false)
+  const [pdf4, setPdf4] = useState(false)
   const [forsbergs, setForsbergs] = useState('')
 
   useEffect(() => {
@@ -200,15 +205,15 @@ const Forsbergs = () => {
         initial={{ opacity: 0 }}
       >
             <ProjectCont onClick={() => setPdf(prevState => !prevState)}
-              style={{ backgroundImage: `url(${urlFor(forsbergs[0].logo).quality(80).auto('format').url()})` }}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[4].logo).quality(80).auto('format').url()})` }}
             >
-              <Title>{forsbergs[0].title}</Title>
+              <Title>{forsbergs[4].title}</Title>
               <Line />
-              <Desc>{forsbergs[0].tagline}</Desc>
+              <Desc>{forsbergs[4].tagline}</Desc>
               {pdf ? (
                 <Modal>
                   <ModalContent>
-                        <Iframe allowfullscreen src='/pdf/ta_språnget.pdf' />
+                        <Iframe allowfullscreen src='/pdf/Ett-steg-i-taget.pdf' />
                   </ModalContent>
                 </Modal>
               ) : undefined}
@@ -222,7 +227,8 @@ const Forsbergs = () => {
               {pdf1 ? (
                 <Modal>
                   <ModalContent>
-                    <Iframe allowfullscreen src='/pdf/Creative-task-portfolio.pdf' />                  </ModalContent>
+                    <Iframe allowfullscreen src='/pdf/ta_språnget.pdf' />
+                  </ModalContent>
                 </Modal>
               ) : undefined}
             </ProjectCont>
@@ -235,7 +241,7 @@ const Forsbergs = () => {
               {pdf2 ? (
                 <Modal>
                   <ModalContent>
-                        <Iframe allowfullscreen src='/pdf/babyblue_kampanj.pdf' />
+                  <Iframe allowfullscreen src='/pdf/Creative-task-portfolio.pdf' />
                   </ModalContent>
                 </Modal>
               ) : undefined}
@@ -249,7 +255,21 @@ const Forsbergs = () => {
               {pdf3 ? (
                 <Modal>
                   <ModalContent>
-                        <Iframe allowfullscreen src='/pdf/Ett-steg-i-taget.pdf' />
+                  <Iframe allowfullscreen src='/pdf/babyblue_kampanj.pdf' />
+                  </ModalContent>
+                </Modal>
+              ) : undefined}
+            </ProjectCont>
+            <ProjectCont  onClick={() => setPdf4(prevState => (!prevState))}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[5].logo).quality(80).auto('format').url()})` }}
+            >
+              <Title3>{forsbergs[5].title}</Title3>
+              <Line />
+              <Desc>{forsbergs[5].tagline}</Desc>
+              {pdf4 ? (
+                <Modal>
+                  <ModalContent>
+                        <Img allowfullscreen src={urlFor(forsbergs[0].logo).url()} />
                   </ModalContent>
                 </Modal>
               ) : undefined}
