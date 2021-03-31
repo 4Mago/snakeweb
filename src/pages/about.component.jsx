@@ -156,18 +156,6 @@ const RightContainer = styled.div`
 `
 
 
-const HeaderText = styled(PortableText)`
-  color: white;
-  font-size: 22px;
-  text-align: center;
-  width: 55%;
-  min-width: 255px;
-  margin-top: 15px;
-  border: 1.8px solid white;
-  border-radius: 10px;
-  line-height: 24px;
-`
-
 
 const HeaderTagline = styled(PortableText)`
   color: white;
@@ -208,45 +196,4 @@ const HeaderTagline = styled(PortableText)`
   @media screen and (max-width: 400px) {
     font-size: 14px;
   }
-`
-
-const ImageDiv = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  display: flex;
-
-  opacity: 0.4;
-  @media screen and (max-width: 1000px) {
-    left: 0;
-  }
-  @media screen and (max-width: 750px) {    
-  }
-  @media screen and (max-width: 450px) {
-  }
-`
-
-const ImageDiv2 = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-
-  :nth-child(2){
-  }
-`
-
-const HeroImage = styled.img`
-  contain: fill;
-`
-const HeroImage2 = styled.img`
-  contain: fill;
-`
-
-const Text = styled.p`
-  text-align: center;
-  line-height: 24px;
 `
