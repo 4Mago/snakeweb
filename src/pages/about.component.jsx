@@ -74,10 +74,15 @@ const ContCont = styled.div`
   background-color: #000000;
 
 `
+
 const ASoundCloud = styled.a`
   z-index: 9999;
   position: fixed;
   right: 15%;
+
+  @media screen and (max-width: 500px) {
+    position: static;
+  }
 `
 
 const SocialImage = styled.img`
@@ -109,7 +114,8 @@ const Container = styled(motion.div)`
   @media screen and (max-width: 750px) {
     height: auto;
     flex-flow: column;
-    padding-left: 100px;
+    padding-left: 10px;
+    padding-top: 90px;
   }
 `
 
@@ -137,8 +143,10 @@ const RightContainer = styled.div`
   padding: 0 5vw 10vh 0;
 
   @media screen and (max-width: 700px) {
-    width: 90%;
+    width: 85%;
     padding: 0;
+    flex-flow: column;
+    align-items: center;
   }
 `
 

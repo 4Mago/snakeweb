@@ -40,6 +40,7 @@ const Title = styled.p`
 
   @media only screen and (max-width: 600px) {
     font-size: 20px;
+    width: 74vw;
   }
 `
 

@@ -29,7 +29,11 @@ const Container = styled(motion.div)`
   }
   @media screen and (max-width: 500px) {
   padding-right: 15px;
-  padding-left: 105px;
+  padding-left: 15px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
   }
 `
 
@@ -142,11 +146,19 @@ const Iframe = styled.iframe`
 const Desc = styled.p`
   width: 90%;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+    font-style: bold;
+  }
 `
 
 const Desc2 = styled.p`
   width: 90%;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+    font-style: bold;
+  }
 `
 
 

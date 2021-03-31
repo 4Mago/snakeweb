@@ -28,6 +28,7 @@ const About = () => {
             initial={{ opacity: 0 }}
     >
         <LeftContainer>
+          <br />
         <HeaderText2>Hallå där!</HeaderText2>
         <HeaderText>{priskategori.title}</HeaderText>
         </LeftContainer>
@@ -143,8 +144,8 @@ const LeftContainer = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 500px) {
-    padding-left: 120px;
-    width: 270px;
+    padding-left: 80px;
+    max-width: 74vw;
   }
 `
 
@@ -192,9 +193,10 @@ const HeaderText2 = styled.p`
   color: white;
   font-size: 35px;
   text-align: left;
+  padding-top: 25px;
+  line-height: 10px;
   width: 80%;
   min-width: 255px;
-  padding-left: 15px;
 
   @media screen and (min-width: 1400px) {
     font-size: 38px;
