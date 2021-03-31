@@ -212,7 +212,7 @@ const HeaderTagline = styled.h1`
   cursor: pointer;
 
   @media screen and (min-width: 1400px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   @media screen and (max-width: 1000px) {

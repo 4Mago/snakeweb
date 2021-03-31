@@ -36,9 +36,9 @@ const NavBox = styled(motion.div)`
   height: 45px;
 
   @media screen and (max-width: 800px) {
-    padding: 20px 0;
-    gap: 1px;
-    width: 70px;
+    padding: 0;
+    gap: 0;
+    width: 50px;
   }
 `
 
@@ -47,8 +47,11 @@ const MenuLink = styled(Link)`
   text-decoration: none;
   color: rgba(255, 255, 255, 0.42);
   z-index: 99;
-  padding: 1rem;
+  padding: 0.3rem;
   animation: animate 1.5s ease-in-out infinite;
+  font-size: 14px;
+  position: relative;
+  right: 25px;
 
   @keyframes animate {
     0% {
