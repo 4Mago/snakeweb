@@ -160,7 +160,7 @@ const RightContainer = styled.div`
 const HeaderTagline = styled(PortableText)`
   color: white;
   max-width: 470px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: left;
   padding-left: 50px;
   line-height: 24px;
