@@ -113,32 +113,6 @@ const LogoBox = styled.img`
   }
 `
 
-const SocialImage = styled.img`
-  width: 65px;
-  height: auto;
-  padding: 15px;
-  padding-top: 0;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.2);
-    transition: 0.3s;
-  }
-`
-const SocialImage2 = styled.img`
-  width: 45px;
-  height: auto;
-  padding: 15px;
-  padding-top: 0;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.2);
-    transition: 0.3s;
-  }
-`
- 
-
 const Sidebar = () => {
   const [header, setHeader] = useState("")
   const [side, setSide] = useState(true)
