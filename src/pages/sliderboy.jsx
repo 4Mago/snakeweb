@@ -112,7 +112,7 @@ const Sliderboy = () => {
         autoPlay: true,
         showArrows: true,
         showThumbs: true,
-        interval: 6000,
+        interval: 10000,
         infiniteLoop: true,
         showStatus: false,
         transitionTime: 1000,

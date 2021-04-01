@@ -29,19 +29,22 @@ const About = () => {
     >
         <LeftContainer>
           <br />
+          <br />
+          <br />          
         <HeaderText2>Hallå där!</HeaderText2>
         <HeaderText>{priskategori.title}</HeaderText>
-        </LeftContainer>
-        <RightContainer>
-          <CatButton><P>Vägen till mitt hjärta</P>
-          <PhotoDiv src="/cat.png" />
-          </CatButton>
-          <div>
-          <HeaderTagline>Kom i kontakt med mig!</HeaderTagline>
+        <br />
+        <br />
+          <KontaktRuta>
           <Text><SocialImage src="/mail.png"/>{priskategori.valuta}</Text>
           <Text><SocialImage2 src="/phone.png"/>{priskategori.price}</Text>
           <br />
-          </div>
+          </KontaktRuta>
+        </LeftContainer>
+        <RightContainer>
+        <CatButton><P>Vägen till mitt hjärta</P>
+          <PhotoDiv src="/cat.png" />
+          </CatButton>
       </RightContainer>
       </Container>
     </ContCont>
@@ -99,6 +102,10 @@ const CatButton = styled.div`
   cursor: default;
 `
 
+const KontaktRuta = styled.div`
+  max-width: 500px;
+`
+
 const P = styled.p`
 font-family: 'Lora', serif;
   font-size: 18px;
@@ -118,9 +125,9 @@ const SocialImage = styled.img`
 `
 
 const SocialImage2 = styled.img`
-  width: 45px;
+  width: 50px;
   height: auto;
-  padding: 15px;
+  padding: 0 25px;
   padding-top: 0;
   cursor: pointer;
 
@@ -155,7 +162,7 @@ const RightContainer = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-  text-align: right;
+  text-align: left;
   width: 40%;
   padding: 30px 50px 0 20px;
 
@@ -206,7 +213,6 @@ const HeaderTagline = styled.h1`
   color: white;
   max-width: 550px;
   font-size: 22px;
-  text-align: right;
   cursor: pointer;
 
   @media screen and (min-width: 1400px) {
@@ -244,7 +250,7 @@ const HeaderTagline = styled.h1`
 
 const Text = styled.a`
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 margin: 0;
 

@@ -43,6 +43,7 @@ const About = () => {
       >
           <ASoundCloud href="https://soundcloud.com/osignat/sets/snaek-demoes/s-bwFuifGgd6R" target="_blank">
           <SocialImage alt="TEMC Logo" src="/soundcloud.svg" />
+          <P>Min musik</P>
         </ASoundCloud>
       </RightContainer>
       </>
@@ -71,12 +72,18 @@ const ContCont = styled.div`
 const ASoundCloud = styled.a`
   z-index: 9999;
   position: fixed;
-  right: 10%;
-  top: 50%;
+  right: 0;
+  top: 16%;
   transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: white;
+  font-style: bold;
+  font-size: 15px;
 
   @media screen and (max-width: 700px) {
     position: static;
+    margin-top: 500px;
+    margin-left: 50px;
   }
 `
 
@@ -92,7 +99,11 @@ const SocialImage = styled.img`
     transition: 0.3s;
   }
 `
-
+const P = styled.p`
+  position: relative;
+  bottom: 50px;
+  font-weight: 800;
+`
 
 const Container = styled(motion.div)`
   width: 100vw - 150px;
@@ -160,15 +171,19 @@ const RightContainer = styled.div`
 const HeaderTagline = styled(PortableText)`
   color: white;
   max-width: 470px;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   padding-left: 50px;
   line-height: 24px;
   z-index: 1;
+  text-decoration: none;
 
+
+  &:link { color: white; }
+  &:visited { color: white; }
 
   @media screen and (max-width: 1400px) {
-    font-size: 18px;
+    font-size: 16px;
     position: relative;
     left: 50px;
   }

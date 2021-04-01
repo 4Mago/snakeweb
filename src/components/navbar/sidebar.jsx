@@ -22,6 +22,7 @@ const Container = styled.div`
   left: 0;
   height: 90%;
   z-index: 99;
+  margin: 0 37px;
 
 `
 
@@ -29,7 +30,6 @@ const NavBox = styled(motion.div)`
   display: flex;
   flex-flow: column;
   justify-content: center;
-  padding: 0 35px;
   gap: 12px;
   align-items: center;
   font-size: 16.4px;
@@ -98,9 +98,8 @@ const MenuLink = styled(Link)`
 
 const LogoBox = styled.img`
   width: 140px;
-  padding: 0 25px;
   top: 0;
-  left: 0;
+  left: -12px;
   height: auto;
   position: absolute;
   @media screen and (max-width: 968px) {
