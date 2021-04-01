@@ -42,7 +42,7 @@ const NavBox = styled(motion.div)`
 `
 
 const MenuLink = styled(Link)`
-  font-family: Poppins, cursive;
+  font-family: 'Poppins', cursive;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.42);
   z-index: 99;
@@ -93,7 +93,7 @@ const MenuLink = styled(Link)`
      gap: 2px;
    }
   @media screen and (max-width: 400px) {
-    padding: 1.2px;
+    padding: 1.5px;
     font-size: 13px; 
    }
   
@@ -111,7 +111,11 @@ const LogoBox = styled.img`
    }
    @media screen and (max-width: 500px) {
      width: 115px;
-     padding: 20px 0;
+     padding: 15px 0;
+   }
+   @media screen and (max-width: 400px) {
+     width: 85px;
+     padding: 10px 0;
    }
 `
 
