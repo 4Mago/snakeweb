@@ -181,17 +181,13 @@ const HeaderText = styled.p`
   min-width: 255px;
   padding: 0;
 
-  @media screen and (min-width: 1400px) {
-    font-size: 24px;
-  }
-
   @media screen and (max-width: 500px) {
     min-width: 205px;
   }
 `
 const HeaderText2 = styled.p`
   color: white;
-  font-size: 35px;
+  font-size: 28px;
   text-align: left;
   padding-top: 25px;
   line-height: 10px;
@@ -199,7 +195,7 @@ const HeaderText2 = styled.p`
   min-width: 255px;
 
   @media screen and (min-width: 1400px) {
-    font-size: 38px;
+    font-size: 32px;
   }
 
   @media screen and (max-width: 500px) {

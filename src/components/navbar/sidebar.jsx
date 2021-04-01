@@ -175,8 +175,7 @@ const Sidebar = () => {
               </MenuLink>
             ))
           : null}
-      <a href="mailto:jakobengwall@gmail.com"><SocialImage src="/mail.png"/></a>
-      <a href="tel:+46707102996"><SocialImage2 src="/phone.png"/></a>
+
       </NavBox>
 </Container>
     : 
