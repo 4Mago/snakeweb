@@ -164,6 +164,10 @@ const Desc2 = styled.p`
 const Img = styled.img`
   height: 95%;
   width: auto;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 
@@ -173,6 +177,7 @@ const Forsbergs = () => {
   const [pdf2, setPdf2] = useState(false)
   const [pdf3, setPdf3] = useState(false)
   const [pdf4, setPdf4] = useState(false)
+  const [pdf5, setPdf5] = useState(false)
   const [forsbergs, setForsbergs] = useState('')
 
   useEffect(() => {
@@ -213,7 +218,7 @@ const Forsbergs = () => {
               {pdf ? (
                 <Modal>
                   <ModalContent>
-                        <Iframe allowfullscreen src='/pdf/Ett-steg-i-taget.pdf' />
+                        <Iframe allowfullscreen src='/pdf/MALVA.pdf' />
                   </ModalContent>
                 </Modal>
               ) : undefined}
@@ -267,6 +272,19 @@ const Forsbergs = () => {
               <Line />
               <Desc>{forsbergs[5].tagline}</Desc>
               {pdf4 ? (
+                <Modal>
+                  <ModalContent>
+                  <Iframe allowfullscreen src='/pdf/Ett-steg-i-taget.pdf' />                  </ModalContent>
+                </Modal>
+              ) : undefined}
+            </ProjectCont>
+            <ProjectCont  onClick={() => setPdf5(prevState => (!prevState))}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[6].logo).quality(80).auto('format').url()})` }}
+            >
+              <Title3>{forsbergs[6].title}</Title3>
+              <Line />
+              <Desc>{forsbergs[6].tagline}</Desc>
+              {pdf5 ? (
                 <Modal>
                   <ModalContent>
                         <Img allowfullscreen src={urlFor(forsbergs[0].logo).url()} />
