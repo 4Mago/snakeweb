@@ -209,30 +209,6 @@ const HeaderText2 = styled.p`
     min-width: 205px;
   }
 `
-const HeaderTagline = styled.h1`
-  color: white;
-  max-width: 550px;
-  font-size: 22px;
-  cursor: pointer;
-
-  @media screen and (min-width: 1400px) {
-    font-size: 32px;
-  }
-
-  @media screen and (max-width: 1000px) {
-    font-size: 22px;
-  }
-  @media screen and (max-width: 700px) {
-    text-align: center;
-
-  }
-  @media screen and (max-width: 500px) {
-    font-size: 18px;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 14px;
-  }
-`
 
 // const Icon = styled.img`
 //   height: auto;
