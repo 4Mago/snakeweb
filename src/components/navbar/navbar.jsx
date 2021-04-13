@@ -116,7 +116,7 @@ const LogoBox = styled.img`
    }
    @media screen and (max-width: 400px) {
      width: 85px;
-     padding: 10px 0;
+     padding: 5px 0;
    }
 `
 
