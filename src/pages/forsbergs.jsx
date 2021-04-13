@@ -19,8 +19,10 @@ const Container = styled(motion.div)`
   height: 100%;
   padding-left: 200px;
   padding-right: 140px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   grid-gap: 15px;
   padding-top: 16vh;
 
@@ -37,15 +39,30 @@ const Container = styled(motion.div)`
   }
 `
 
-const ProjectCont = styled.div`
-  height: auto;
+const ProjectContPrio = styled.div`
   width: 100%;
-  min-width: 280px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const LinePrio = styled.div`
+  height: 1px;
+  width: 90%;
+  padding: 0;
+  margin: 5px;
+  background-color: white;
+`
+
+const ProjectCont = styled.div`
+  height: 300px;
+  width: 300px;
+  min-width: 300px;
   box-sizing: border-box;
-  padding-top: 50%;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   border: 1px solid white;
   transition: 1s;
@@ -96,6 +113,7 @@ const Title3 = styled.h2`
   font-size: 35px;
   }
 `
+
 const Title2 = styled.h2`
   height: 25px; 
   text-align: right;
@@ -209,6 +227,20 @@ const Forsbergs = () => {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
+            <ProjectContPrio onClick={() => setPdf(prevState => !prevState)}
+              style={{ backgroundImage: `url(${urlFor(forsbergs[7].logo).quality(80).auto('format').url()})` }}
+            >
+              <Title>{forsbergs[7].title}</Title>
+              <LinePrio />
+              <Desc>{forsbergs[7].tagline}</Desc>
+              {pdf ? (
+                <Modal>
+                  <ModalContent>
+                        <Iframe allowfullscreen src='/pdf/Budweiser.pdf' />
+                  </ModalContent>
+                </Modal>
+              ) : undefined}
+            </ProjectContPrio>
             <ProjectCont onClick={() => setPdf(prevState => !prevState)}
               style={{ backgroundImage: `url(${urlFor(forsbergs[4].logo).quality(80).auto('format').url()})` }}
             >
