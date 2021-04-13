@@ -91,7 +91,7 @@ const Button = styled.div`
   left: 10px;
   height: 20px;
   border-radius: 20px;
-  background-color: #1DB954;
+  background-color: #10632d;
   padding: 5px 15px;
   
   &:hover {
@@ -104,7 +104,7 @@ const Button1 = styled.div`
   left: 100px;
   height: 20px;
   border-radius: 20px;
-  background-color: #1DB954;
+  background-color: #10632d;
   padding: 5px 15px;
 `
 
