@@ -90,7 +90,7 @@ const MenuLink = styled(Link)`
   }
 
   @media screen and (max-width: 500px) {
-     gap: 2px;
+     gap: 3px;
    }
   @media screen and (max-width: 440px) {
     padding: 1.5px;
