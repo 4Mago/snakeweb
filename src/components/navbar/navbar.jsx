@@ -92,7 +92,7 @@ const MenuLink = styled(Link)`
   @media screen and (max-width: 500px) {
      gap: 2px;
    }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 440px) {
     padding: 1.5px;
     font-size: 13px; 
     right: 35px;
