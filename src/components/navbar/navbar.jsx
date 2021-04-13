@@ -95,7 +95,7 @@ const MenuLink = styled(Link)`
   @media screen and (max-width: 400px) {
     padding: 1.5px;
     font-size: 13px; 
-    right: 30px;
+    right: 35px;
    }
   
 `
