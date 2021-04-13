@@ -40,11 +40,81 @@ const Container = styled(motion.div)`
 `
 
 const ProjectContPrio = styled.div`
-  width: 100%;
+  width: 90%;
+  min-width: 300px;
+  min-height: 400px;
   border: 1px solid white;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 1s;
+  color: white;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  box-sizing: border-box;
+  padding: 0 25px;
+  text-align: center;
+  position: relative;
+
+
+
+  &:hover {
+    box-shadow: 0 0 0 0 #fbfcfd, 0 0 1.5rem 0 #fbfcfd;
+    }
+
+  @media screen and (max-width: 950px) {
+    min-height: 350px;
+      padding-top: 0;
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+
+      &:hover {
+    box-shadow: 0 0 0 0 #fbfcfd, 0 0 12px 0 #fbfcfd;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    height: 100%;
+    max-height: 350px;
+    min-height: 300px;
+    padding: 2px;
+    width: 70%;
+    margin-top: 1vh;  
+  }
+`
+
+const Button = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #1DB954;
+  padding: 5px 15px;
+  
+  &:hover {
+    cursor: pointer;
+  }
+`
+const Button1 = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #1DB954;
+  padding: 5px 15px;
+`
+
+const PrioContent = styled.div`
+  display: flex;
+  flex-flow: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
+  max-width: 400px;
 `
 
 const LinePrio = styled.div`
@@ -105,8 +175,7 @@ const Title = styled.h2`
   }
 `
 const Title3 = styled.h2`
-  height: 25px;
-  text-align: left;
+  text-align: center;
   padding: 0 5px;
 
   @media screen and (max-width: 500px) {
@@ -164,6 +233,7 @@ const Iframe = styled.iframe`
 const Desc = styled.p`
   width: 90%;
   justify-content: center;
+  max-width: 600px;
   @media screen and (max-width: 500px) {
     font-size: 20px;
     font-style: bold;
@@ -196,6 +266,7 @@ const Forsbergs = () => {
   const [pdf3, setPdf3] = useState(false)
   const [pdf4, setPdf4] = useState(false)
   const [pdf5, setPdf5] = useState(false)
+  const [pdf6, setPdf6] = useState(false)
   const [forsbergs, setForsbergs] = useState('')
 
   useEffect(() => {
@@ -211,10 +282,7 @@ const Forsbergs = () => {
           })
           setForsbergs(forsbergsArray)
         })
-      
       }
-   
-    
     return
   }, [forsbergs.length])
  
@@ -227,13 +295,17 @@ const Forsbergs = () => {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
       >
-            <ProjectContPrio onClick={() => setPdf(prevState => !prevState)}
+            <ProjectContPrio onClick={() => setPdf6(prevState => !prevState)}
               style={{ backgroundImage: `url(${urlFor(forsbergs[7].logo).quality(80).auto('format').url()})` }}
             >
+              <Button>Hottest</Button>
+              <Button1>Newest</Button1>
+              <PrioContent>
               <Title>{forsbergs[7].title}</Title>
               <LinePrio />
               <Desc>{forsbergs[7].tagline}</Desc>
-              {pdf ? (
+              </PrioContent>
+              {pdf6 ? (
                 <Modal>
                   <ModalContent>
                         <Iframe allowfullscreen src='/pdf/Budweiser.pdf' />
@@ -286,7 +358,7 @@ const Forsbergs = () => {
             <ProjectCont  onClick={() => setPdf3(prevState => (!prevState))}
               style={{ backgroundImage: `url(${urlFor(forsbergs[3].logo).quality(80).auto('format').url()})` }}
             >
-              <Title3>{forsbergs[3].title}</Title3>
+              <Title2>{forsbergs[3].title}</Title2>
               <Line />
               <Desc>{forsbergs[3].tagline}</Desc>
               {pdf3 ? (
