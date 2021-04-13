@@ -97,7 +97,6 @@ const MenuLink = styled(Link)`
     font-size: 13px; 
     right: 35px;
    }
-  
 `
 
 const LogoBox = styled.img`
