@@ -132,7 +132,8 @@ const ProjectCont = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 60px;
   align-items: center;
   border: 1px solid white;
   transition: 1s;
