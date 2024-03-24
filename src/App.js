@@ -20,8 +20,7 @@ const Container = styled.div`
 function App() {
   return (
     <Container className="App">
-      {window.innerWidth > 600 ? 
-      <Sidebar /> : <Navbar />}
+      {window.innerWidth > 600 ? <Sidebar /> : <Navbar />}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/gnistan" component={Gnistan} />
